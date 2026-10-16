@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Darkify — Elementor panel controls
+   --------------------------------------------------------------------------
+   One set of tokens for the whole control, taken from Elementor's own panel
+   variables so the cards sit in the editor's theme (dark by default, light
+   where the user has switched it) instead of punching white boxes into it.
+   Fallbacks cover Elementor versions that predate the `--e-a-*` tokens.
+
+   The artwork itself is a single mid-slate tone, so the preview keeps a light
+   plate of its own — that is what the SVGs were drawn to read against, and it
+   is the one part of the card that should not follow the panel theme.
+   ========================================================================== */
+
+.darkify-style-field {
+  --dkf-accent: var(--e-a-color-accent, #93003f);
+  --dkf-border: var(--e-a-border-color, #babfc5);
+  --dkf-border-bold: var(--e-a-border-color-bold, #9da5ae);
+  --dkf-surface: var(--e-a-bg-default, #ffffff);
+  --dkf-plate: #f4f5f7;
+  --dkf-txt: var(--e-a-color-txt, #515962);
+  --dkf-txt-accent: var(--e-a-color-txt-accent, #0c0d0e);
+  --dkf-radius: 6px;
+}
+
+.darkify-elementor-switches {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+/*
+ * Two columns once the panel is too narrow for three legible previews. The
+ * Elementor panel is resizable, so this is a real state and not a phone-only
+ * one.
+ */
+@media (max-width: 360px) {
+  .darkify-elementor-switches {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.darkify-elementor-switches-item {
+  position: relative;
+  min-width: 0;
+}
+
+/*
+ * The input stays in the accessibility tree and in the tab order — it is the
+ * control; only its default appearance is removed. Its `<label>` is the visible
+ * card, which is what makes a click on the card select the style.
+ */
+.darkify-elementor-switches-item input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.darkify-elementor-switches-item label {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--dkf-surface);
+  border: 1px solid var(--dkf-border);
+  border-radius: var(--dkf-radius);
+  transition: border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+.darkify-elementor-switches-item label:hover {
+  border-color: var(--dkf-border-bold);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Every preview is a 100×80 SVG, so a fixed ratio keeps all sixteen cards the
+   same height whatever the column width works out to be. */
+.darkify-switch-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 5 / 4;
+  padding: 5px;
+  background: var(--dkf-plate);
+  border-bottom: 1px solid var(--dkf-border);
+}
+
+.darkify-switch-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.darkify-switch-name {
+  display: block;
+  padding: 5px 4px;
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--dkf-txt);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Selected
+   -------------------------------------------------------------------------- */
+
+.darkify-elementor-switches-item input:checked + label {
+  border-color: var(--dkf-accent);
+  box-shadow: inset 0 0 0 1px var(--dkf-accent);
+}
+
+.darkify-elementor-switches-item input:checked + label .darkify-switch-name {
+  font-weight: 600;
+  color: var(--dkf-txt-accent);
+}
+
+/*
+ * The tick is an inline SVG rather than a glyph from Elementor's `eicons`
+ * font. The font is loaded in the editor, but depending on it means the badge
+ * silently degrades to a missing-glyph box anywhere it is not — and it pins a
+ * private-use codepoint (`\e90d`) that only stays a checkmark for as long as
+ * Elementor keeps that mapping. This draws the same mark with no dependency.
+ */
+.darkify-elementor-switches-item input:checked + label::after {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 15px;
+  height: 15px;
+  content: "";
+  background-color: var(--dkf-accent);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M4 8.3l2.6 2.6L12 5.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px 11px;
+  border-radius: 50%;
+}
+
+/* Keyboard focus has to be visible on the label, because the input it belongs
+   to is the hidden part. `:focus-visible` keeps the ring off mouse clicks. */
+.darkify-elementor-switches-item input:focus-visible + label {
+  border-color: var(--dkf-accent);
+  outline: 2px solid var(--dkf-accent);
+  outline-offset: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   Pro-only styles (free plugin)
+   --------------------------------------------------------------------------
+   Presentation only. Which cards these are is decided in the control template
+   from the `unlocked` count the widget passes, and those inputs are rendered
+   `disabled` — so the keyboard cannot reach them either. `pointer-events` here
+   just stops the cursor suggesting otherwise.
+   -------------------------------------------------------------------------- */
+
+.darkify-elementor-switches-item.darkify-locked label {
+  pointer-events: none;
+  cursor: default;
+  background: var(--dkf-plate);
+}
+
+.darkify-elementor-switches-item.darkify-locked .darkify-switch-preview {
+  opacity: 0.4;
+}
+
+.darkify-elementor-switches-item.darkify-locked .darkify-switch-name {
+  opacity: 0.7;
+}
+
+.darkify-switch-pro {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  padding: 2px 4px;
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #524c5c;
+  border-radius: 3px;
+}

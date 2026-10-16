@@ -1,0 +1,38 @@
+{
+	"apiVersion": 2,
+	"name": "darkify/switcher",
+	"title": "Dark Mode Switcher",
+	"category": "widgets",
+	"icon": "visibility",
+	"description": "Easily place a dark mode switch anywhere on your website. Fully customizable and powered by Darkify for a smooth light/dark experience.",
+	"textdomain": "darkify",
+	"editorScript": "file:./build/index.js",
+	"editorStyle": "file:./build/index.css",
+	"style": "darkify-client-main",
+	"supports": {
+		"styles": false,
+		"html": false
+	},
+	"attributes": {
+    "style": { "type": "string", "default": "classic" },
+    "size": { "type": "string", "default": "1.0" },
+    "custom_size": { "type": "number", "default": 100 },
+    "switch_bg_light": { "type": "string", "default": "#121116" },
+    "switch_bg_dark": { "type": "string", "default": "#ffffff" },
+    "light_icon_color": { "type": "string", "default": "#ffffff" },
+    "dark_icon_color": { "type": "string", "default": "#121116" },
+    "light_text_color": { "type": "string", "default": "#121116" },
+    "dark_text_color": { "type": "string", "default": "#ffffff" },
+	"border_width": { "type": "number", "default": 0 },
+    "border_light_color": { "type": "string", "default": "#121116" },
+    "border_dark_color": { "type": "string", "default": "#ffffff" },
+    "border_radius": { "type": "number", "default": 7 },
+    "alignment": { "type": "string", "default": "left" },
+	"preview": { "type": "boolean", "default": false }
+  },
+  "example": {
+	"attributes": {
+	  "preview": true
+	}
+  }
+}

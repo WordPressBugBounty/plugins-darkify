@@ -1,0 +1,346 @@
+== Changelog ==
+
+Complete release history for Darkify. The plugin's readme.txt carries only the
+most recent releases, because WordPress.org caps that section at 5,000 words.
+
+= 2.2.0 – 13 October 2026 =
+* Added: URL Parameter, under Controls → Frontend → Activation. With it on, a link ending in `?darkmode=1` opens the page in dark mode and `?darkmode=0` opens it in light mode, so a campaign link, a button or a QR code can send a visitor straight to either. `on`, `true` and `dark` work as `1`, and `off`, `false` and `light` as `0`; anything else is ignored rather than read as off. The parameter name can be changed. The link is treated as the visitor's own choice — it is remembered on later pages just as the switch is, and it takes precedence over Default Dark Mode, OS Aware and Time Based Auto Dark Mode. It is read before the page paints, so a dark link does not flash light first. Off by default.
+* Added: The new Pro media options appear in the settings as locked, badged fields rather than being absent — Include Images under Media → Image Controls, and Include Videos and Exclude Videos under Media → Video Controls, each for both Brightness and Grayscale. They sit beside the Exclude Images fields that were already shown this way, cannot be edited or saved, and change nothing on the site.
+* Improved: Tooltip Position now offers only the two sides that point into the page for the corner the floating switch sits in — Top and Left for Bottom Right, Top and Right for Bottom Left, Bottom and Left for Top Right, Bottom and Right for Top Left. All four sides were always offered, and two of them open the tooltip off the edge of the screen for any given corner. A position saved before this, or left behind when the switch is moved to another corner, is mirrored to the matching side (left to right, top to bottom) both in the settings and on the site, so no existing tooltip ends up off screen.
+
+= 2.1.4 – 12 September 2026 =
+* Fixed: With dark mode on, a hard reload (Ctrl+Shift+R) left backgrounds fading from their light colour to their dark one in full view — a sticky header washing from white through grey, sections drifting a shade at a time — while an ordinary reload looked perfect. Per-element transition suppression had been applied to every incremental pass, which cancelled the animations it was never looking at; removing it would fix those but leave an element's first colouring free to animate along with them. On a warm reload that is never seen, because the whole page is coloured by the opening pass while the pre-paint guard still hides it — with nothing cached, far more of the page arrives after that pass and is coloured on screen instead. Transitions are now held only the first time an element is coloured and never on a re-read, so a late-arriving section lands on its dark colour instantly while accordions, dropdowns and hover states keep easing.
+* Fixed: On a slow or uncached load the page could show its light design for a moment before flipping to dark. The guard that hides the page until the first pass has real colours came off on a fixed 800ms timer, and on a hard reload the first pass lands well after that — so the timer revealed a page still wearing its light colours, and the flip to dark followed a few hundred milliseconds later. The guard now waits on the engine rather than on a duration: it lifts the moment the first pass finishes, lifts immediately if the engine is not on the page at all, and lifts regardless after four seconds, so no failure can leave a page hidden.
+* Fixed: An element carrying the `darkify_ignore` class still came back with Darkify classes, data attributes and inline styles on it and on everything inside it. The test ran deep inside the per-element pass, by which point the element had already been read and stamped with the bookkeeping the engine writes before it decides anything — and the pass that collects colours across a whole subtree reached into those sections from an ancestor that was not itself ignored. The test is now asked at the entry point, before anything is written, and looks at ancestors, so marking a section covers everything within it whether the target is a whole container or a single element.
+* Fixed: A colour pinned under Replace Individual Colors took away that element's dark mode hover colour entirely — the pinned colour showed in every state, hovered or not. The pin was written as an inline `!important` declaration, and an inline `!important` outranks every author stylesheet rule there is, Darkify's own `:hover` rules included, so nothing could ever override it. The pinned value is now carried in a custom property and applied by a stylesheet rule placed deliberately above the base colour rules and below the hover rules: the pin still wins the normal state, and hover works again.
+* Fixed: A colour pinned under Replace Individual Colors was lost on a page that loaded straight into dark mode, while the same pin worked after toggling. The colour each override is matched against was captured as the walk reached each element, and the walk is document order — so a child was read only after its ancestors had been repainted, and what got stored as "the design's colour" was really the preset's own token. Reaching dark mode by toggling hid this, because the light-mode pass had already taken a pristine snapshot. The snapshot is now taken top-down before anything is repainted, at no extra cost in style reads.
+* Fixed: Menu Switch → Menu Select listed nothing on a block theme, and nothing on a site whose menus are built with Kadence Navigation, even where the site plainly had menus to choose from. The field only ever listed classic WordPress menus, which are taxonomy terms, while block-theme and Kadence navigations are posts — so there was nothing for it to find. Choosing one would not have helped either, because the switch is added through a filter that only fires for classic menu output. Both halves are fixed: the field now lists block-theme and Kadence navigations alongside classic menus, and the switch is placed inside those navigation blocks. Their ids are namespaced so that a navigation post can never be mistaken for a classic menu term, which leaves every already-saved selection pointing exactly where it did.
+* Fixed: A single unusable CSS selector could switch element restriction off completely, or throw from the engine. Selectors are matched as one comma-joined list, and `matches()` rejects the whole list if any one entry is malformed or carries a pseudo-element — so a `::before` rule in Dark Mode CSS, which is folded into the exclusion list automatically, was enough to lose the answer for every other selector too. Pseudo-element entries are now dropped, and a list that still fails is retried per selector so only the broken entry is skipped.
+* Fixed: A CSS selector containing `>` or `&` stopped restricting anything. Those selectors are handed to the browser inside a `<script>` block, where they were HTML-escaped as though they were display text — so `.card > .title` arrived as `.card &gt; .title`, which is not a selector at all. They are now emitted as proper JavaScript string literals.
+* Fixed: An element whose colour was mid-transition when the engine read it was mapped from whichever animation frame the pass happened to land on, giving a colour that was wrong and that changed from load to load. A running transition is now asked where it is heading instead, so the mapping is made from the colour the design actually asked for.
+* Improved: Replace Individual Colors lays each pinned colour out on one line — light colour, dark colour and what it applies to — with the columns named once above the list, instead of three stacked full-width rows behind a numbered accordion.
+
+= 2.1.3 – 2 September 2026 =
+* Fixed: A dark mode switch placed in a footer, sidebar or menu still rendered while Frontend Dark Mode was turned off — as an unstyled, unresponsive control, since the stylesheet and script it needs are exactly what that setting stops loading. Every other entry point already checked the setting; the shortcode did not, and the Gutenberg block and the Elementor widget both draw through it. All three now render nothing when dark mode is off for the front end.
+* Fixed: A colour pinned under Replace Individual Colors with Apply To set to Icons only did nothing on icons whose colour already read clearly against the page — Elementor's Icon List being the plain case, its default blue staying blue. The icon writer measured contrast first and stopped there whenever the design had already got it right, so the pinned colour was never consulted on precisely the icons an admin was most likely to be pinning. An override is an explicit instruction about one exact colour and is now resolved before that check; the automatic recolouring behind it is unchanged.
+* Fixed: Two colour overrides pinned to near-identical colours collapsed into one — #ffffff and #fffffe were treated as the same colour, so the second rule silently never applied. Matching allowed about five percent of drift per channel, on the reasoning that a colour typed from a design tool or rounded by a build pipeline should still find its rule; that guess costs more than it gives when an admin has deliberately pinned two colours a channel apart. Matching is now exact — #ffffff is #ffffff and #fffffe is #fffffe — and where two rows do pin the same colour, the first one listed wins.
+
+= 2.1.2 – 31 August 2026 =
+* Fixed: Admin dark mode did nothing on the admin screens of Fluent Forms, FluentCRM, Fluent Booking, FluentSMTP and WP Social Ninja, and the admin-bar toggle reported an error when clicked. Each of those plugins runs a "no-conflict mode" that removes every script served from the plugins directory on its own screens, and it runs after scripts are enqueued — so Darkify's engine was stripped while the admin-bar switch it powers stayed on the page, wired to a function that no longer existed. Darkify now registers with the allow-lists those plugins publish, re-adds its own engine after the sweep for the ones that publish none, and the switch fails quietly rather than throwing if it is ever removed again.
+* Fixed: With a colour preset selected, the current item in Darkify's own settings sidebar was invisible, as was the highlight on a hovered menu entry. Preset colours are pushed into the screen's design tokens, and the selected-item token was being handed the same value as the surface behind it — so the highlight was painted, in exactly the colour it was meant to stand out from. It now takes the preset's next step up, the same relation the screen's own dark theme uses.
+* Fixed: Switching Admin Panel Dark Mode off left the settings screen in a broken half-state — dark cards and unreadable text on a light page — until it was reloaded. Turning the option off returned the page to light but left the preset's colours written into the screen's tokens, because the engine that wrote them never re-ran. It is now asked to re-run, which clears them in the same step.
+* Fixed: With a colour preset selected, links inside admin notices stayed WordPress blue while every other link took the preset's colour. WordPress styles notice links more specifically than plain links, and the darkening engine marks everything it rewrites as important — so Darkify's own rule no longer outranked it, it merely tied and lost. The rule is now specific enough to win, while still leaving the admin menu, the admin bar and buttons to their own colours.
+
+= 2.1.1 – 26 August 2026 =
+* Fixed: Primary buttons, switches and selected states on Darkify's own settings screens ignored the Admin Panel Palette and stayed on a near-white default. Those parts are drawn from a `--primary` / `--primary-foreground` pair, and the pair had been left out of the palette map on the grounds that overwriting half of a contrast pair makes a button unreadable. Both halves are now taken from the palette's own button fill and button text — a pair its author already chose to be readable together — so a chosen palette finally reaches the last part of the screen it never did.
+* Fixed: Switch tracks and thumbs rendered transparent under some palettes. A palette that did not carry a field was still writing that field's variable, as the literal text `undefined`, and a custom property that parses but never resolves takes its whole declaration down with it — so the track did not fall back to a default colour, it lost its background outright. A missing field now clears the variable instead of writing it, leaving the stylesheet's own value to stand.
+* Fixed: Toggles were hard to see once they did have a colour, because the checked track took the palette's button fill — a colour chosen to sit on the page background, not to be read at a glance against a card, and measuring between 1.21 and 2.86 against each palette's card. The track now takes the palette's accent colour (4.29 to 14.50 across the same palettes) and the thumb takes the page background, so the moving part reads clearly against the part that does not.
+* Fixed: Changing a colour preset in Live Preview only partly applied until the preview was reloaded. Rules written in terms of Darkify's variables follow a preset instantly, but the engine also writes colours inline as it walks the page — gradients, shadows, overlays, image brightness, icon colour — and an inline declaration has no variable in it to re-resolve. Worse, the gradient and shadow writers refuse to run twice by design, so a second pass changed nothing at all. Live Preview now clears those markers and re-runs the writers against the new colours, so a hero gradient follows the preset with everything else.
+* Fixed: The seasonal offer banner never appeared. Its end date was set a month before its start date, so the window it was active in could not occur.
+
+= 2.1.0 – 25 August 2026 =
+* Changed: Dark mode in wp-admin is now rendered by Dark Reader instead of the per-element engine. The old engine walked every element on the screen, read its computed style, and re-walked on any DOM change — workable on a page that settles, and untenable in wp-admin, which never does. Dark Reader works a stylesheet at a time and generates an inverted sheet once, so the cost no longer scales with how busy the screen is. The front end is untouched and still uses the original engine.
+* Fixed: The block editor became unresponsive with Admin Panel Dark Mode on, and stayed that way — typing, adding a block or opening the inserter could each trigger it. Every DOM change queued a fresh walk of the whole editor, each visited element forcing a style recalculation, and the editor changes the DOM continuously; the work never finished before more arrived. The new admin engine does no per-element work at all.
+* Added: Admin Panel Palette and Block Editor Palette settings, chosen independently. Both default to Auto, which derives a colour for every colour on screen rather than pinning a background and a text colour — that derivation is what lets unfamiliar admin screens from other plugins come out right, and a preset gives it up. Presets remain available for anyone who wants a fixed look, and the block editor's toolbar picker still overrides both for that user.
+* Fixed: The classic editor's dark mode button did nothing whenever the admin itself was light. Its state had been folded into the admin's, so a light admin ruled out a dark writing area — a combination people deliberately choose. The two are independent again, and the editor body now follows the chosen palette instead of a fixed grey.
+* Fixed: Short admin screens were painted in two tones, with a horizontal seam roughly a screen-height down. WordPress colours `body` and leaves `html` unpainted, so the two were being darkened from different starting points and the join showed wherever the content was shorter than the window. Both now resolve to the same colour, measured rather than predicted, so it holds under every palette.
+* Fixed: Darkify's own settings screens rendered card borders and toggle backgrounds in red. Those screens ship their own dark theme, so darkening them a second time layered two themes over each other — and the modern colour values they use could not be parsed by the darkening engine, leaving the unresolved ones to settle on the theme's error colour. Those screens are now left to the theme they already have.
+* Fixed: The Darkify menu icon in the WordPress sidebar sat noticeably brighter than every other icon. WordPress renders a menu icon as a background image, which cannot take the menu's colour the way its own font icons do, so ours stayed flat white. It now takes its colour from the menu like everything around it, under any admin colour scheme.
+* Fixed: Resizing the browser window could freeze the page outright. Whether the admin menu needs its own scrollbar is a measurement that its own answer changes, and with a single threshold a menu sitting near that boundary flipped between the two answers without ever settling — a resize drag holds it there. The test now needs clear evidence in each direction before it changes its mind.
+* Changed: The block editor has one dark mode toggle instead of two. The admin bar carried a second one alongside the toolbar button, both doing the same thing. The toolbar button is the one that survives, because the admin bar is hidden in the editor's fullscreen mode — which is its default.
+* Fixed: The Help screen collapsed awkwardly at narrower widths — review cards wrapping to a word per line, plugin titles crushed against their install button, a tab clipped mid-word behind the upgrade button. Each of those laid itself out from the browser window's width while sitting in a column that only ever had a fraction of it. They now measure the space they are actually given, which also means collapsing the WordPress menu reflows them correctly.
+* Fixed: Several Help screen elements were unreadable in dark mode: video play buttons vanished into their own white circles, the Lite vs Pro table header became a bright white band, and hovering a plugin card drew a hard white outline. Each used a colour that inverts between light and dark against something that does not — imagery, or a full-width band.
+* Added: Pro colour presets now appear in the palette pickers as locked, badged entries rather than being absent. They cannot be selected or saved, and the engine falls back to Auto if one is ever set.
+* Fixed: The "Upgrade To Pro!" menu link replaced the current admin screen instead of opening in a new tab, losing whatever was being configured.
+
+= 2.0.4 – 18 August 2026 =
+* Fixed: Brand-coloured icons — star ratings, coloured logo marks — lost their colour and read as the same flat grey as body text. The icon recolouring introduced in 2.0.4 mapped every icon onto the page's text colour unconditionally, with no exception for a colour that was never meant to blend in; a five-star testimonial rating was the clearest case, gold turning grey. Icon colour now runs through the same hue-preserving ramp gradients already use, so a brand colour keeps its hue and only its depth shifts for a dark backdrop.
+* Fixed: A background writer added in 2.0.4 for empty decorative overlay divs (Elementor's `.elementor-background-overlay` and similar) was also catching real, content-bearing elements that simply never picked up one of the class-based repaint's own classes — a countdown timer's number box, a page-builder button. Flattening a background with no matching foreground adjustment is how a white button with dark text, or a navy countdown box, ended up the same dark shade as its own text and effectively vanished. The writer now skips anything with real text content, which an empty overlay div never has.
+* Fixed: A dark icon sitting on its own light background — a WordPress social icon link's circle, for instance — was being recoloured to the page's light text colour, because the contrast check only looked at the page's general dark backdrop, not what the icon is actually sitting on. That turned a perfectly readable dark icon on a light circle into a light icon on the same light circle: invisible. Icon colour is now judged against the real, current colour immediately behind it, and left untouched whenever it already reads clearly there.
+* Added: Border Color and Hover Border Color controls for buttons, in every color preset. A button's border was the one color dark mode never touched, so an outline button kept its light-design brand edge — a bright ring around a dark fill — and no setting could reach it. Each preset now ships a border color that matches its button fill, so solid buttons look exactly as before and outline buttons finally follow the palette.
+* Fixed: Card outlines drawn as a shadow ring (`0 0 0 1px`) disappeared in dark mode. A ring like that is a border written in the wrong property, and it was being painted black like a real shadow — black on near-black is nothing at all — so a card outlined this way lost its edge while the card beside it, outlined with a real border, kept one. Rings now take the palette's border color, and turning shadows off no longer deletes them.
+* Fixed: Body text and headings came out tinted on themes whose text color is a tinted near-black — inks like #0A232A or #101828, which most modern themes use instead of pure black. Those read as highly saturated brand colors and were lifted to a light teal or blue, overriding the text color chosen in settings. Near-black and near-white text is now treated as ink, while genuinely saturated deep colors stay on the brand path.
+* Fixed: Hover effects, dropdowns, sliders and reveal animations snapped to their end state instead of easing. Darkify pauses CSS transitions while it reads a page's real colors, and that pause was applied to the whole document — including elements the pass never looked at — on passes triggered by any class change anywhere on the page. The pause is now scoped to the element being read.
+* Fixed: Live Preview hid the site header on many themes. The panel filters out cookie banners, chat widgets and popups so the preview shows the page itself, and headers named "sticky-bar", "top bar" and similar were caught by that filter — hiding the part of the page most worth previewing. Semantic headers, banner landmarks and header/nav class names are now recognized and kept.
+
+= 2.0.3 – 11 August 2026 =
+* Fixed: Pages could freeze or crawl once dark mode was on, worse the larger the page. Every element was watched for class changes individually, and each watcher had to be re-registered across the whole document whenever anything changed — on a 2,929-element page that came to 1.23 million registrations during load and 6.31 million on a single toggle, growing with the square of the page size. One watcher now covers the document, registered once, and the cost no longer scales with the page.
+* Improved: Pages that keep changing after load — infinite scroll, carousels, WooCommerce cart and fragment refreshes, page builders and anything React-rendered — no longer re-scan the entire document on every change. Only the newly inserted parts are examined, so a long page stays as responsive as a short one.
+* Improved: Switching between light and dark now only revisits the elements Darkify actually styled, and reads each one's colours once instead of twice, so the toggle settles noticeably faster on large pages.
+* Fixed: The dark mode toggle snapped between states instead of animating. Darkify pauses CSS transitions while it reads a page's real colours, and the switcher was being caught by that pause even though its colours are never read.
+* Improved: Pausing transitions during a pass is now a single rule on the page root rather than an inline style written to and removed from every element, which removed one forced style recalculation per element from every pass.
+* Changed: The screen no longer dims while a page loads in dark mode. The brightness baseline added in 2.0.2 covered the gap before the first pass, but on a slow page it read as a grey overlay sitting over the whole site until loading finished, and it returned on every navigation. The page background is painted dark from the first frame instead, and the safety timeout that clears it drops from 2s to 0.8s.
+* Added: A developer diagnostics mode for support and debugging, off by default and invisible to visitors. Add `?darkify_debug=1` to any URL, then run `darkifyDebug.report()` in the browser console for pass counts, timings and the number of elements Darkify processed.
+
+= 2.0.2 – 10 August 2026 =
+* Added: Polish translation. The whole settings panel — every section, field label, description, button and message — now reads in Polish when Site Language is set to Polski.
+* Added: The settings panel can be translated at all. Most of what you see on screen is drawn by the React admin, and none of that text was ever collected into the plugin's translation template, so roughly 300 strings were invisible to translators. The template now covers the panel as well as the rest of the plugin.
+* Fixed: Translations never loaded. The plugin looked for its language files in a folder that cannot exist, so the settings screen stayed in English on every site, in every language.
+* Fixed: The settings panel stayed English on a translated site even once the language files were found, because its text was prepared before WordPress had loaded the translations.
+* Fixed: Saving settings failed while Chrome's built-in page translation was switched on. Browser translation rewrites the page underneath the settings panel, and the crash landed on Save — which is what made it look like saving was broken. The panel now declines browser translation and ships real translations instead.
+* Fixed: Changing the site language could leave the settings panel empty, reporting that the section no longer exists. Section and tab links were built from their own translated titles, so they changed with the language and every link stopped matching.
+* Fixed: Hovering a WordPress admin menu item while on Darkify's screens showed no submenu on sites whose admin menu is taller than the screen, leaving other plugins' submenus unreachable without navigating away first.
+* Fixed: The HTML/CSS Restriction and Page/Posts Restriction tabs showed a generic gear instead of their own icons.
+* Added: Fine-Tuning — a new section in Colors for the parts of a design that a background and text colour cannot describe on their own: how gradients, shadows and brand colours are carried into dark mode.
+* Added: Gradient Backgrounds control. Gradients live in a different CSS property than a solid colour, so they used to sit out dark mode entirely and stayed bright. Each colour stop is now run through the same ramp a solid background gets, so a gradient section and the solid section beside it still look like one design. Flatten to a solid dark background, or leave gradients untouched, if you prefer.
+* Added: Box & Text Shadows control. A shadow coloured for a light page stays lit on a dark one and cancels out the dimming. Shadows now keep their geometry — so cards keep their depth — while losing the colour that made them glow. They can also be remapped, removed, or left alone.
+* Added: Accent & Icon Colors control. Brand colours keep their hue while their depth is matched to your preset, so an intense accent stays on-brand without glowing on a dark page. This is not an inversion: a blue icon stays blue. Switch to Flatten to replace brand colours with your preset colours instead.
+* Added: Color Overrides. Pin any light-mode colour to an exact dark-mode replacement, and choose whether it applies everywhere or only to text, icons, backgrounds, borders or shadows. Overrides are matched against the colour the element actually renders with, so a handful of colours can be pinned without changing how the rest of the site is handled.
+* Added: Your settings are now written out when the plugin first runs, so the site matches what the settings screen shows. Previously a fresh install rendered the Classic switcher on the frontend while the settings screen showed Orbit.
+* Improved: Scrollbar dark mode now covers the browser's own furniture — the page scrollbar, the scrollbars of every scrolling box inside the page, and the controls the browser renders itself — in Firefox as well as Chromium and Safari. The thumb is drawn as an inset pill rather than a full-width slab, and scrollbar dark mode is now on by default.
+* Improved: Pages that load straight into dark mode no longer flash their light-mode colours while the page is still being read. A brightness baseline covers the gap and lifts as soon as the real colours are in place.
+* Fixed: Section backgrounds built from a tinted off-white — the light grey-blues most themes use to separate one band of a page from the next — were read as brand colours and kept a hue you never chose instead of following your background setting. Astra, Kadence and GeneratePress layouts are all affected.
+* Fixed: Small controls could disappear into the page. Price slider tracks and handles, quantity steppers, thin dividers and progress bars now keep enough contrast to be seen and used, while large dark sections are left as the design intended.
+* Fixed: Icons drawn as grey SVG shapes stayed at their light-mode colour, so plus/minus and similar glyphs read as near-black on a dark page.
+* Fixed: Buttons a theme styles as plain text links — "Remove", "Edit", "Cancel" — no longer get a filled box behind them, while icon buttons keep their dark hover state.
+* Fixed: A single colour the engine could not read no longer stops the rest of the page being processed, which could leave a page dark at the top and light below.
+* Changed: Fine-Tuning sits directly after Preset in the Colors section, with an icon that matches what it does.
+* Changed: The frontend script no longer loads jQuery, removing a dependency from pages that did not otherwise need it.
+
+= 2.0.1 – 31 July 2026 =
+* Fixed: The settings sidebar no longer loses its full height on sites with a long WordPress admin menu — the admin menu scrolls on its own again, separately from the plugin's own settings area.
+
+= 2.0.0 – 28 July 2026 =
+* Added: Completely rebuilt admin interface — a modern React settings panel with a section sidebar, a new admin header, redesigned settings screens, and toast notifications for saves and errors.
+* Added: Live Preview — see your own site with your unsaved settings applied, right beside the settings. Includes desktop and mobile device views, a refresh control, and a full screen mode.
+* Added: Settings Search — press Ctrl+K (Cmd+K on macOS) anywhere in the settings to jump straight to any option. Navigate results with the arrow keys and press Enter; the field is highlighted on arrival.
+* Added: Reset controls — reset just the section you are on, or every setting at once, each behind a confirmation dialog.
+* Added: New Tools page collecting the maintenance utilities — Clean-up Data on Deletion, plus Backup & Restore to export your settings as a .json file and import them back later.
+* Added: Keyboard Shortcut is now configurable — record your own key combination instead of the fixed default (Ctrl+Alt+D). The shortcut matches the physical key, so macOS Option characters no longer break it.
+* Added: Switch Position is now a visual picker — click the corner you want, with its own margin controls for that corner.
+* Added: Shortcode switches can be styled independently — turn off "Use Global Switch Settings" to give a shortcode its own style, size, colors, and border without touching the site-wide floating switch.
+* Added: Switch Text Color control for the Dual switch style, with separate light and dark mode colors.
+* Added: Alternative Dark Mode Switch now validates your CSS selectors as you type and reports an invalid selector inline.
+* Added: The settings screen now works on phones and tablets — the header nav becomes a slide-out drawer with the same sections and tabs.
+* Added: Color fields now accept HEX, RGB(A) and HSL(A) values. Pick a color visually or type any supported format, with a format switcher and validation for invalid values.
+* Added: Switch Border now has a Dark Mode border color control alongside the light mode color.
+* Added: Redesigned Get Help page with four tabs — Get Started (video tutorials), Recommended (one-click install for our free plugins), Lite vs Pro comparison, and Pro Plugins.
+* Improved: Every settings page is now grouped into clearly separated cards with a short intro line, so long pages are easier to scan.
+* Improved: Standalone toggles now save automatically, so switching an option applies it right away without a separate save step.
+* Improved: Dark mode now recognises admin screens from other plugins that ship their own dark theme and leaves them to it, instead of double-darkening them. The standard `dark` class is mirrored on every admin screen, so those apps follow your Admin Dark Mode setting automatically.
+* Improved: Block Editor Dark Mode is now independent of Admin Panel Dark Mode — you can darken the editor while the rest of wp-admin stays light.
+* Improved: When Frontend Dark Mode is turned off, Darkify now loads nothing at all on the front end — no CSS, no JS, no inline output.
+* Improved: Pro-only settings now use a clearer locked-field design with PRO badges, so it is obvious at a glance which features are part of Pro.
+* Improved: Setting defaults resolve more reliably, so a fresh install shows the documented values on every screen.
+* Improved: Settings screens now show a loading placeholder while the options load, instead of a blank or half-built page.
+* Improved: All existing settings are preserved — no reconfiguration is needed after updating.
+* Improved: Smaller plugin download after removing the retired options framework and the old help page assets.
+* Fixed: Admin dark mode could fail to apply because the inline theme script was altered before it ran.
+* Fixed: Replace Images and Replace Videos are Pro-only features and no longer appear editable in the free version.
+* Fixed: Live Preview no longer gets clipped or cut off on smaller screens — it now scales to fit the available space at any window size.
+* Fixed: Live Preview in full screen now always appears above the admin header, at any scroll position.
+* Fixed: Live Preview now reflects the Menu Switch toggle before you save, like every other setting.
+* Fixed: The switch could lose its own positioning context, letting a theme's wrapper shift the inner toggle out of place.
+* Fixed: The Orbit switch could be stretched into a full-width bar when placed inside a nav menu or widget area that lays its children out with flexbox.
+* Changed: Dark Scroll Bar is now off by default on new installs. Existing sites keep their saved setting.
+* Changed: Minimum WordPress version is now 5.5.
+* Removed: "Live Demo" and "Open Docs" buttons from individual settings fields.
+* Removed: Custom scrollbar arrow-button images — the scrollbar now uses the browser's native arrows in dark mode.
+
+= 1.5.5 – 24 June 2026 =
+* Added: Different Switch in Mobile — configure a completely separate floating switch for mobile screens, including its own toggler style, size, background, icon color, border, and attention effect.
+* Improved: When enabled, the mobile switch settings override the default switch only on mobile devices (≤600px); desktop continues to use the default configuration.
+* Fixed: Mobile switch icon centering — the swap between the default and mobile switch now toggles visibility without overriding the flexbox centering, so the icon stays perfectly centered in every switch style.
+
+= 1.5.4 – 05 June 2026 =
+* Added: New Frontend Iframe Dark Mode option to enable or disable dark mode specifically for frontend iframes (enabled by default for backward compatibility).
+* Added: Dark mode now synchronizes with content loaded inside iframes. Same-origin iframes are styled directly (dark class, CSS variables, and element processing injected into the frame); cross-origin iframes receive the active theme through a postMessage bridge.
+* Added: Real-time iframe theme sync — toggling dark mode or changing the color palette updates iframe content instantly, on both initial load and live changes, without a page reload.
+* Improved: Iframe sections now respect the Dark Primary / Dark Secondary structure, matching the primary/secondary background logic used for regular page elements.
+* Fixed: Iframe colors lagged one palette behind due to the palette being applied after the iframe sync; the palette is now applied before iframes are synced.
+* Fixed: Live theme changes did not reach cross-origin iframes — the broadcast was skipped by the cross-origin document-access guard, so updates only appeared after a manual reload.
+
+= 1.5.3 – 19 May 2026 =
+* Added: Switch Attention Effect option — enable an animation (pulse) to draw visitor attention to the floating dark mode switcher.
+* Added: Attention Effect Style selector with Pulse, Radiance, Leap, Swing, Drift, and Nudge options (Pulse available; others coming soon).
+* Improved: Renamed "Customization" tab to "Floating Switch" for clearer admin panel labeling.
+* Improved: "Alternative Dark Mode Switch" field moved to a more logical position within the Floating Switch tab.
+* Fixed: PHP 8.1+ undefined-index and trim(null) notices in CSS attribute parser when malformed CSS attributes lack a colon separator.
+* Fixed: Dark mode not applying inside the Gutenberg editor (WordPress 7 compatibility).
+
+= 1.5.2 – 05 May 2026 =
+* Added: Dark mode now applies to ::before and ::after pseudo-elements that have a light background color. Colors alternate between primary and secondary dark backgrounds, matching the same primary/secondary logic used for regular section elements.
+* Fixed: Switcher CSS now always loads in the page <head> — no longer deferred to footer on headless themes, shortcode pages, Elementor pages, or nav menu usage.
+* Fixed: Switcher CSS now only loads on pages where the switcher is actually used (global floating switcher, shortcode, Gutenberg block, or nav menu) instead of on every page.
+* Improved: All switcher style handles are registered at init so the Gutenberg block system and Elementor can reliably resolve them before wp_head fires.
+* Fixed: Gutenberg block (darkify/switcher) base CSS now loads automatically via block.json — only when the block is present on a page.
+* Fixed: Removed a blanket enqueue of client_main.css that was loading on every page via the block registration hook.
+
+= 1.5.1 – 04 May 2026 =
+* Added: Color theme change option on Gutenberg block editor.
+* Updated: Minor CSS improvements.
+
+= 1.5.0 – 20 April 2026 =
+* Added: Gutenberg block integration with dedicated block support.
+* Added: Custom block controls for switch styling within the block editor.
+* Added: Elementor integration with dedicated widget support.
+* Added: Custom Elementor controls for switch styling.
+* Improved: Compatibility with Gutenberg editor interface and block settings panel.
+* Improved: Compatibility with Elementor editor panel.
+
+= 1.4.26 – 17 April 2026 =
+* Fixed: Button block plugins button styling issue.
+
+= 1.4.25 – 31 March 2026 =
+* Added: Custom admin dark mode CSS option.
+* Fixed: Classic editor styling issue.
+* Updated: Minor CSS improvements.
+
+= 1.4.24 – 04 March 2026 =
+* Updated: Removed Classic Editor Dark Mode dependency.
+* Fixed: Iframe background issue.
+* Fixed: Switcher animation issue.
+* Tested: Compatibility with WordPress 6.9.1.
+
+= 1.4.23 – 21 February 2026 =
+* Fixed: Low brightness issues.
+* Added: New instructional video items for plugin help page.
+
+= 1.4.22 – 09 February 2026 =
+* Fixed: Menu switcher css load issue.
+
+= 1.4.21 – 03 February 2026 =
+* Added: Preset size options for the Switcher.
+* Added: Custom size option for the Switcher.
+* Fixed: Switcher load animation issue.
+
+= 1.4.20 – 14 January 2026 =
+* Removed Appsero integration.
+* Improved internal code structure.
+
+= 1.4.19 – 01 January 2026 =
+* Updated: Plugin readme.
+
+= 1.4.18 – 21 December 2025 =
+* Tested: WordPress 6.9 compatibility.
+
+= 1.4.17 – 16 December 2025 =
+* Fixed: Fatal error with Avada (Fusion Builder) latest version.
+
+= 1.4.16 – 09 December 2025 =
+* Fixed: Gutenberg Block Editor dark mode issue.
+
+= 1.4.15 – 21 November 2025 =
+* Fixed: Admin panel dark mode rendering issue when used with MainWP.
+
+= 1.4.14 – 15 November 2025 =
+* Fixed: Time-Based Dark Mode time picker issue.
+
+= 1.4.13 – 12 November 2025 =
+* Added: New switch toggler styles.
+* Added: Option to enable/disable Dark Mode in the Block Editor.
+* Added: Option to enable/disable Dark Mode in the Classic Editor.
+* Fixed: JavaScript error causing unexpected behavior.
+* Improved: Overall code performance and maintainability.
+* Security: Ensured proper data sanitization, validation, and escaping.
+
+= 1.4.12 – 25 October 2025 =
+* Tested: WordPress 6.8.3 compatibility.
+* Improved: Internal code structure.
+
+= 1.4.11 – 24 September 2025 =
+* Added: Proper nonce verification (`check_ajax_referer`) for all AJAX requests and admin submissions.
+* Fixed: Ensured nonce validation runs early and cannot be bypassed.
+* Removed: Direct review/rating links from admin pages (per WordPress.org guidelines).
+* Updated: Plugin title and descriptions to remove redundant use of the word “Plugin”.
+* Documented: External services usage where applicable.
+* Removed: All external CDN/script/image calls; assets are now bundled locally.
+
+= 1.4.10 – 23 September 2025 =
+* Updated: Switched to WordPress core libraries (e.g. CodeMirror via `wp_enqueue_code_editor`).
+* Improved: Compatibility with WordPress security standards.
+* Updated: Bundled PHP libraries to latest stable versions.
+* Added: `composer.json` for dependency management.
+* Added: Proper escaping and translation-ready strings.
+
+= 1.4.9 – 17 September 2025 =
+* Added: Documentation and demo links for all fields.
+
+= 1.4.8 – 30 August 2025 =
+* Fixed: PHP warning related to missing default function arguments.
+
+= 1.4.7 – 30 August 2025 =
+* Added: Labels and descriptions for option fields.
+* Fixed: Custom CSS field parsing issue.
+
+= 1.4.6 – 11 August 2025 =
+* Added: Option to display the switcher before or after menu items.
+
+= 1.4.5 – 24 July 2025 =
+* Fixed: Flickering issue on browser refresh when default dark mode is enabled.
+* Added: Instructional videos in the admin panel.
+
+= 1.4.4 – 16 June 2025 =
+* Fixed: Tooltip display issue.
+
+= 1.4.3 – 01 June 2025 =
+* Added: Demo links for color presets.
+
+= 1.4.2 – 26 May 2025 =
+* Improved: Preset colors for better UI element visibility.
+* Fixed: Uncode theme dark mode loading issue on page reload.
+* Fixed: Switcher shortcode animation issue.
+
+= 1.4.1 – 21 May 2025 =
+* Updated: Plugin settings URL.
+
+= 1.4.0 – 15 May 2025 =
+* Updated: Redesigned admin UI/UX.
+* Updated: CSS and JS codebase for performance and maintainability.
+* Fixed: Invert specific images option.
+* Fixed: Low brightness option issue.
+* Fixed: Time-based auto dark mode.
+* Fixed: Admin notice display issue.
+* Added: Help tooltips in settings.
+
+= 1.3.5 – 22 April 2025 =
+* Fixed: Translation-related warning in WordPress 6.8.
+
+= 1.3.4 – 08 April 2025 =
+* Tested: WordPress 6.8 compatibility.
+* Updated: Plugin help page content.
+* Updated: Readme content.
+
+= 1.3.3 – 06 April 2025 =
+* Improved: Internal code structure.
+
+= 1.3.2 – 24 March 2025 =
+* Improved: Code formatting and variable handling.
+* Fixed: Minor PHP warnings.
+
+= 1.3.1 – 21 March 2025 =
+* Updated: Readme file.
+* Added: Screenshots for better documentation.
+* Fixed: PHP warnings.
+
+= 1.3.0 – 20 March 2025 =
+* Updated: Core plugin architecture and added autoloading.
+* Updated: Admin options for improved usability.
+
+= 1.2.5 – 19 March 2025 =
+* Fixed: Flickering issue on browser refresh.
+* Added: Help tab in plugin options.
+
+= 1.2.4 – 03 March 2025 =
+* Fixed: Translation warning.
+* Tested: WordPress 6.7.2 compatibility.
+
+= 1.2.3 =
+* Tested: WordPress 6.7.1 compatibility.
+
+= 1.2.2 =
+* Tested: WordPress 6.7 compatibility.
+
+= 1.2.1 =
+* Improved: `DRK_Fields` class structure.
+* Updated: Compatibility with latest WordPress and PHP versions.
+
+= 1.1.0 =
+* Added: Switcher shortcode copy option in admin panel.
+* Added: Pro version link on plugin list page.
+
+= 1.0.1 =
+* Fixed: Plugin URL issue.
+
+= 1.0.0 =
+* Initial release.

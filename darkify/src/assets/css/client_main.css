@@ -1,0 +1,900 @@
+/*
+ * The colour rules below set `background-color`, never the `background`
+ * shorthand — and that distinction is load-bearing, not a style preference.
+ *
+ * `background` resets every background property it does not mention, so a rule
+ * of the form `background: <colour> !important` does not just repaint an
+ * element: it sets `background-image: none` on it. Everything a design paints
+ * through that property disappears — a select's dropdown chevron, an icon on a
+ * button, a sprite, a texture, a pattern, a gradient. And because the rule is
+ * `!important`, it outranks even an inline `background-image`, so nothing the
+ * engine writes inline can put the image back.
+ *
+ * The pairing was invisible while every rule also declared `background-color`
+ * on the next line with the same value: the shorthand contributed nothing to
+ * the colour and only did the damage. Dropping it changes no colour anywhere
+ * and lets the design's own imagery survive into dark mode.
+ */
+
+.darkify_dark_mode_enabled
+  .darkify_style_all:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_bg) !important;
+  color: var(--darkify_dark_mode_text_color) !important;
+  border-right-color: var(--darkify_dark_mode_border_color) !important;
+  border-left-color: var(--darkify_dark_mode_border_color) !important;
+  border-top-color: var(--darkify_dark_mode_border_color) !important;
+  border-bottom-color: var(--darkify_dark_mode_border_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_bg_txt:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_bg) !important;
+  color: var(--darkify_dark_mode_text_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_bg_border:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_bg) !important;
+  border-right-color: var(--darkify_dark_mode_border_color) !important;
+  border-left-color: var(--darkify_dark_mode_border_color) !important;
+  border-top-color: var(--darkify_dark_mode_border_color) !important;
+  border-bottom-color: var(--darkify_dark_mode_border_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_txt_border:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  color: var(--darkify_dark_mode_text_color) !important;
+  border-right-color: var(--darkify_dark_mode_border_color) !important;
+  border-left-color: var(--darkify_dark_mode_border_color) !important;
+  border-top-color: var(--darkify_dark_mode_border_color) !important;
+  border-bottom-color: var(--darkify_dark_mode_border_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_bg:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_bg) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_txt:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  color: var(--darkify_dark_mode_text_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_border:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  border-right-color: var(--darkify_dark_mode_border_color) !important;
+  border-left-color: var(--darkify_dark_mode_border_color) !important;
+  border-top-color: var(--darkify_dark_mode_border_color) !important;
+  border-bottom-color: var(--darkify_dark_mode_border_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_secondary_bg:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_secondary_bg) !important;
+}
+
+/*Handle Link Style*/
+.darkify_dark_mode_enabled
+  .darkify_style_link:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *,
+    .darkify-nav ul li a
+  ) {
+  color: var(--darkify_dark_mode_link_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_link:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ):hover {
+  color: var(--darkify_dark_mode_link_hover_color) !important;
+}
+
+/*
+ * Colour overrides ("Replace Individual Colors").
+ *
+ * The value arrives as a custom property set inline by
+ * darkify_process_color_overrides(); these rules are what actually apply it.
+ * It used to be written straight onto the property as an inline `!important`,
+ * which outranks every author rule in the cascade — so an overridden element
+ * could never show its dark-mode `:hover` colour. Moving the application into
+ * the stylesheet puts it back into normal specificity competition.
+ *
+ * The selector shape is deliberate, load-bearing, and measured against the
+ * rules it has to sit between:
+ *
+ *   .darkify_dark_mode_enabled .darkify_style_x:not(...)        = (0,3,0)
+ *   .darkify_dark_mode_enabled .darkify_style_link:not(...)     = (0,3,3)
+ *       ^ higher than its siblings because its :not() list carries
+ *         `.darkify-nav ul li a`, and :not() takes the specificity of its most
+ *         specific argument — three type selectors' worth.
+ *   .darkify_dark_mode_enabled .darkify_style_x:not(...):hover  = (0,4,0)
+ *
+ * So the override must be ABOVE (0,3,3) and BELOW (0,4,0): that means exactly
+ * three classes and at least four types. The repeated class buys the classes;
+ * `html:is(html):is(html):is(html)` buys the types without changing what the
+ * selector matches, since :is() takes its argument's specificity and every
+ * argument here is the element the rule already starts from.
+ *
+ * Do NOT add a `:not()` or another class — a fourth class ties the hover rules
+ * on class count and the override starts winning hover again, which is the
+ * exact bug this replaced. Elements inside `.darkify_switch` /
+ * `.darkify_ignore` are never processed, so they never carry these classes.
+ */
+html:is(html):is(html):is(html).darkify_dark_mode_enabled .darkify_ovr_bg.darkify_ovr_bg {
+  background-color: var(--darkify-ovr-bg) !important;
+}
+html:is(html):is(html):is(html).darkify_dark_mode_enabled .darkify_ovr_color.darkify_ovr_color {
+  color: var(--darkify-ovr-color) !important;
+}
+html:is(html):is(html):is(html).darkify_dark_mode_enabled .darkify_ovr_bt.darkify_ovr_bt {
+  border-top-color: var(--darkify-ovr-bt) !important;
+}
+html:is(html):is(html):is(html).darkify_dark_mode_enabled .darkify_ovr_br.darkify_ovr_br {
+  border-right-color: var(--darkify-ovr-br) !important;
+}
+html:is(html):is(html):is(html).darkify_dark_mode_enabled .darkify_ovr_bb.darkify_ovr_bb {
+  border-bottom-color: var(--darkify-ovr-bb) !important;
+}
+html:is(html):is(html):is(html).darkify_dark_mode_enabled .darkify_ovr_bl.darkify_ovr_bl {
+  border-left-color: var(--darkify-ovr-bl) !important;
+}
+
+/*Handle Form Element Style*/
+.darkify_dark_mode_enabled
+  .darkify_style_form_element:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_input_bg) !important;
+  color: var(--darkify_dark_mode_input_text_color) !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_style_form_element:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  )::placeholder {
+  color: var(--darkify_dark_mode_input_placeholder_color) !important;
+}
+
+/*Handle Button Style*/
+.darkify_dark_mode_enabled
+  .darkify_style_button:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  background-color: var(--darkify_dark_mode_btn_bg) !important;
+  color: var(--darkify_dark_mode_btn_text_color) !important;
+  /*
+   * Buttons carry their own border token rather than the page's.
+   *
+   * The classifier takes `darkify_style_all` off an element the moment it calls
+   * it a button, so until these four lines existed a button's border was the
+   * one colour on the page dark mode never touched: an outline button kept the
+   * light design's brand edge — a teal ring around a grey fill — and no setting
+   * could reach it. A button also cannot simply borrow the generic border
+   * colour, because its border belongs to the button's own colour set: it is
+   * usually the fill or a shade of it, which is why the default for these
+   * tokens mirrors the button background.
+   */
+  border-right-color: var(--darkify_dark_mode_btn_border_color) !important;
+  border-left-color: var(--darkify_dark_mode_btn_border_color) !important;
+  border-top-color: var(--darkify_dark_mode_btn_border_color) !important;
+  border-bottom-color: var(--darkify_dark_mode_btn_border_color) !important;
+}
+/* the hover state */
+.darkify_dark_mode_enabled
+  .darkify_style_button:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ):hover {
+  background-color: var(--darkify_dark_mode_btn_hover_bg) !important;
+  color: var(--darkify_dark_mode_btn_text_hover_color) !important;
+  border-right-color: var(--darkify_dark_mode_btn_hover_border_color) !important;
+  border-left-color: var(--darkify_dark_mode_btn_hover_border_color) !important;
+  border-top-color: var(--darkify_dark_mode_btn_hover_border_color) !important;
+  border-bottom-color: var(--darkify_dark_mode_btn_hover_border_color) !important;
+}
+
+
+/* ========================
+    Borders the design does not draw
+===========================*/
+/*
+ * A side marked here had a width in the light design but no colour — the
+ * `border: 8px solid transparent` idiom themes and block grids use for gutters
+ * and alignment. It occupies space and paints nothing.
+ *
+ * The rules above cannot tell those sides apart from real ones: they set all
+ * four border colours at once, because a class cannot carry per-side
+ * information. Painting a gutter turns invisible spacing into a visible line,
+ * and an element ringed by four of them grows a box that the light design never
+ * had — the effect that made WooCommerce product cards appear boxed in dark
+ * mode while looking open in light.
+ *
+ * The classifier stamps these markers on exactly the sides it measured as
+ * transparent, so each one is pinned back to transparent regardless of which
+ * colour rule matched. They repeat the `:not(...)` shape of the rules they
+ * override so the specificity matches, and sit after them so they win the tie.
+ */
+.darkify_dark_mode_enabled
+  .darkify_border_keep_top:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  border-top-color: transparent !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_border_keep_right:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  border-right-color: transparent !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_border_keep_bottom:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  border-bottom-color: transparent !important;
+}
+.darkify_dark_mode_enabled
+  .darkify_border_keep_left:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  border-left-color: transparent !important;
+}
+
+/* ========================
+    Pre-paint baseline (FOUC)
+===========================*/
+/*
+ * Dark mode is decided in the <head>, but the colours come from a DOM walk that
+ * cannot start until the DOM exists. Something has to cover that gap.
+ *
+ * It cannot be a colour wash on the elements themselves. The engine derives
+ * each dark colour by *reading* the element's computed light colour, so any
+ * rule that restyles elements beforehand destroys its input — everything reads
+ * back as the wash and nothing can be derived.
+ *
+ * A `brightness()` filter on <html> used to fill the gap. It painted only, so
+ * `getComputedStyle` still reported the design's real colours, but it dimmed
+ * the *whole viewport* — on a slow page that reads as a grey overlay sitting
+ * over the site for the entire load, and it repeats on every navigation. The
+ * filter is gone for that reason.
+ *
+ * What is left is the page backdrop alone: the root paints the configured dark
+ * background from the first frame, so the gap before the walk is a dark page
+ * rather than a white one. Content that has already painted keeps its light
+ * colours for those few frames — a much smaller artefact than dimming the
+ * entire viewport.
+ *
+ * Deliberately temporary: the class comes off the moment the first walk has
+ * assigned real colours.
+ */
+html.darkify_dark_mode_enabled.darkify_prepaint {
+  background-color: var(--darkify_dark_mode_bg) !important;
+}
+
+/*
+ * The gap the backdrop above cannot cover.
+ *
+ * `html`'s dark background is only visible while nothing paints over it, and
+ * on essentially every theme `body` carries its own opaque light background,
+ * which does. So the intent of the rule above — "the gap before the walk is a
+ * dark page rather than a white one" — was defeated in practice: reloading with
+ * dark mode on showed the site's full light design for as long as the walk took,
+ * then flipped. That flip is the flicker.
+ *
+ * It cannot be fixed by washing the elements: the engine derives every dark
+ * colour by reading the element's computed light colour, so a colour applied
+ * beforehand becomes the input and the derivation collapses. `visibility` is
+ * the one property that hides the artefact without being read — it does not
+ * change any computed colour, and unlike `display` it keeps layout, so the walk
+ * measures exactly what it would have measured anyway.
+ *
+ * Scoped to its own class rather than `darkify_prepaint` so it can be dropped
+ * the instant the first walk has assigned colours, which is earlier than the
+ * backdrop is dropped. The inline script in the page head clears it on a
+ * failsafe timer regardless, so a failed or missing engine can never leave the
+ * page hidden.
+ */
+html.darkify_dark_mode_enabled.darkify_fouc_guard body {
+  visibility: hidden !important;
+}
+
+/* ========================
+    Admin Bar Menu Design
+===========================*/
+.darkify_admin_bar_switch_container {
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px !important;
+  height: 32px !important;
+}
+/* On Darkify's own settings/help screens the admin-bar node is always rendered
+   so the React admin can reveal it the instant "Admin Panel Dark Mode" is
+   switched on (see WpAdminBarBridge) rather than only after a reload. It starts
+   hidden whenever the option is off. */
+.darkify_admin_bar_switch_container.darkify_admin_bar_hidden {
+  display: none !important;
+}
+.darkify_admin_bar_switch_container .ab-item {
+  height: 18px !important;
+  cursor: pointer !important;
+  background-color: #ffffff !important;
+  -webkit-mask: url(../../Admin/assets/images/switch_apple_light.svg) no-repeat center;
+  mask: url(../../Admin/assets/images/switch_apple_light.svg) no-repeat center;
+}
+.darkify_dark_mode_enabled .darkify_admin_bar_switch_container .ab-item {
+  -webkit-mask: url(../../Admin/assets/images/switch_apple_dark.svg) no-repeat center;
+  mask: url(../../Admin/assets/images/switch_apple_dark.svg) no-repeat center;
+}
+
+/* ========================
+    Block Editor Menu Design
+===========================*/
+.darkify_block_editor_switch {
+  height: 33px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: 0;
+  border: 0;
+  background: #121116;
+  border-radius: 3px;
+  padding: 0 12px;
+  margin-right: 8px;
+}
+.darkify_dark_mode_enabled .darkify_block_editor_switch {
+  background: #ffffff;
+}
+.darkify_block_editor_switch .icon {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff !important;
+  -webkit-mask: url(../../Admin/assets/images/switch_apple_light.svg) no-repeat center;
+  mask: url(../../Admin/assets/images/switch_apple_light.svg) no-repeat center;
+}
+
+.darkify_dark_mode_enabled .darkify_block_editor_switch .icon {
+  background-color: #171717 !important;
+  -webkit-mask: url(../../Admin/assets/images/switch_apple_dark.svg) no-repeat center;
+  mask: url(../../Admin/assets/images/switch_apple_dark.svg) no-repeat center;
+}
+
+/* ========================
+    Switch Design
+===========================*/
+
+.darkify_switch,
+.darkify_switch * {
+  box-sizing: border-box;
+}
+.darkify_switch.darkify_top_left,
+.darkify_switch.darkify_top_right,
+.darkify_switch.darkify_bottom_left,
+.darkify_switch.darkify_bottom_right {
+  position: fixed;
+  z-index: 99999;
+}
+.darkify_switch.darkify_top_left {
+  top: var(--darkify_switch_position_from_top_left_top);
+  left: var(--darkify_switch_position_from_top_left_left);
+}
+.darkify_switch.darkify_top_right {
+  top: var(--darkify_switch_position_from_top_right_top);
+  right: var(--darkify_switch_position_from_top_right_right);
+}
+.darkify_switch.darkify_bottom_left {
+  bottom: var(--darkify_switch_position_from_bottom_left_bottom);
+  left: var(--darkify_switch_position_from_bottom_left_left);
+}
+.darkify_switch.darkify_bottom_right {
+  bottom: var(--darkify_switch_position_from_bottom_right_bottom);
+  right: var(--darkify_switch_position_from_bottom_right_right);
+}
+.darkify_switch.darkify_absolute_position {
+  position: absolute;
+}
+
+@media only screen and (max-width: 600px) {
+  .darkify_switch.darkify_hide_on_mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .darkify_switch.darkify_top_left_in_mobile,
+  .darkify_switch.darkify_top_right_in_mobile,
+  .darkify_switch.darkify_bottom_left_in_mobile,
+  .darkify_switch.darkify_bottom_right_in_mobile {
+    position: fixed;
+  }
+  .darkify_switch.darkify_top_left_in_mobile {
+    top: var(--darkify_switch_position_from_top_left_top_in_mobile);
+    left: var(--darkify_switch_position_from_top_left_left_in_mobile);
+    bottom: unset;
+    right: unset;
+  }
+  .darkify_switch.darkify_top_right_in_mobile {
+    top: var(--darkify_switch_position_from_top_right_top_in_mobile);
+    right: var(--darkify_switch_position_from_top_right_right_in_mobile);
+    bottom: unset;
+    left: unset;
+  }
+  .darkify_switch.darkify_bottom_left_in_mobile {
+    bottom: var(--darkify_switch_position_from_bottom_left_bottom_in_mobile);
+    left: var(--darkify_switch_position_from_bottom_left_left_in_mobile);
+    top: unset;
+    right: unset;
+  }
+  .darkify_switch.darkify_bottom_right_in_mobile {
+    bottom: var(--darkify_switch_position_from_bottom_right_bottom_in_mobile);
+    right: var(--darkify_switch_position_from_bottom_right_right_in_mobile);
+    top: unset;
+    left: unset;
+  }
+}
+
+.darkify_tooltip .darkify_tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--darkify_switch_tooltip_bg_color);
+  color: var(--darkify_switch_tooltip_text_color);
+  font-size: 12px;
+  text-align: center;
+  border-radius: 0;
+  padding: 5px 5px;
+  position: absolute;
+  z-index: 1;
+  border-radius: 3px;
+}
+.darkify_tooltip .darkify_tooltiptext::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+.darkify_tooltip:hover .darkify_tooltiptext {
+  visibility: visible;
+}
+.darkify_tooltip.darkify_tooltip_top .darkify_tooltiptext {
+  bottom: calc(100% + 10px);
+  left: 50%;
+  margin-left: -60px;
+}
+.darkify_tooltip.darkify_tooltip_top .darkify_tooltiptext::after {
+  left: 50%;
+  margin-left: -5px;
+  top: 100%;
+  border-color: var(--darkify_switch_tooltip_bg_color) transparent transparent
+    transparent;
+}
+.darkify_tooltip.darkify_tooltip_bottom .darkify_tooltiptext {
+  top: calc(100% + 10px);
+  left: 50%;
+  margin-left: -60px;
+}
+.darkify_tooltip.darkify_tooltip_bottom .darkify_tooltiptext::after {
+  left: 50%;
+  margin-left: -5px;
+  bottom: 100%;
+  border-color: transparent transparent var(--darkify_switch_tooltip_bg_color)
+    transparent;
+}
+.darkify_tooltip.darkify_tooltip_left .darkify_tooltiptext {
+  right: calc(100% + 10px);
+  top: calc(50% - 15px);
+}
+.darkify_tooltip.darkify_tooltip_left .darkify_tooltiptext::after {
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-color: transparent transparent transparent
+    var(--darkify_switch_tooltip_bg_color);
+}
+.darkify_tooltip.darkify_tooltip_right .darkify_tooltiptext {
+  left: calc(100% + 10px);
+  top: calc(50% - 15px);
+}
+.darkify_tooltip.darkify_tooltip_right .darkify_tooltiptext::after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-color: transparent var(--darkify_switch_tooltip_bg_color) transparent
+    transparent;
+}
+
+/* ==============
+ Switch Style
+ ============== */
+
+.darkify_switch_style {
+  cursor: pointer;
+  z-index: 9999;
+  width: calc(60px * var(--darkify-switch-scale, 1));
+  height: calc(60px * var(--darkify-switch-scale, 1));
+  border-radius: var(--darkify_switch_border_radius);
+  background: var(--darkify_switch_light_mode_bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: var(--darkify_switch_border);
+  border-style: solid;
+  border-color: var(--darkify_switch_border_light_color);
+}
+
+.darkify_dark_mode_enabled .darkify_switch_style {
+  border-color: var(--darkify_switch_border_dark_color);
+}
+.darkify_switch_style .theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.darkify_switch_style svg {
+  width: calc(40px * var(--darkify-switch-scale, 1));
+  height: calc(40px * var(--darkify-switch-scale, 1));
+  color: var(--darkify_switch_light_mode_color);
+  stroke: var(--darkify_switch_light_mode_color);
+}
+.darkify_dark_mode_enabled .darkify_switch_style {
+  background: var(--darkify_switch_dark_mode_bg);
+}
+.darkify_dark_mode_enabled .darkify_switch_style svg {
+  color: var(--darkify_switch_dark_mode_color);
+  stroke: var(--darkify_switch_dark_mode_color);
+}
+.switch-orbit,
+.switch-duality,
+.switch-dual,
+.switch-shift {
+  box-sizing: content-box;
+}
+.darkify_dark_mode_enabled
+  .block-editor-page.post-content-style-boxed
+  .editor-styles-wrapper:before {
+  background-color: unset;
+}
+.darkify_dark_mode_enabled h3#color-palette-1-0,
+.darkify_dark_mode_enabled .components-color-palette__custom-color-name {
+  color: var(--darkify_dark_mode_text_color)!important;
+}
+.darkify-dropdown {
+  position: relative;
+  width: 160px;
+  margin-left: 8px;
+}
+
+.darkify-dropdown .darkify-selected {
+  padding: 5px;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #c0c0c0;
+}
+
+.darkify-dropdown .darkify-options {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  border-radius: 6px;
+  margin-top: 5px;
+  overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000;
+  top: 30px;
+}
+
+.darkify-dropdown .darkify-options.show {
+  display: block;
+}
+
+.darkify-dropdown .darkify-option {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.darkify-dropdown .darkify-pro-option {
+  cursor: not-allowed;
+  opacity: 0.55;
+  pointer-events: none;
+  gap: 4px;
+}
+.darkify-option-pro-badge {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 600;
+  background: #cbd6df;
+  color: #5e6e7d;
+  padding: 2px 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.darkify-dropdown .darkify-selected {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 4px;
+}
+.darkify-dropdown .theme_color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid gray;
+}
+.darkify-dropdown .default {
+  background-color: #fff;
+}
+/*
+ * "Auto" has no single colour to show — Dark Reader derives one per element —
+ * so the swatch shows a gradient rather than claiming a flat value the way the
+ * named presets legitimately can.
+ */
+.darkify-dropdown .auto_palette {
+  background-image: linear-gradient(135deg, #0f0f0f 0%, #3a3a3a 50%, #8f8f8f 100%);
+}
+.darkify-dropdown .carbon_mist {
+  background-color: #171717;
+}
+.darkify-dropdown .midnight_reverie {
+  background-color: #4e478d;
+}
+.darkify-dropdown .verdant_depths {
+  background-color: #073d2f;
+}
+.darkify-dropdown .celestial_tide {
+  background-color: #144e78;
+}
+.darkify-dropdown .emberwood {
+  background-color: #372911;
+}
+.darkify-dropdown .glacier_drift {
+  background-color: #123d52;
+}
+.darkify-dropdown .indigo_veil {
+  background-color: #46598c;
+}
+.darkify-dropdown .duskmire {
+  background-color: #403953;
+}
+.darkify-dropdown .tidal_frost {
+  background-color: #286f8d;
+}
+.darkify-dropdown .blue_bastion {
+  background-color: #244892;
+}
+.darkify-dropdown .crimson_veil {
+  background-color: #440649;
+}
+
+.darkify_dark_mode_enabled .darkify-dropdown,
+.darkify_dark_mode_enabled .darkify-options.show {
+  background-color: var(--darkify_dark_mode_bg) !important;
+}
+
+/* Switch Attention Effects */
+@keyframes darkify_attention_pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+@keyframes darkify_attention_radiance {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(100, 100, 100, 0.45); }
+  50% { box-shadow: 0 0 0 14px rgba(100, 100, 100, 0); }
+}
+@keyframes darkify_attention_leap {
+  0%, 55%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-14px); }
+  45% { transform: translateY(-8px); }
+}
+@keyframes darkify_attention_swing {
+  0%, 100% { transform: rotate(0deg); transform-origin: center bottom; }
+  20% { transform: rotate(-9deg); transform-origin: center bottom; }
+  40% { transform: rotate(7deg); transform-origin: center bottom; }
+  60% { transform: rotate(-5deg); transform-origin: center bottom; }
+  80% { transform: rotate(3deg); transform-origin: center bottom; }
+}
+@keyframes darkify_attention_drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes darkify_attention_nudge {
+  0%, 65%, 100% { transform: translateX(0); }
+  10% { transform: translateX(-6px); }
+  20% { transform: translateX(6px); }
+  30% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  50% { transform: translateX(-2px); }
+  57% { transform: translateX(2px); }
+}
+.darkify_switch.darkify_attention_pulse {
+  animation: darkify_attention_pulse 2s ease-in-out 2s infinite;
+}
+.darkify_switch.darkify_attention_radiance {
+  animation: darkify_attention_radiance 2s ease-in-out 2s infinite;
+}
+.darkify_switch.darkify_attention_leap {
+  animation: darkify_attention_leap 2.5s ease-in-out 2s infinite;
+}
+.darkify_switch.darkify_attention_swing {
+  animation: darkify_attention_swing 1.6s ease-in-out 2s infinite;
+}
+.darkify_switch.darkify_attention_drift {
+  animation: darkify_attention_drift 3s ease-in-out 2s infinite;
+}
+.darkify_switch.darkify_attention_nudge {
+  animation: darkify_attention_nudge 2.5s ease-in-out 2s infinite;
+}
+.darkify_switch.darkify_attention_pulse:hover,
+.darkify_switch.darkify_attention_radiance:hover,
+.darkify_switch.darkify_attention_leap:hover,
+.darkify_switch.darkify_attention_swing:hover,
+.darkify_switch.darkify_attention_drift:hover,
+.darkify_switch.darkify_attention_nudge:hover {
+  animation-play-state: paused;
+}
+/*
+ * Transition suppression for the duration of an engine pass.
+ *
+ * The engine classifies an element from its computed colours, and a colour
+ * mid-transition computes to an interpolated value that belongs to neither the
+ * start nor the end state — so a pass that runs while the page is animating
+ * reads colours the design never actually paints. Suppressing transitions for
+ * the length of the pass makes every read a settled one.
+ *
+ * This replaces an inline `transition-property: none !important` that was
+ * written to, and then removed from, every element individually. Writing a
+ * style and then reading a computed style off the same element forces a
+ * synchronous style recalculation, so that pattern cost one full recalc per
+ * element; as one class on the root it costs one invalidation per pass.
+ *
+ * `!important` is warranted here and is the reason the declaration can stay a
+ * single rule: it has to beat inline transitions written by builders and
+ * animation libraries, which is precisely the case it exists to neutralise. It
+ * is present only while a pass is running — never in the page's resting state.
+ */
+/*
+ * The switcher is deliberately outside this suppression, and leaving it in was
+ * a real bug: it silently removed the toggle's animation.
+ *
+ * The switcher is the one animated thing on the page that the engine does not
+ * manage — it never receives `darkify_processed`, its colours are never read to
+ * classify it, and its whole visual job is to animate between the two states.
+ * Suppressing transitions on it therefore protects nothing and costs the
+ * feature.
+ *
+ * The damage is not obvious from reading the rule, because the class is added
+ * and removed inside a single synchronous task, so it is never painted. What
+ * matters is that the pass calls `getComputedStyle` thousands of times while
+ * the class is on, and every one of those forces a style recalculation. A
+ * recalculation that sees `transition-property: none` *cancels the transitions
+ * already running* — and the switcher's transitions started moments earlier,
+ * when the state class flipped. Removing the class afterwards does not revive
+ * them; the values have already been committed to their end state. Measured on
+ * the stress page: 17 transitions created on `d`, `opacity` and `transform`,
+ * all with `currentTime` still 0, gone by the next frame — the toggle snapped
+ * instead of animating.
+ *
+ * `.darkify_ignore` is excluded for the same reason it is excluded from every
+ * other rule in this file: it marks a subtree the plugin has been told to keep
+ * its hands off, and cancelling its animations is exactly the interference the
+ * marker exists to prevent.
+ *
+ * This costs nothing. The exclusion is evaluated only while a pass is running,
+ * and it removes work rather than adding it — the excluded subtrees are the
+ * ones the engine was never going to read.
+ */
+html.darkify_suspend_transitions,
+html.darkify_suspend_transitions
+  *:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  transition-property: none !important;
+}
+
+/*
+ * The same suppression, scoped to a single element — and now to a single case.
+ *
+ * The rule above is correct for the two passes that read the whole document —
+ * the first walk and the dark-mode state sweep — because at those moments the
+ * page is either not yet interactive or is being repainted wholesale anyway.
+ * This rule covers the incremental passes, where exactly one of the two things
+ * that reach them wants it:
+ *
+ *   - An element being coloured for the FIRST time (a node that arrived after
+ *     the initial walk) gets the class. Without it, dark mode *animates* onto
+ *     the element and it fades from its light colour to its dark one in full
+ *     view. On a hard reload, with nothing in cache, far more of the page
+ *     arrives late and is coloured here rather than by the walk the FOUC guard
+ *     hides — which is what made backgrounds visibly wash from white to dark.
+ *
+ *   - An element being RE-READ because its class list changed (an accordion
+ *     opening, a dropdown, a hover state) must NOT get it, so the animation
+ *     that triggered the pass still eases. Applying it here was what made those
+ *     snap to their end state.
+ *
+ * The class is applied around the read and released on the next frame rather
+ * than synchronously (see darkify_release_no_transition in client_main.js): a
+ * same-task removal means the browser only ever computes the finished state —
+ * new colour with transitions live — and eases into it, which is the very thing
+ * being prevented.
+ *
+ * `transition-property` is not inherited, so this cancels the element's own
+ * transitions and nothing below it. It is also a reasonable thing to put on an
+ * element by hand.
+ */
+.darkify_no_transition:not(
+    .darkify_switch,
+    .darkify_switch *,
+    .darkify_ignore,
+    .darkify_ignore *
+  ) {
+  transition-property: none !important;
+}

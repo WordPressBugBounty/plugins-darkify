@@ -1,0 +1,3266 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Darkify\n"
+"Report-Msgid-Bugs-To: https://themeatelier.net/\n"
+"PO-Revision-Date: 2026-08-10 12:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Language-Team: Polish\n"
+"Last-Translator: ThemeAtelier <info@themeatelier.net>\n"
+"X-Generator: bin/i18n.js\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+
+#. Plugin Name of the plugin
+#: src/Admin/elementor/widgets/elementor-widget.php:81
+#: src/Admin/ReviewNotice/ReviewNotice.php:70
+#: src/Admin/ReviewNotice/ReviewNotice.php:71
+#: src/Admin/Views/DarkifyOptions.php:29
+#: src/Admin/Views/DarkifyOptions.php:33
+#: darkify-react/src/components/layout/AppHeader.jsx:521
+#: darkify-react/src/components/layout/AppSidebar.jsx:311
+msgid "Darkify"
+msgstr "Darkify"
+
+#. Plugin URI of the plugin
+msgid "https://darkifywp.com/"
+msgstr "https://darkifywp.com/"
+
+#. Description of the plugin
+msgid "Darkify is for a stylish, modern darkmode look that people love."
+msgstr "Darkify zapewnia stylowy, nowoczesny tryb ciemny, który użytkownicy pokochają."
+
+#. Author of the plugin
+msgid "ThemeAtelier"
+msgstr "ThemeAtelier"
+
+#. Author URI of the plugin
+msgid "https://themeatelier.net/"
+msgstr "https://themeatelier.net/"
+
+#. translators: 1: start strong tag, 2: close strong tag. 3: start link 4: close link
+#: src/Admin/Admin.php:319
+msgid "<i>Enjoying %1$sDarkify?%2$s Please rate us %3$sWordPress.org%4$s. Your positive feedback will help us grow more. Thank you! 😊</i>"
+msgstr "<i>Podoba Ci się %1$sDarkify?%2$s Oceń nas na %3$sWordPress.org%4$s. Twoja pozytywna opinia pomoże nam się rozwijać. Dziękujemy! 😊</i>"
+
+#: src/Admin/Admin.php:331
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: src/Admin/Admin.php:332
+#: darkify-react/src/components/layout/AppHeader.jsx:567
+#: darkify-react/src/components/layout/AppHeader.jsx:595
+msgid "Support"
+msgstr "Wsparcie"
+
+#: src/Admin/Admin.php:335
+msgid "Go Pro!"
+msgstr "Przejdź na Pro!"
+
+#: src/Admin/Admin.php:354
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3456
+msgid "Live Demo"
+msgstr "Demo na żywo"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:41
+msgid "Dark Mode Switcher"
+msgstr "Przełącznik trybu ciemnego"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:89
+#: src/Admin/Views/SwitcherStyle.php:1030
+#: src/Admin/blocks/src/edit.js:97
+msgid "Switch Style"
+msgstr "Styl przełącznika"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:98
+msgid "Select the Dark Mode Switch Style"
+msgstr "Wybierz styl przełącznika trybu ciemnego"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:108
+#: src/Admin/Views/SwitcherStyle.php:175
+#: src/Admin/Views/SwitcherStyle.php:664
+#: src/Admin/Views/SwitcherStyle.php:1130
+#: src/Admin/blocks/src/edit.js:105
+msgid "Switch Size"
+msgstr "Rozmiar przełącznika"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:111
+#: src/Admin/Views/SwitcherStyle.php:178
+#: src/Admin/Views/SwitcherStyle.php:667
+#: src/Admin/Views/SwitcherStyle.php:1132
+msgid "XS"
+msgstr "XS"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:112
+#: src/Admin/Views/SwitcherStyle.php:179
+#: src/Admin/Views/SwitcherStyle.php:668
+#: src/Admin/Views/SwitcherStyle.php:1133
+msgid "S"
+msgstr "S"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:113
+#: src/Admin/Views/SwitcherStyle.php:180
+#: src/Admin/Views/SwitcherStyle.php:669
+#: src/Admin/Views/SwitcherStyle.php:1134
+msgid "M"
+msgstr "M"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:114
+#: src/Admin/Views/SwitcherStyle.php:181
+#: src/Admin/Views/SwitcherStyle.php:670
+#: src/Admin/Views/SwitcherStyle.php:1135
+msgid "L"
+msgstr "L"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:115
+#: src/Admin/Views/SwitcherStyle.php:182
+#: src/Admin/Views/SwitcherStyle.php:671
+#: src/Admin/Views/SwitcherStyle.php:1136
+msgid "XL"
+msgstr "XL"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:116
+#: src/Admin/Views/SwitcherStyle.php:183
+#: src/Admin/Views/SwitcherStyle.php:672
+#: src/Admin/Views/SwitcherStyle.php:1137
+msgid "XXL"
+msgstr "XXL"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:117
+#: src/Admin/Views/SwitcherStyle.php:184
+#: src/Admin/Views/SwitcherStyle.php:673
+#: src/Admin/Views/SwitcherStyle.php:1138
+msgid "Custom"
+msgstr "Własny"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:125
+#: src/Admin/Views/SwitcherStyle.php:191
+#: src/Admin/Views/SwitcherStyle.php:681
+#: src/Admin/Views/SwitcherStyle.php:1145
+msgid "Custom Switch Size"
+msgstr "Własny rozmiar przełącznika"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:142
+#: src/Admin/Views/SwitcherStyle.php:201
+#: src/Admin/Views/SwitcherStyle.php:691
+#: src/Admin/Views/SwitcherStyle.php:1155
+msgid "Switch Background"
+msgstr "Tło przełącznika"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:149
+#: src/Admin/elementor/widgets/elementor-widget.php:184
+#: src/Admin/Views/SwitcherStyle.php:206
+#: src/Admin/Views/SwitcherStyle.php:223
+#: src/Admin/Views/SwitcherStyle.php:696
+#: src/Admin/Views/SwitcherStyle.php:714
+#: src/Admin/Views/SwitcherStyle.php:1157
+#: src/Admin/Views/SwitcherStyle.php:1170
+#: src/Admin/Views/SwitcherStyle.php:1184
+msgid "Light Mode"
+msgstr "Tryb jasny"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:160
+#: src/Admin/elementor/widgets/elementor-widget.php:199
+#: src/Admin/Views/SwitcherStyle.php:207
+#: src/Admin/Views/SwitcherStyle.php:224
+#: src/Admin/Views/SwitcherStyle.php:697
+#: src/Admin/Views/SwitcherStyle.php:715
+#: src/Admin/Views/SwitcherStyle.php:1158
+#: src/Admin/Views/SwitcherStyle.php:1171
+#: src/Admin/Views/SwitcherStyle.php:1185
+msgid "Dark Mode"
+msgstr "Tryb ciemny"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:174
+#: src/Admin/Views/SwitcherStyle.php:217
+#: src/Admin/Views/SwitcherStyle.php:708
+#: src/Admin/Views/SwitcherStyle.php:1168
+msgid "Switch Icon Color"
+msgstr "Kolor ikony przełącznika"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:217
+#: src/Admin/Views/SwitcherStyle.php:234
+#: src/Admin/Views/SwitcherStyle.php:726
+#: src/Admin/Views/SwitcherStyle.php:1196
+msgid "Switch Border"
+msgstr "Obramowanie przełącznika"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:225
+msgid "Width"
+msgstr "Szerokość"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:245
+msgid "Light Color"
+msgstr "Kolor jasny"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:256
+msgid "Dark Color"
+msgstr "Kolor ciemny"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:268
+msgid "Radius"
+msgstr "Zaokrąglenie"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:288
+msgid "Alignment"
+msgstr "Wyrównanie"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:292
+#: src/Admin/Views/SwitcherStyle.php:424
+msgid "Left"
+msgstr "Do lewej"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:296
+msgid "Center"
+msgstr "Do środka"
+
+#: src/Admin/elementor/widgets/elementor-widget.php:300
+#: src/Admin/Views/SwitcherStyle.php:425
+msgid "Right"
+msgstr "Do prawej"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:70
+msgid "Enjoying"
+msgstr "Podoba Ci się"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:71
+msgid "We hope you had a wonderful experience using"
+msgstr "Mamy nadzieję, że korzystanie z wtyczki było dla Ciebie przyjemnością:"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:71
+msgid "Please take a moment to leave a review on"
+msgstr "Poświęć chwilę i zostaw opinię na"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:71
+msgid "WordPress.org"
+msgstr "WordPress.org"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:72
+msgid "Your positive review will help us improve. Thank you!"
+msgstr "Twoja pozytywna opinia pomoże nam się rozwijać. Dziękujemy!"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:75
+msgid "Ok, you deserve"
+msgstr "Jasne, zasługujesz na to"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:76
+msgid "Nope, maybe later"
+msgstr "Nie, może później"
+
+#: src/Admin/ReviewNotice/ReviewNotice.php:78
+msgid "Never show again"
+msgstr "Nie pokazuj ponownie"
+
+#: src/Admin/Views/AdvancedSettings.php:29
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3942
+#: darkify-react/src/pages/Help.jsx:82
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+#: src/Admin/Views/AdvancedSettings.php:36
+#: src/Admin/Views/AdvancedSettings.php:47
+msgid "HTML/CSS Restriction"
+msgstr "Ograniczenia HTML/CSS"
+
+#: src/Admin/Views/AdvancedSettings.php:42
+msgid "Restrict which HTML elements dark mode applies to, by tag, CSS class, or CSS ID."
+msgstr "Ogranicz, do których elementów HTML stosowany jest tryb ciemny — według znacznika, klasy CSS lub identyfikatora CSS."
+
+#: src/Admin/Views/AdvancedSettings.php:54
+msgid "Allow Only Elements"
+msgstr "Dozwolone tylko elementy"
+
+#: src/Admin/Views/AdvancedSettings.php:57
+msgid "Dark mode will be applied only to these elements."
+msgstr "Tryb ciemny zostanie zastosowany wyłącznie do tych elementów."
+
+#: src/Admin/Views/AdvancedSettings.php:59
+#: src/Admin/Views/AdvancedSettings.php:94
+msgid "Enter comma-separated HTML tags, CSS classes, or CSS IDs. Example: div, #site-header, .my-footer"
+msgstr "Wpisz znaczniki HTML, klasy CSS lub identyfikatory CSS oddzielone przecinkami. Przykład: div, #site-header, .my-footer"
+
+#: src/Admin/Views/AdvancedSettings.php:71
+msgid "Force Design Correction"
+msgstr "Wymuś korektę wyglądu"
+
+#: src/Admin/Views/AdvancedSettings.php:74
+msgid "Force Darkify to preserve layout and readability when background or text colors are modified on allowed elements."
+msgstr "Wymuś na Darkify zachowanie układu i czytelności, gdy kolory tła lub tekstu są zmieniane w dozwolonych elementach."
+
+#: src/Admin/Views/AdvancedSettings.php:78
+#: src/Admin/Views/AdvancedSettings.php:110
+#: src/Admin/Views/AdvancedSettings.php:253
+#: src/Admin/Views/SwitcherStyle.php:483
+#: src/Admin/Views/SwitcherStyle.php:502
+#: src/Admin/Views/SwitcherStyle.php:539
+#: src/Admin/Views/SwitcherStyle.php:785
+#: src/Admin/Views/SwitcherStyle.php:896
+#: src/Admin/Views/SwitcherStyle.php:1006
+msgid "Yes"
+msgstr "Tak"
+
+#: src/Admin/Views/AdvancedSettings.php:79
+#: src/Admin/Views/AdvancedSettings.php:111
+#: src/Admin/Views/AdvancedSettings.php:254
+#: src/Admin/Views/SwitcherStyle.php:484
+#: src/Admin/Views/SwitcherStyle.php:503
+#: src/Admin/Views/SwitcherStyle.php:540
+#: src/Admin/Views/SwitcherStyle.php:786
+#: src/Admin/Views/SwitcherStyle.php:897
+#: src/Admin/Views/SwitcherStyle.php:1007
+msgid "No"
+msgstr "Nie"
+
+#: src/Admin/Views/AdvancedSettings.php:88
+msgid "Disallowed Elements"
+msgstr "Wykluczone elementy"
+
+#: src/Admin/Views/AdvancedSettings.php:91
+msgid "Dark mode will NOT be applied to the elements."
+msgstr "Tryb ciemny NIE zostanie zastosowany do tych elementów."
+
+#: src/Admin/Views/AdvancedSettings.php:104
+msgid "Force To Correct"
+msgstr "Wymuś korektę"
+
+#: src/Admin/Views/AdvancedSettings.php:106
+msgid "Force Darkify to keep the design correct when background or text colors do not work properly for disallowed elements."
+msgstr "Wymuś na Darkify poprawny wygląd, gdy kolory tła lub tekstu nie działają prawidłowo w wykluczonych elementach."
+
+#: src/Admin/Views/AdvancedSettings.php:118
+msgid "Page/Posts Restriction"
+msgstr "Ograniczenia stron i wpisów"
+
+#: src/Admin/Views/AdvancedSettings.php:124
+msgid "Limit where dark mode and the floating switch run, by specific pages or posts."
+msgstr "Ogranicz miejsca działania trybu ciemnego i pływającego przełącznika do wybranych stron lub wpisów."
+
+#: src/Admin/Views/AdvancedSettings.php:128
+msgid "Pages Restriction"
+msgstr "Ograniczenia stron"
+
+#: src/Admin/Views/AdvancedSettings.php:134
+msgid "Allow Only Pages"
+msgstr "Dozwolone tylko strony"
+
+#: src/Admin/Views/AdvancedSettings.php:137
+msgid "Dark mode will be applied only to the selected pages."
+msgstr "Tryb ciemny zostanie zastosowany wyłącznie do wybranych stron."
+
+#: src/Admin/Views/AdvancedSettings.php:139
+msgid "Choose only the pages where dark mode and the floating switch should work. Dark mode will not be applied to any other pages."
+msgstr "Wybierz tylko te strony, na których mają działać tryb ciemny i pływający przełącznik. Na pozostałych stronach tryb ciemny nie zostanie zastosowany."
+
+#: src/Admin/Views/AdvancedSettings.php:141
+#: src/Admin/Views/AdvancedSettings.php:161
+msgid "Select pages"
+msgstr "Wybierz strony"
+
+#: src/Admin/Views/AdvancedSettings.php:152
+#: src/Admin/Views/Control.php:307
+msgid "Disallowed Pages"
+msgstr "Wykluczone strony"
+
+#: src/Admin/Views/AdvancedSettings.php:155
+msgid "Dark mode will not be applied to these pages."
+msgstr "Tryb ciemny nie zostanie zastosowany do tych stron."
+
+#: src/Admin/Views/AdvancedSettings.php:157
+msgid "Choose the pages where dark mode and the floating switch should not work. Dark mode will work on all other pages."
+msgstr "Wybierz strony, na których tryb ciemny i pływający przełącznik nie mają działać. Na wszystkich pozostałych stronach tryb ciemny będzie działać."
+
+#: src/Admin/Views/AdvancedSettings.php:170
+msgid "Posts Restriction"
+msgstr "Ograniczenia wpisów"
+
+#: src/Admin/Views/AdvancedSettings.php:176
+msgid "Allow Only Posts"
+msgstr "Dozwolone tylko wpisy"
+
+#: src/Admin/Views/AdvancedSettings.php:179
+msgid "Dark mode will be applied only to these posts."
+msgstr "Tryb ciemny zostanie zastosowany wyłącznie do tych wpisów."
+
+#: src/Admin/Views/AdvancedSettings.php:181
+msgid "Choose only the posts where dark mode and the floating switch should work. Dark mode will not be applied to any other posts."
+msgstr "Wybierz tylko te wpisy, w których mają działać tryb ciemny i pływający przełącznik. W pozostałych wpisach tryb ciemny nie zostanie zastosowany."
+
+#: src/Admin/Views/AdvancedSettings.php:184
+#: src/Admin/Views/AdvancedSettings.php:200
+msgid "Select posts"
+msgstr "Wybierz wpisy"
+
+#: src/Admin/Views/AdvancedSettings.php:193
+msgid "Disallowed Posts"
+msgstr "Wykluczone wpisy"
+
+#: src/Admin/Views/AdvancedSettings.php:196
+msgid "Dark mode will not be applied to these posts."
+msgstr "Tryb ciemny nie zostanie zastosowany do tych wpisów."
+
+#: src/Admin/Views/AdvancedSettings.php:198
+msgid "Choose the posts where dark mode and the floating switch cannot work. Other posts will be able to process dark mode."
+msgstr "Wybierz wpisy, w których tryb ciemny i pływający przełącznik nie mogą działać. W pozostałych wpisach tryb ciemny będzie obsługiwany."
+
+#: src/Admin/Views/AdvancedSettings.php:210
+#: src/Admin/Views/AdvancedSettings.php:221
+msgid "Custom CSS"
+msgstr "Własny CSS"
+
+#: src/Admin/Views/AdvancedSettings.php:216
+msgid "Add your own CSS for dark mode, and CSS that applies in both modes."
+msgstr "Dodaj własny kod CSS dla trybu ciemnego oraz CSS stosowany w obu trybach."
+
+#: src/Admin/Views/AdvancedSettings.php:227
+msgid "Dark Mode CSS"
+msgstr "CSS trybu ciemnego"
+
+#: src/Admin/Views/AdvancedSettings.php:230
+msgid "The CSS code will only be applied when dark mode is active."
+msgstr "Kod CSS zostanie zastosowany tylko wtedy, gdy tryb ciemny jest aktywny."
+
+#: src/Admin/Views/AdvancedSettings.php:241
+msgid "CSS Rules"
+msgstr "Reguły CSS"
+
+#: src/Admin/Views/AdvancedSettings.php:245
+msgid "CSS rules will be applied to all child elements of the specified CSS selectors."
+msgstr "Reguły CSS zostaną zastosowane do wszystkich elementów podrzędnych wskazanych selektorów CSS."
+
+#: src/Admin/Views/AdvancedSettings.php:248
+msgid "Custom CSS selectors are automatically treated as Disallowed Elements. To override this behavior, use the :not-disallowed pseudo-class. Example: body:not-disallowed { ... }"
+msgstr "Własne selektory CSS są automatycznie traktowane jako wykluczone elementy. Aby to zmienić, użyj pseudoklasy :not-disallowed. Przykład: body:not-disallowed { ... }"
+
+#: src/Admin/Views/AdvancedSettings.php:261
+msgid "Normal Mode CSS"
+msgstr "CSS trybu normalnego"
+
+#: src/Admin/Views/AdvancedSettings.php:264
+msgid "The CSS code will be applied in both normal mode and dark mode."
+msgstr "Kod CSS zostanie zastosowany zarówno w trybie normalnym, jak i ciemnym."
+
+#: src/Admin/Views/AdvancedSettings.php:282
+#: src/Admin/Views/AdvancedSettings.php:293
+msgid "Extras"
+msgstr "Dodatki"
+
+#: src/Admin/Views/AdvancedSettings.php:288
+msgid "Extra behaviors that don’t fit elsewhere."
+msgstr "Dodatkowe zachowania, które nie pasują do pozostałych sekcji."
+
+#: src/Admin/Views/AdvancedSettings.php:299
+msgid "Frontend Iframe Dark Mode"
+msgstr "Tryb ciemny dla ramek iframe na stronie"
+
+#: src/Admin/Views/AdvancedSettings.php:302
+msgid "Apply dark mode to iframes when dark mode is active. Same-origin iframes receive full dark mode styling; cross-origin iframes (embedded third-party widgets) are dimmed to 60% brightness. Disable to keep all iframes at their original appearance."
+msgstr "Stosuj tryb ciemny do ramek iframe, gdy tryb ciemny jest aktywny. Ramki z tej samej domeny otrzymują pełne stylowanie trybu ciemnego; ramki z innych domen (osadzone widżety zewnętrzne) są przyciemniane do 60% jasności. Wyłącz, aby zachować pierwotny wygląd wszystkich ramek."
+
+#: src/Admin/Views/AdvancedSettings.php:306
+#: src/Admin/Views/ColorControl.php:912
+#: src/Admin/Views/Control.php:65
+#: src/Admin/Views/Control.php:82
+#: src/Admin/Views/Control.php:99
+#: src/Admin/Views/Control.php:130
+#: src/Admin/Views/Control.php:159
+#: src/Admin/Views/Control.php:257
+#: src/Admin/Views/Control.php:275
+#: src/Admin/Views/Control.php:290
+#: src/Admin/Views/Media.php:68
+#: src/Admin/Views/Media.php:128
+#: src/Admin/Views/Media.php:187
+#: src/Admin/Views/Media.php:220
+#: src/Admin/Views/Media.php:238
+#: src/Admin/Views/Media.php:340
+#: src/Admin/Views/Media.php:384
+#: src/Admin/Views/SwitcherStyle.php:346
+#: src/Admin/Views/SwitcherStyle.php:355
+#: src/Admin/Views/SwitcherStyle.php:373
+#: src/Admin/Views/SwitcherStyle.php:408
+#: src/Admin/Views/SwitcherStyle.php:754
+#: src/Admin/Views/Tools.php:53
+msgid "Enabled"
+msgstr "Włączone"
+
+#: src/Admin/Views/AdvancedSettings.php:307
+#: src/Admin/Views/ColorControl.php:913
+#: src/Admin/Views/Control.php:66
+#: src/Admin/Views/Control.php:83
+#: src/Admin/Views/Control.php:100
+#: src/Admin/Views/Control.php:131
+#: src/Admin/Views/Control.php:160
+#: src/Admin/Views/Control.php:258
+#: src/Admin/Views/Control.php:276
+#: src/Admin/Views/Control.php:291
+#: src/Admin/Views/Media.php:69
+#: src/Admin/Views/Media.php:129
+#: src/Admin/Views/Media.php:188
+#: src/Admin/Views/Media.php:221
+#: src/Admin/Views/Media.php:239
+#: src/Admin/Views/Media.php:341
+#: src/Admin/Views/Media.php:385
+#: src/Admin/Views/SwitcherStyle.php:347
+#: src/Admin/Views/SwitcherStyle.php:356
+#: src/Admin/Views/SwitcherStyle.php:374
+#: src/Admin/Views/SwitcherStyle.php:409
+#: src/Admin/Views/SwitcherStyle.php:755
+#: src/Admin/Views/Tools.php:54
+msgid "Disabled"
+msgstr "Wyłączone"
+
+#: src/Admin/Views/ColorControl.php:31
+#: darkify-react/src/pages/Help.jsx:70
+msgid "Colors"
+msgstr "Kolory"
+
+#: src/Admin/Views/ColorControl.php:39
+msgid "Preset"
+msgstr "Zestaw"
+
+#: src/Admin/Views/ColorControl.php:45
+msgid "Pick a dark-mode color preset, then fine-tune any individual color for your site."
+msgstr "Wybierz zestaw kolorów trybu ciemnego, a następnie dostosuj dowolny kolor do swojej witryny."
+
+#: src/Admin/Views/ColorControl.php:50
+msgid "Choose A Preset"
+msgstr "Wybierz zestaw"
+
+#: src/Admin/Views/ColorControl.php:60
+msgid "Choose from pre-made dark-mode color presets."
+msgstr "Wybierz spośród gotowych zestawów kolorów trybu ciemnego."
+
+#: src/Admin/Views/ColorControl.php:65
+msgid "Carbon Mist"
+msgstr "Carbon Mist"
+
+#: src/Admin/Views/ColorControl.php:69
+msgid "Midnight Reverie"
+msgstr "Midnight Reverie"
+
+#: src/Admin/Views/ColorControl.php:73
+msgid "Verdant Depths"
+msgstr "Verdant Depths"
+
+#: src/Admin/Views/ColorControl.php:77
+msgid "Celestial Tide"
+msgstr "Celestial Tide"
+
+#: src/Admin/Views/ColorControl.php:81
+msgid "Emberwood"
+msgstr "Emberwood"
+
+#: src/Admin/Views/ColorControl.php:85
+msgid "Glacier Drift"
+msgstr "Glacier Drift"
+
+#: src/Admin/Views/ColorControl.php:90
+msgid "Indigo Veil"
+msgstr "Indigo Veil"
+
+#: src/Admin/Views/ColorControl.php:95
+msgid "Duskmire"
+msgstr "Duskmire"
+
+#: src/Admin/Views/ColorControl.php:100
+msgid "Tidal Frost"
+msgstr "Tidal Frost"
+
+#: src/Admin/Views/ColorControl.php:105
+msgid "Blue Bastion"
+msgstr "Blue Bastion"
+
+#: src/Admin/Views/ColorControl.php:110
+msgid "Crimson Veil"
+msgstr "Crimson Veil"
+
+#: src/Admin/Views/ColorControl.php:118
+msgid "Customize Selected Preset"
+msgstr "Dostosuj wybrany zestaw"
+
+#: src/Admin/Views/ColorControl.php:126
+#: src/Admin/Views/ColorControl.php:211
+#: src/Admin/Views/ColorControl.php:229
+#: src/Admin/Views/ColorControl.php:315
+#: src/Admin/Views/ColorControl.php:333
+#: src/Admin/Views/ColorControl.php:419
+#: src/Admin/Views/ColorControl.php:438
+#: src/Admin/Views/ColorControl.php:525
+#: src/Admin/Views/ColorControl.php:542
+#: src/Admin/Views/ColorControl.php:648
+#: src/Admin/Views/ColorControl.php:737
+#: src/Admin/Views/SwitcherStyle.php:455
+msgid "Background"
+msgstr "Tło"
+
+#: src/Admin/Views/ColorControl.php:129
+msgid "Set the background colors used when dark mode is enabled on your website."
+msgstr "Ustaw kolory tła używane, gdy w witrynie włączony jest tryb ciemny."
+
+#: src/Admin/Views/ColorControl.php:132
+#: src/Admin/Views/ColorControl.php:236
+#: src/Admin/Views/ColorControl.php:339
+#: src/Admin/Views/ColorControl.php:447
+#: src/Admin/Views/ColorControl.php:548
+msgid "Primary"
+msgstr "Podstawowy"
+
+#: src/Admin/Views/ColorControl.php:133
+#: src/Admin/Views/ColorControl.php:237
+#: src/Admin/Views/ColorControl.php:340
+#: src/Admin/Views/ColorControl.php:448
+#: src/Admin/Views/ColorControl.php:549
+msgid "Secondary"
+msgstr "Dodatkowy"
+
+#: src/Admin/Views/ColorControl.php:145
+#: src/Admin/Views/ColorControl.php:249
+#: src/Admin/Views/ColorControl.php:352
+#: src/Admin/Views/ColorControl.php:459
+#: src/Admin/Views/ColorControl.php:561
+#: src/Admin/Views/ColorControl.php:668
+msgid "Text"
+msgstr "Tekst"
+
+#: src/Admin/Views/ColorControl.php:148
+#: src/Admin/Views/ColorControl.php:355
+#: src/Admin/Views/ColorControl.php:564
+#: src/Admin/Views/ColorControl.php:671
+msgid "Set the text color of your website when dark mode is enabled."
+msgstr "Ustaw kolor tekstu witryny, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:154
+#: src/Admin/Views/ColorControl.php:210
+#: src/Admin/Views/ColorControl.php:256
+#: src/Admin/Views/ColorControl.php:314
+#: src/Admin/Views/ColorControl.php:358
+#: src/Admin/Views/ColorControl.php:418
+#: src/Admin/Views/ColorControl.php:465
+#: src/Admin/Views/ColorControl.php:524
+#: src/Admin/Views/ColorControl.php:567
+#: src/Admin/Views/ColorControl.php:674
+#: src/Admin/Views/ColorControl.php:736
+msgid "Text Color"
+msgstr "Kolor tekstu"
+
+#: src/Admin/Views/ColorControl.php:155
+#: src/Admin/Views/ColorControl.php:257
+#: src/Admin/Views/ColorControl.php:359
+#: src/Admin/Views/ColorControl.php:466
+#: src/Admin/Views/ColorControl.php:568
+#: src/Admin/Views/ColorControl.php:675
+msgid "Link Color"
+msgstr "Kolor odnośnika"
+
+#: src/Admin/Views/ColorControl.php:156
+#: src/Admin/Views/ColorControl.php:258
+#: src/Admin/Views/ColorControl.php:360
+#: src/Admin/Views/ColorControl.php:467
+#: src/Admin/Views/ColorControl.php:569
+#: src/Admin/Views/ColorControl.php:676
+msgid "Link Hover Color"
+msgstr "Kolor odnośnika po najechaniu"
+
+#: src/Admin/Views/ColorControl.php:167
+#: src/Admin/Views/ColorControl.php:272
+#: src/Admin/Views/ColorControl.php:375
+#: src/Admin/Views/ColorControl.php:482
+#: src/Admin/Views/ColorControl.php:584
+#: src/Admin/Views/ColorControl.php:692
+msgid "Input"
+msgstr "Pole formularza"
+
+#: src/Admin/Views/ColorControl.php:170
+#: src/Admin/Views/ColorControl.php:485
+#: src/Admin/Views/ColorControl.php:587
+#: src/Admin/Views/ColorControl.php:695
+msgid "Set the input field colors of your website when dark mode is enabled."
+msgstr "Ustaw kolory pól formularza w witrynie, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:176
+#: src/Admin/Views/ColorControl.php:279
+#: src/Admin/Views/ColorControl.php:382
+#: src/Admin/Views/ColorControl.php:489
+#: src/Admin/Views/ColorControl.php:591
+#: src/Admin/Views/ColorControl.php:698
+msgid "Input Text"
+msgstr "Tekst pola"
+
+#: src/Admin/Views/ColorControl.php:177
+#: src/Admin/Views/ColorControl.php:280
+#: src/Admin/Views/ColorControl.php:383
+#: src/Admin/Views/ColorControl.php:490
+#: src/Admin/Views/ColorControl.php:592
+#: src/Admin/Views/ColorControl.php:699
+msgid "Input Placeholder"
+msgstr "Tekst zastępczy pola"
+
+#: src/Admin/Views/ColorControl.php:178
+#: src/Admin/Views/ColorControl.php:281
+#: src/Admin/Views/ColorControl.php:384
+#: src/Admin/Views/ColorControl.php:491
+#: src/Admin/Views/ColorControl.php:593
+#: src/Admin/Views/ColorControl.php:700
+msgid "Input Background"
+msgstr "Tło pola"
+
+#: src/Admin/Views/ColorControl.php:190
+#: src/Admin/Views/ColorControl.php:295
+#: src/Admin/Views/ColorControl.php:399
+#: src/Admin/Views/ColorControl.php:506
+#: src/Admin/Views/ColorControl.php:609
+#: src/Admin/Views/ColorControl.php:716
+msgid "Border"
+msgstr "Obramowanie"
+
+#: src/Admin/Views/ColorControl.php:193
+#: src/Admin/Views/ColorControl.php:298
+#: src/Admin/Views/ColorControl.php:402
+#: src/Admin/Views/ColorControl.php:509
+#: src/Admin/Views/ColorControl.php:612
+#: src/Admin/Views/ColorControl.php:719
+msgid "Set the border color of your website when dark mode is enabled."
+msgstr "Ustaw kolor obramowań w witrynie, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:203
+#: src/Admin/Views/ColorControl.php:308
+#: src/Admin/Views/ColorControl.php:412
+#: src/Admin/Views/ColorControl.php:519
+#: src/Admin/Views/ColorControl.php:622
+#: src/Admin/Views/ColorControl.php:623
+#: src/Admin/Views/ColorControl.php:729
+msgid "Button"
+msgstr "Przycisk"
+
+#: src/Admin/Views/ColorControl.php:206
+#: src/Admin/Views/ColorControl.php:311
+#: src/Admin/Views/ColorControl.php:415
+#: src/Admin/Views/ColorControl.php:521
+#: src/Admin/Views/ColorControl.php:732
+msgid "Set the button colors of your website when dark mode is enabled."
+msgstr "Ustaw kolory przycisków w witrynie, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:212
+#: src/Admin/Views/ColorControl.php:316
+#: src/Admin/Views/ColorControl.php:420
+#: src/Admin/Views/ColorControl.php:526
+#: src/Admin/Views/ColorControl.php:738
+msgid "Hover Text Color"
+msgstr "Kolor tekstu po najechaniu"
+
+#: src/Admin/Views/ColorControl.php:213
+#: src/Admin/Views/ColorControl.php:317
+#: src/Admin/Views/ColorControl.php:421
+#: src/Admin/Views/ColorControl.php:527
+#: src/Admin/Views/ColorControl.php:632
+#: src/Admin/Views/ColorControl.php:739
+msgid "Hover Background"
+msgstr "Tło po najechaniu"
+
+#: src/Admin/Views/ColorControl.php:232
+#: src/Admin/Views/ColorControl.php:336
+#: src/Admin/Views/ColorControl.php:441
+#: src/Admin/Views/ColorControl.php:545
+#: src/Admin/Views/ColorControl.php:651
+msgid "Set the background color of your website when dark mode is enabled."
+msgstr "Ustaw kolor tła witryny, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:252
+#: src/Admin/Views/ColorControl.php:462
+msgid "Set the text and link colors of your website when dark mode is enabled."
+msgstr "Ustaw kolory tekstu i odnośników w witrynie, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:275
+#: src/Admin/Views/ColorControl.php:378
+msgid "Set the input field color of your website when dark mode is enabled."
+msgstr "Ustaw kolor pól formularza w witrynie, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:626
+msgid "Set the color of buttons on your website when dark mode is enabled."
+msgstr "Ustaw kolor przycisków w witrynie, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:629
+msgid "Button Text"
+msgstr "Tekst przycisku"
+
+#: src/Admin/Views/ColorControl.php:630
+msgid "Button Background"
+msgstr "Tło przycisku"
+
+#: src/Admin/Views/ColorControl.php:631
+msgid "Hover Text"
+msgstr "Tekst po najechaniu"
+
+#: src/Admin/Views/ColorControl.php:654
+msgid "Primary BG"
+msgstr "Tło podstawowe"
+
+#: src/Admin/Views/ColorControl.php:655
+msgid "Secondary BG"
+msgstr "Tło dodatkowe"
+
+#: src/Admin/Views/ColorControl.php:756
+msgid "Fine-Tuning"
+msgstr "Dostrajanie"
+
+#: src/Admin/Views/ColorControl.php:762
+msgid "Control how gradients, brand colors and shadows are treated in dark mode, and pin individual colors to a dark-mode replacement."
+msgstr "Określ, jak w trybie ciemnym traktowane są gradienty, kolory marki i cienie, oraz przypisz pojedynczym kolorom zamienniki dla trybu ciemnego."
+
+#: src/Admin/Views/ColorControl.php:768
+msgid "Gradients"
+msgstr "Gradienty"
+
+#: src/Admin/Views/ColorControl.php:774
+msgid "Gradient Backgrounds"
+msgstr "Tła gradientowe"
+
+#: src/Admin/Views/ColorControl.php:777
+msgid "A gradient lives in a different CSS property than a solid color, so it is not covered by the dark-mode color set. Recoloring runs every color stop through the same dark ramp a solid background gets, which is what keeps a gradient section and a solid section next to it looking like one design."
+msgstr "Gradient jest zapisany w innej właściwości CSS niż kolor jednolity, więc nie obejmuje go zestaw kolorów trybu ciemnego. Przeliczanie kolorów przepuszcza każdy punkt gradientu przez tę samą ciemną skalę co jednolite tło — dzięki temu sekcja z gradientem i sąsiadująca sekcja jednolita wyglądają jak jedna spójna całość."
+
+#: src/Admin/Views/ColorControl.php:781
+msgid "Recolor gradient stops (recommended)"
+msgstr "Przelicz kolory punktów gradientu (zalecane)"
+
+#: src/Admin/Views/ColorControl.php:782
+msgid "Replace gradient with a flat dark background"
+msgstr "Zastąp gradient jednolitym ciemnym tłem"
+
+#: src/Admin/Views/ColorControl.php:783
+msgid "Leave gradients untouched"
+msgstr "Pozostaw gradienty bez zmian"
+
+#: src/Admin/Views/ColorControl.php:791
+msgid "Shadows"
+msgstr "Cienie"
+
+#: src/Admin/Views/ColorControl.php:797
+msgid "Box & Text Shadows"
+msgstr "Cienie bloków i tekstu"
+
+#: src/Admin/Views/ColorControl.php:800
+msgid "A colored shadow designed for a light page stays lit on a dark one and cancels out the dimming. Neutralizing keeps the shadow geometry — so cards keep their depth — but drops the color."
+msgstr "Kolorowy cień zaprojektowany dla jasnej strony pozostaje rozświetlony na ciemnej i niweczy efekt przyciemnienia. Neutralizacja zachowuje geometrię cienia — karty nie tracą głębi — ale usuwa kolor."
+
+#: src/Admin/Views/ColorControl.php:804
+msgid "Neutralize color, keep depth (recommended)"
+msgstr "Zneutralizuj kolor, zachowaj głębię (zalecane)"
+
+#: src/Admin/Views/ColorControl.php:805
+msgid "Use the color overrides below, then neutralize"
+msgstr "Użyj poniższych nadpisań kolorów, a następnie zneutralizuj kolor"
+
+#: src/Admin/Views/ColorControl.php:806
+msgid "Remove shadows entirely"
+msgstr "Usuń cienie całkowicie"
+
+#: src/Admin/Views/ColorControl.php:807
+msgid "Leave shadows untouched"
+msgstr "Pozostaw cienie bez zmian"
+
+#: src/Admin/Views/ColorControl.php:815
+msgid "Brand Colors"
+msgstr "Kolory marki"
+
+#: src/Admin/Views/ColorControl.php:821
+msgid "Accent & Icon Colors"
+msgstr "Kolory akcentów i ikon"
+
+#: src/Admin/Views/ColorControl.php:824
+msgid "Controls brand colors only — accents, icons, buttons, colored panels. Adaptive keeps each color's hue while matching its depth to the preset above, so an intense accent stays on-brand without glowing. This is not an inversion: a blue icon stays blue. Plain light and grey backgrounds always follow your preset either way."
+msgstr "Dotyczy wyłącznie kolorów marki — akcentów, ikon, przycisków, kolorowych paneli. Tryb adaptacyjny zachowuje odcień każdego koloru, dopasowując jego głębię do powyższego zestawu, dzięki czemu intensywny akcent pozostaje zgodny z marką i nie razi jaskrawością. To nie jest inwersja: niebieska ikona pozostaje niebieska. Zwykłe jasne i szare tła w obu przypadkach zawsze podążają za wybranym zestawem."
+
+#: src/Admin/Views/ColorControl.php:828
+msgid "Keep brand hues, matched to your preset (recommended)"
+msgstr "Zachowaj odcienie marki dopasowane do zestawu (zalecane)"
+
+#: src/Admin/Views/ColorControl.php:829
+msgid "Replace brand colors with the preset colors"
+msgstr "Zastąp kolory marki kolorami zestawu"
+
+#: src/Admin/Views/ColorControl.php:837
+msgid "Color Overrides"
+msgstr "Nadpisania kolorów"
+
+#: src/Admin/Views/ColorControl.php:844
+msgid "Replace Individual Colors"
+msgstr "Zamień pojedyncze kolory"
+
+#: src/Admin/Views/ColorControl.php:847
+msgid "Pin one light-mode color to an exact dark-mode color. Overrides are matched against the color the element actually renders with, and they apply whatever the settings above are set to — so a handful of colors can be pinned without switching the whole site to adaptive."
+msgstr "Przypisz konkretnemu kolorowi trybu jasnego dokładny kolor trybu ciemnego. Nadpisania są dopasowywane do koloru, którym element faktycznie się renderuje, i działają niezależnie od powyższych ustawień — dzięki temu można przypiąć kilka kolorów bez przełączania całej witryny w tryb adaptacyjny."
+
+#: src/Admin/Views/ColorControl.php:854
+msgid "Light Mode Color"
+msgstr "Kolor trybu jasnego"
+
+#: src/Admin/Views/ColorControl.php:859
+msgid "Dark Mode Color"
+msgstr "Kolor trybu ciemnego"
+
+#: src/Admin/Views/ColorControl.php:864
+msgid "Apply To"
+msgstr "Zastosuj do"
+
+#: src/Admin/Views/ColorControl.php:866
+msgid "Everywhere"
+msgstr "Wszędzie"
+
+#: src/Admin/Views/ColorControl.php:867
+msgid "Text only"
+msgstr "Tylko tekst"
+
+#: src/Admin/Views/ColorControl.php:868
+msgid "Icons only"
+msgstr "Tylko ikony"
+
+#: src/Admin/Views/ColorControl.php:869
+msgid "Backgrounds only"
+msgstr "Tylko tła"
+
+#: src/Admin/Views/ColorControl.php:870
+msgid "Borders only"
+msgstr "Tylko obramowania"
+
+#: src/Admin/Views/ColorControl.php:871
+msgid "Shadows only"
+msgstr "Tylko cienie"
+
+#: src/Admin/Views/ColorControl.php:889
+msgid "Scroll Bar"
+msgstr "Pasek przewijania"
+
+#: src/Admin/Views/ColorControl.php:895
+msgid "Style the browser scrollbar to match dark mode."
+msgstr "Dostosuj pasek przewijania przeglądarki do trybu ciemnego."
+
+#: src/Admin/Views/ColorControl.php:900
+msgid "Scrollbar"
+msgstr "Pasek przewijania"
+
+#: src/Admin/Views/ColorControl.php:906
+msgid "Enable Dark Mode on Scrollbar"
+msgstr "Włącz tryb ciemny na pasku przewijania"
+
+#: src/Admin/Views/ColorControl.php:909
+msgid "Enable dark mode styling for the website scrollbar."
+msgstr "Włącz stylowanie paska przewijania witryny w trybie ciemnym."
+
+#: src/Admin/Views/ColorControl.php:921
+msgid "Scrollbar Color"
+msgstr "Kolor paska przewijania"
+
+#: src/Admin/Views/ColorControl.php:924
+msgid "Set the track and thumb background colors of the scrollbar when dark mode is enabled."
+msgstr "Ustaw kolory tła toru i suwaka paska przewijania, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/ColorControl.php:928
+msgid "Track Background"
+msgstr "Tło toru"
+
+#: src/Admin/Views/ColorControl.php:929
+msgid "Thumb Background"
+msgstr "Tło suwaka"
+
+#: src/Admin/Views/Control.php:31
+#: darkify-react/src/pages/Help.jsx:58
+msgid "Controls"
+msgstr "Sterowanie"
+
+#: src/Admin/Views/Control.php:39
+msgid "Frontend"
+msgstr "Witryna"
+
+#. translators: %s: documentation link
+#: src/Admin/Views/Control.php:47
+msgid "Decide how and when dark mode turns on for visitors on your public website. %s"
+msgstr "Zdecyduj, jak i kiedy tryb ciemny włącza się dla odwiedzających Twoją witrynę. %s"
+
+#: src/Admin/Views/Control.php:48
+#: src/Admin/Views/Control.php:238
+msgid "View documentation"
+msgstr "Zobacz dokumentację"
+
+#: src/Admin/Views/Control.php:55
+msgid "Availability"
+msgstr "Dostępność"
+
+#: src/Admin/Views/Control.php:61
+msgid "Frontend Dark Mode"
+msgstr "Tryb ciemny w witrynie"
+
+#: src/Admin/Views/Control.php:63
+msgid "Show the dark mode floating switch on your website frontend. This is the master control for everything below."
+msgstr "Pokazuj pływający przełącznik trybu ciemnego w witrynie. To główne ustawienie nadrzędne dla wszystkich opcji poniżej."
+
+#: src/Admin/Views/Control.php:75
+msgid "Default Dark Mode"
+msgstr "Tryb ciemny domyślnie"
+
+#: src/Admin/Views/Control.php:78
+msgid "Enable dark mode by default on your website."
+msgstr "Włącz tryb ciemny domyślnie w swojej witrynie."
+
+#: src/Admin/Views/Control.php:92
+msgid "OS Aware Dark Mode"
+msgstr "Tryb ciemny zgodny z systemem"
+
+#: src/Admin/Views/Control.php:95
+msgid "Toggle dark mode based on the user’s device or operating system preference."
+msgstr "Przełączaj tryb ciemny zgodnie z preferencjami urządzenia lub systemu operacyjnego użytkownika."
+
+#: src/Admin/Views/Control.php:110
+msgid "OS Aware takes priority."
+msgstr "Ustawienie systemowe ma pierwszeństwo."
+
+#: src/Admin/Views/Control.php:110
+msgid "Both are on, so visitors following the system “dark” setting get dark mode automatically; Default Dark Mode applies only when no system preference is detected."
+msgstr "Obie opcje są włączone, więc odwiedzający z systemowym ustawieniem „ciemny” otrzymają tryb ciemny automatycznie; opcja „Tryb ciemny domyślnie” zadziała tylko wtedy, gdy nie wykryto preferencji systemowej."
+
+#: src/Admin/Views/Control.php:117
+msgid "Activation"
+msgstr "Aktywacja"
+
+#: src/Admin/Views/Control.php:123
+msgid "Keyboard Shortcut"
+msgstr "Skrót klawiaturowy"
+
+#: src/Admin/Views/Control.php:126
+msgid "Let visitors toggle dark mode with a keyboard shortcut."
+msgstr "Pozwól odwiedzającym przełączać tryb ciemny skrótem klawiaturowym."
+
+#: src/Admin/Views/Control.php:152
+msgid "Time Based Auto Dark Mode"
+msgstr "Automatyczny tryb ciemny według godziny"
+
+#: src/Admin/Views/Control.php:155
+msgid "Automatically enable dark mode based on the user’s local time."
+msgstr "Automatycznie włączaj tryb ciemny na podstawie czasu lokalnego użytkownika."
+
+#: src/Admin/Views/Control.php:168
+msgid "Pick a Time"
+msgstr "Wybierz godziny"
+
+#: src/Admin/Views/Control.php:171
+msgid "Set the exact start and end times when dark mode should be automatically enabled or disabled."
+msgstr "Ustaw dokładne godziny rozpoczęcia i zakończenia automatycznego włączania i wyłączania trybu ciemnego."
+
+#: src/Admin/Views/Control.php:191
+msgid "Fixed times"
+msgstr "Stałe godziny"
+
+#: src/Admin/Views/Control.php:193
+msgid "Sunrise & sunset"
+msgstr "Wschód i zachód słońca"
+
+#: src/Admin/Views/Control.php:201
+#: src/Admin/Views/Control.php:202
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1818
+msgid "From"
+msgstr "Od"
+
+#: src/Admin/Views/Control.php:213
+#: src/Admin/Views/Control.php:214
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1827
+msgid "To"
+msgstr "Do"
+
+#: src/Admin/Views/Control.php:229
+msgid "Admin"
+msgstr "Panel administracyjny"
+
+#. translators: %s: documentation link
+#: src/Admin/Views/Control.php:237
+msgid "Bring dark mode to the WordPress admin dashboard and editors. %s"
+msgstr "Włącz tryb ciemny w kokpicie WordPressa i edytorach. %s"
+
+#: src/Admin/Views/Control.php:244
+msgid "Admin Appearance"
+msgstr "Wygląd panelu administracyjnego"
+
+#: src/Admin/Views/Control.php:250
+msgid "Admin Panel Dark Mode"
+msgstr "Tryb ciemny panelu administracyjnego"
+
+#: src/Admin/Views/Control.php:253
+msgid "Enable dark mode in the WordPress admin dashboard."
+msgstr "Włącz tryb ciemny w kokpicie WordPressa."
+
+#: src/Admin/Views/Control.php:268
+msgid "Block Editor Dark Mode"
+msgstr "Tryb ciemny w edytorze blokowym"
+
+#: src/Admin/Views/Control.php:271
+msgid "Enable the dark mode switch in the block editor to toggle between dark and light mode."
+msgstr "Włącz przełącznik trybu ciemnego w edytorze blokowym, aby przełączać się między trybem ciemnym a jasnym."
+
+#: src/Admin/Views/Control.php:283
+msgid "Classic Editor Dark Mode"
+msgstr "Tryb ciemny w edytorze klasycznym"
+
+#: src/Admin/Views/Control.php:286
+msgid "Enable the dark mode switch in the classic editor to toggle between dark and light modes."
+msgstr "Włącz przełącznik trybu ciemnego w edytorze klasycznym, aby przełączać się między trybem ciemnym a jasnym."
+
+#: src/Admin/Views/Control.php:300
+msgid "Scope & Customization"
+msgstr "Zakres i personalizacja"
+
+#: src/Admin/Views/Control.php:309
+msgid "If an admin page URL looks like http://example.com/wp-admin/admin.php?page=darkify, then \"darkify\" is the page slug."
+msgstr "Jeśli adres strony administracyjnej wygląda tak: http://example.com/wp-admin/admin.php?page=darkify, to „darkify” jest uproszczoną nazwą (slugiem) strony."
+
+#: src/Admin/Views/Control.php:313
+msgid "Enter comma-separated page slugs. Example: darkify-dashboard, elementor"
+msgstr "Wpisz uproszczone nazwy stron oddzielone przecinkami. Przykład: darkify-dashboard, elementor"
+
+#: src/Admin/Views/Control.php:320
+msgid "Admin Dark Mode CSS"
+msgstr "CSS trybu ciemnego panelu administracyjnego"
+
+#: src/Admin/Views/Control.php:323
+msgid "The CSS code will only be applied when admin dark mode is active."
+msgstr "Kod CSS zostanie zastosowany tylko wtedy, gdy tryb ciemny panelu administracyjnego jest aktywny."
+
+#: src/Admin/Views/DarkifyOptions.php:34
+msgid "Thank you for using our plugin"
+msgstr "Dziękujemy za korzystanie z naszej wtyczki"
+
+#: src/Admin/Views/License.php:31
+msgid "License"
+msgstr "Licencja"
+
+#: src/Admin/Views/Media.php:31
+#: darkify-react/src/pages/Help.jsx:76
+msgid "Media"
+msgstr "Media"
+
+#: src/Admin/Views/Media.php:40
+msgid "Image Controls"
+msgstr "Ustawienia obrazów"
+
+#: src/Admin/Views/Media.php:46
+msgid "Control how images adapt when dark mode is active."
+msgstr "Określ, jak obrazy dostosowują się przy aktywnym trybie ciemnym."
+
+#: src/Admin/Views/Media.php:51
+#: src/Admin/Views/Media.php:323
+msgid "Brightness"
+msgstr "Jasność"
+
+#: src/Admin/Views/Media.php:62
+msgid "Low Brightness Images"
+msgstr "Przyciemnione obrazy"
+
+#: src/Admin/Views/Media.php:65
+msgid "Enable a low-brightness effect for images when dark mode is active."
+msgstr "Włącz efekt obniżonej jasności obrazów przy aktywnym trybie ciemnym."
+
+#: src/Admin/Views/Media.php:76
+#: src/Admin/Views/Media.php:348
+msgid "Brightness Level"
+msgstr "Poziom jasności"
+
+#: src/Admin/Views/Media.php:78
+msgid "Adjust the brightness level for images in dark mode."
+msgstr "Dostosuj poziom jasności obrazów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:93
+#: src/Admin/Views/Media.php:153
+msgid "Exclude Images"
+msgstr "Wyklucz obrazy"
+
+#: src/Admin/Views/Media.php:96
+msgid "Exclude specific images from brightness adjustments in dark mode."
+msgstr "Wyklucz wybrane obrazy z korekty jasności w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:98
+msgid "Enter image URLs to exclude (comma-separated or one per line)."
+msgstr "Wpisz adresy URL obrazów do wykluczenia (oddzielone przecinkami lub po jednym w wierszu)."
+
+#: src/Admin/Views/Media.php:111
+#: src/Admin/Views/Media.php:367
+msgid "Grayscale"
+msgstr "Odcienie szarości"
+
+#: src/Admin/Views/Media.php:122
+msgid "Grayscale Images"
+msgstr "Obrazy w odcieniach szarości"
+
+#: src/Admin/Views/Media.php:125
+msgid "Enable grayscale effect for images when dark mode is enabled."
+msgstr "Włącz efekt odcieni szarości dla obrazów, gdy tryb ciemny jest włączony."
+
+#: src/Admin/Views/Media.php:135
+#: src/Admin/Views/Media.php:391
+msgid "Grayscale Level"
+msgstr "Poziom odcieni szarości"
+
+#: src/Admin/Views/Media.php:138
+msgid "Adjust the grayscale level for images in dark mode."
+msgstr "Dostosuj poziom odcieni szarości obrazów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:155
+msgid "Exclude grayscale effects for specific images."
+msgstr "Wyklucz efekt odcieni szarości dla wybranych obrazów."
+
+#: src/Admin/Views/Media.php:157
+msgid "Enter image URLs (comma-separated or one per line) to exclude from grayscale effects."
+msgstr "Wpisz adresy URL obrazów (oddzielone przecinkami lub po jednym w wierszu), które mają zostać wykluczone z efektu odcieni szarości."
+
+#: src/Admin/Views/Media.php:171
+msgid "Background & Inversion"
+msgstr "Tło i inwersja"
+
+#: src/Admin/Views/Media.php:182
+msgid "Darken Background Images"
+msgstr "Przyciemniaj obrazy tła"
+
+#: src/Admin/Views/Media.php:184
+msgid "Enable background darkening effect in dark mode."
+msgstr "Włącz efekt przyciemniania tła w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:195
+msgid "Darkening Level"
+msgstr "Poziom przyciemnienia"
+
+#: src/Admin/Views/Media.php:197
+msgid "Adjust the darkening level for background images in dark mode."
+msgstr "Dostosuj poziom przyciemnienia obrazów tła w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:214
+msgid "Invert Inline SVGs"
+msgstr "Odwracaj kolory osadzonych plików SVG"
+
+#: src/Admin/Views/Media.php:217
+msgid "Enable automatic inversion of inline SVG images in dark mode."
+msgstr "Włącz automatyczną inwersję kolorów osadzonych obrazów SVG w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:233
+msgid "Invert Specific Images"
+msgstr "Odwracaj kolory wybranych obrazów"
+
+#: src/Admin/Views/Media.php:235
+msgid "Enable image inversion for specific images in dark mode."
+msgstr "Włącz inwersję kolorów wybranych obrazów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:247
+msgid "Image URLs"
+msgstr "Adresy URL obrazów"
+
+#: src/Admin/Views/Media.php:249
+msgid "Apply inversion to specific images, SVGs, or backgrounds."
+msgstr "Zastosuj inwersję do wybranych obrazów, plików SVG lub teł."
+
+#: src/Admin/Views/Media.php:251
+msgid "Enter URLs (comma-separated or one per line) for images, SVGs, or background images to apply inversion."
+msgstr "Wpisz adresy URL (oddzielone przecinkami lub po jednym w wierszu) obrazów, plików SVG lub obrazów tła, do których ma zostać zastosowana inwersja."
+
+#: src/Admin/Views/Media.php:264
+#: src/Admin/Views/Media.php:271
+msgid "Replace Images"
+msgstr "Zamień obrazy"
+
+#: src/Admin/Views/Media.php:274
+msgid "Replace specified images when dark mode is active."
+msgstr "Zamieniaj wskazane obrazy przy aktywnym trybie ciemnym."
+
+#: src/Admin/Views/Media.php:284
+msgid "Normal Mode Image"
+msgstr "Obraz trybu normalnego"
+
+#: src/Admin/Views/Media.php:285
+#: src/Admin/Views/Media.php:295
+msgid "Image URL"
+msgstr "Adres URL obrazu"
+
+#: src/Admin/Views/Media.php:286
+#: src/Admin/Views/Media.php:296
+msgid "Add Image"
+msgstr "Dodaj obraz"
+
+#: src/Admin/Views/Media.php:287
+#: src/Admin/Views/Media.php:297
+msgid "Remove Image"
+msgstr "Usuń obraz"
+
+#: src/Admin/Views/Media.php:294
+msgid "Dark Mode Image"
+msgstr "Obraz trybu ciemnego"
+
+#: src/Admin/Views/Media.php:312
+msgid "Video Controls"
+msgstr "Ustawienia wideo"
+
+#: src/Admin/Views/Media.php:318
+msgid "Control how videos respond to dark mode."
+msgstr "Określ, jak filmy reagują na tryb ciemny."
+
+#: src/Admin/Views/Media.php:334
+msgid "Low Brightness Videos"
+msgstr "Przyciemnione filmy"
+
+#: src/Admin/Views/Media.php:337
+msgid "Enable brightness effect for videos in dark mode."
+msgstr "Włącz efekt jasności dla filmów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:350
+msgid "Adjust the brightness level for videos in dark mode."
+msgstr "Dostosuj poziom jasności filmów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:378
+msgid "Grayscale Videos"
+msgstr "Filmy w odcieniach szarości"
+
+#: src/Admin/Views/Media.php:381
+msgid "Enable grayscale effect for videos in dark mode."
+msgstr "Włącz efekt odcieni szarości dla filmów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:393
+msgid "Adjust the grayscale level for videos in dark mode."
+msgstr "Dostosuj poziom odcieni szarości filmów w trybie ciemnym."
+
+#: src/Admin/Views/Media.php:410
+#: src/Admin/Views/Media.php:417
+msgid "Replace Videos"
+msgstr "Zamień filmy"
+
+#: src/Admin/Views/Media.php:419
+msgid "Replace specified videos (self-hosted, YouTube, Vimeo, or Dailymotion) when dark mode is active."
+msgstr "Zamieniaj wskazane filmy (własne, YouTube, Vimeo lub Dailymotion) przy aktywnym trybie ciemnym."
+
+#: src/Admin/Views/Media.php:427
+msgid "Normal Mode Video"
+msgstr "Film trybu normalnego"
+
+#: src/Admin/Views/Media.php:428
+#: src/Admin/Views/Media.php:439
+msgid "Video URL"
+msgstr "Adres URL filmu"
+
+#: src/Admin/Views/Media.php:429
+#: src/Admin/Views/Media.php:440
+msgid "Add Video"
+msgstr "Dodaj film"
+
+#: src/Admin/Views/Media.php:430
+#: src/Admin/Views/Media.php:441
+msgid "Remove Video"
+msgstr "Usuń film"
+
+#: src/Admin/Views/Media.php:438
+msgid "Dark Mode Video"
+msgstr "Film trybu ciemnego"
+
+#: src/Admin/Views/SwitcherStyle.php:31
+#: darkify-react/src/pages/Help.jsx:64
+msgid "Switches"
+msgstr "Przełączniki"
+
+#: src/Admin/Views/SwitcherStyle.php:39
+msgid "Floating Switch"
+msgstr "Pływający przełącznik"
+
+#. translators: %s: "Open the live preview" action link
+#: src/Admin/Views/SwitcherStyle.php:47
+msgid "Design the floating dark-mode switch and choose where it sits. %s to see changes instantly."
+msgstr "Zaprojektuj pływający przełącznik trybu ciemnego i wybierz jego położenie. %s, aby od razu zobaczyć zmiany."
+
+#: src/Admin/Views/SwitcherStyle.php:48
+msgid "Open the live preview"
+msgstr "Otwórz podgląd na żywo"
+
+#: src/Admin/Views/SwitcherStyle.php:52
+msgid "Floating Switch Styles"
+msgstr "Style pływającego przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:59
+#: src/Admin/Views/SwitcherStyle.php:545
+msgid "Switch Toggler"
+msgstr "Przełącznik"
+
+#: src/Admin/Views/SwitcherStyle.php:62
+#: src/Admin/Views/SwitcherStyle.php:548
+msgid "Choose the default floating switch toggler."
+msgstr "Wybierz domyślny wygląd pływającego przełącznika."
+
+#: src/Admin/Views/SwitcherStyle.php:68
+#: src/Admin/Views/SwitcherStyle.php:556
+#: src/Admin/Views/SwitcherStyle.php:1035
+msgid "Orbit"
+msgstr "Orbit"
+
+#: src/Admin/Views/SwitcherStyle.php:74
+#: src/Admin/Views/SwitcherStyle.php:562
+#: src/Admin/Views/SwitcherStyle.php:1040
+msgid "Classic"
+msgstr "Classic"
+
+#: src/Admin/Views/SwitcherStyle.php:80
+#: src/Admin/Views/SwitcherStyle.php:568
+#: src/Admin/Views/SwitcherStyle.php:1045
+msgid "Expand"
+msgstr "Expand"
+
+#: src/Admin/Views/SwitcherStyle.php:86
+#: src/Admin/Views/SwitcherStyle.php:574
+#: src/Admin/Views/SwitcherStyle.php:1050
+msgid "Inner Moon"
+msgstr "Inner Moon"
+
+#: src/Admin/Views/SwitcherStyle.php:92
+#: src/Admin/Views/SwitcherStyle.php:580
+#: src/Admin/Views/SwitcherStyle.php:1055
+msgid "Within"
+msgstr "Within"
+
+#: src/Admin/Views/SwitcherStyle.php:98
+#: src/Admin/Views/SwitcherStyle.php:586
+#: src/Admin/Views/SwitcherStyle.php:1060
+msgid "Around"
+msgstr "Around"
+
+#: src/Admin/Views/SwitcherStyle.php:105
+#: src/Admin/Views/SwitcherStyle.php:593
+#: src/Admin/Views/SwitcherStyle.php:1066
+msgid "Dark Side"
+msgstr "Dark Side"
+
+#: src/Admin/Views/SwitcherStyle.php:112
+#: src/Admin/Views/SwitcherStyle.php:600
+#: src/Admin/Views/SwitcherStyle.php:1072
+msgid "Horizon"
+msgstr "Horizon"
+
+#: src/Admin/Views/SwitcherStyle.php:119
+#: src/Admin/Views/SwitcherStyle.php:607
+#: src/Admin/Views/SwitcherStyle.php:1078
+msgid "Eclipse"
+msgstr "Eclipse"
+
+#: src/Admin/Views/SwitcherStyle.php:126
+#: src/Admin/Views/SwitcherStyle.php:614
+#: src/Admin/Views/SwitcherStyle.php:1084
+msgid "Lightbulb"
+msgstr "Lightbulb"
+
+#: src/Admin/Views/SwitcherStyle.php:133
+#: src/Admin/Views/SwitcherStyle.php:621
+#: src/Admin/Views/SwitcherStyle.php:1090
+msgid "Dark Inner"
+msgstr "Dark Inner"
+
+#: src/Admin/Views/SwitcherStyle.php:140
+#: src/Admin/Views/SwitcherStyle.php:628
+#: src/Admin/Views/SwitcherStyle.php:1096
+msgid "Half Sun"
+msgstr "Half Sun"
+
+#: src/Admin/Views/SwitcherStyle.php:147
+#: src/Admin/Views/SwitcherStyle.php:635
+#: src/Admin/Views/SwitcherStyle.php:1102
+msgid "Simple"
+msgstr "Simple"
+
+#: src/Admin/Views/SwitcherStyle.php:153
+#: src/Admin/Views/SwitcherStyle.php:641
+#: src/Admin/Views/SwitcherStyle.php:1108
+msgid "Duality"
+msgstr "Duality"
+
+#: src/Admin/Views/SwitcherStyle.php:159
+#: src/Admin/Views/SwitcherStyle.php:647
+#: src/Admin/Views/SwitcherStyle.php:1114
+msgid "Dual"
+msgstr "Dual"
+
+#: src/Admin/Views/SwitcherStyle.php:165
+#: src/Admin/Views/SwitcherStyle.php:653
+#: src/Admin/Views/SwitcherStyle.php:1120
+msgid "Shift"
+msgstr "Shift"
+
+#: src/Admin/Views/SwitcherStyle.php:176
+#: src/Admin/Views/SwitcherStyle.php:665
+msgid "Choose the size of the floating toggle switch as you need."
+msgstr "Wybierz odpowiedni dla siebie rozmiar pływającego przełącznika."
+
+#: src/Admin/Views/SwitcherStyle.php:192
+#: src/Admin/Views/SwitcherStyle.php:682
+#: src/Admin/Views/SwitcherStyle.php:1146
+msgid "Scale in percentage relative to normal size."
+msgstr "Skala w procentach względem rozmiaru normalnego."
+
+#: src/Admin/Views/SwitcherStyle.php:203
+#: src/Admin/Views/SwitcherStyle.php:693
+msgid "Customize the floating switch background to match your design."
+msgstr "Dostosuj tło pływającego przełącznika do swojego projektu."
+
+#: src/Admin/Views/SwitcherStyle.php:219
+#: src/Admin/Views/SwitcherStyle.php:710
+msgid "Customize the floating switch icon color as needed."
+msgstr "Dostosuj kolor ikony pływającego przełącznika według potrzeb."
+
+#: src/Admin/Views/SwitcherStyle.php:237
+#: src/Admin/Views/SwitcherStyle.php:729
+msgid "Customize the floating switch border and border radius."
+msgstr "Dostosuj obramowanie i jego zaokrąglenie w pływającym przełączniku."
+
+#: src/Admin/Views/SwitcherStyle.php:259
+msgid "Switch Positioning"
+msgstr "Położenie przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:274
+msgid "Switch Position"
+msgstr "Położenie przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:275
+msgid "Choose the screen position where the Floating Switch should be displayed."
+msgstr "Wybierz miejsce na ekranie, w którym ma być wyświetlany pływający przełącznik."
+
+#: src/Admin/Views/SwitcherStyle.php:277
+#: src/Admin/Views/SwitcherStyle.php:795
+msgid "Bottom Right"
+msgstr "Prawy dolny róg"
+
+#: src/Admin/Views/SwitcherStyle.php:278
+#: src/Admin/Views/SwitcherStyle.php:796
+msgid "Bottom Left"
+msgstr "Lewy dolny róg"
+
+#: src/Admin/Views/SwitcherStyle.php:279
+#: src/Admin/Views/SwitcherStyle.php:797
+msgid "Top Right"
+msgstr "Prawy górny róg"
+
+#: src/Admin/Views/SwitcherStyle.php:280
+#: src/Admin/Views/SwitcherStyle.php:798
+msgid "Top Left"
+msgstr "Lewy górny róg"
+
+#: src/Admin/Views/SwitcherStyle.php:287
+msgid "Margin From Top Right"
+msgstr "Margines od prawego górnego rogu"
+
+#: src/Admin/Views/SwitcherStyle.php:288
+#: src/Admin/Views/SwitcherStyle.php:808
+msgid "Customize default margin from the top right of the Floating Switch."
+msgstr "Dostosuj domyślny margines pływającego przełącznika od prawego górnego rogu."
+
+#: src/Admin/Views/SwitcherStyle.php:301
+msgid "Margin From Top Left"
+msgstr "Margines od lewego górnego rogu"
+
+#: src/Admin/Views/SwitcherStyle.php:302
+#: src/Admin/Views/SwitcherStyle.php:822
+msgid "Customize default margin from the top left of the Floating Switch."
+msgstr "Dostosuj domyślny margines pływającego przełącznika od lewego górnego rogu."
+
+#: src/Admin/Views/SwitcherStyle.php:315
+msgid "Margin From Bottom Right"
+msgstr "Margines od prawego dolnego rogu"
+
+#: src/Admin/Views/SwitcherStyle.php:316
+#: src/Admin/Views/SwitcherStyle.php:836
+msgid "Customize default margin from the bottom right of the Floating Switch."
+msgstr "Dostosuj domyślny margines pływającego przełącznika od prawego dolnego rogu."
+
+#: src/Admin/Views/SwitcherStyle.php:329
+msgid "Margin From Bottom Left"
+msgstr "Margines od lewego dolnego rogu"
+
+#: src/Admin/Views/SwitcherStyle.php:330
+#: src/Admin/Views/SwitcherStyle.php:850
+msgid "Customize default margin from the bottom left of the Floating Switch."
+msgstr "Dostosuj domyślny margines pływającego przełącznika od lewego dolnego rogu."
+
+#: src/Admin/Views/SwitcherStyle.php:345
+msgid "Absolute Switch Position"
+msgstr "Bezwzględne położenie przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:349
+msgid "Enable to make the floating switch scroll from its position with page scrolling."
+msgstr "Włącz, aby pływający przełącznik przewijał się razem ze stroną."
+
+#: src/Admin/Views/SwitcherStyle.php:354
+msgid "Draggable Position Change"
+msgstr "Zmiana położenia przeciąganiem"
+
+#: src/Admin/Views/SwitcherStyle.php:358
+msgid "Allow/Disallow users to change the floating switch position by dragging to where they want."
+msgstr "Zezwól lub zabroń odwiedzającym zmieniać położenie pływającego przełącznika przez przeciąganie go w wybrane miejsce."
+
+#: src/Admin/Views/SwitcherStyle.php:365
+msgid "Switch Extra"
+msgstr "Dodatki przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:372
+#: src/Admin/Views/SwitcherStyle.php:753
+#: darkify-react/src/pages/Help.jsx:104
+msgid "Switch Attention Effect"
+msgstr "Efekt przyciągający uwagę"
+
+#: src/Admin/Views/SwitcherStyle.php:376
+#: src/Admin/Views/SwitcherStyle.php:757
+msgid "Enable an animation to draw visitor attention to the floating dark mode switch."
+msgstr "Włącz animację przyciągającą uwagę odwiedzających do pływającego przełącznika trybu ciemnego."
+
+#: src/Admin/Views/SwitcherStyle.php:381
+#: src/Admin/Views/SwitcherStyle.php:763
+msgid "Attention Effect Style"
+msgstr "Styl efektu przyciągającego uwagę"
+
+#: src/Admin/Views/SwitcherStyle.php:382
+#: src/Admin/Views/SwitcherStyle.php:764
+msgid "Choose the animation style for the attention effect. Hover pauses the animation."
+msgstr "Wybierz styl animacji efektu przyciągającego uwagę. Najechanie kursorem wstrzymuje animację."
+
+#: src/Admin/Views/SwitcherStyle.php:384
+#: src/Admin/Views/SwitcherStyle.php:766
+msgid "Pulse"
+msgstr "Pulse"
+
+#: src/Admin/Views/SwitcherStyle.php:385
+#: src/Admin/Views/SwitcherStyle.php:767
+msgid "Radiance"
+msgstr "Radiance"
+
+#: src/Admin/Views/SwitcherStyle.php:386
+#: src/Admin/Views/SwitcherStyle.php:768
+msgid "Leap"
+msgstr "Leap"
+
+#: src/Admin/Views/SwitcherStyle.php:387
+#: src/Admin/Views/SwitcherStyle.php:769
+msgid "Swing"
+msgstr "Swing"
+
+#: src/Admin/Views/SwitcherStyle.php:388
+#: src/Admin/Views/SwitcherStyle.php:770
+msgid "Drift"
+msgstr "Drift"
+
+#: src/Admin/Views/SwitcherStyle.php:389
+#: src/Admin/Views/SwitcherStyle.php:771
+msgid "Nudge"
+msgstr "Nudge"
+
+#: src/Admin/Views/SwitcherStyle.php:401
+msgid "Tooltip on Floating Switch"
+msgstr "Podpowiedź przy pływającym przełączniku"
+
+#: src/Admin/Views/SwitcherStyle.php:404
+msgid "Display a tooltip hint on the dark mode floating switch."
+msgstr "Wyświetlaj podpowiedź przy pływającym przełączniku trybu ciemnego."
+
+#: src/Admin/Views/SwitcherStyle.php:416
+msgid "Tooltip Position"
+msgstr "Położenie podpowiedzi"
+
+#: src/Admin/Views/SwitcherStyle.php:419
+msgid "Choose where the tooltip should appear relative to the floating switch."
+msgstr "Wybierz, gdzie względem pływającego przełącznika ma pojawiać się podpowiedź."
+
+#: src/Admin/Views/SwitcherStyle.php:426
+msgid "Top"
+msgstr "Góra"
+
+#: src/Admin/Views/SwitcherStyle.php:427
+msgid "Bottom"
+msgstr "Dół"
+
+#: src/Admin/Views/SwitcherStyle.php:435
+msgid "Tooltip Text"
+msgstr "Treść podpowiedzi"
+
+#: src/Admin/Views/SwitcherStyle.php:438
+msgid "Add tooltip text for floating switch toggler."
+msgstr "Dodaj treść podpowiedzi dla pływającego przełącznika."
+
+#: src/Admin/Views/SwitcherStyle.php:442
+#: src/Frontend/Templates/views/switch.php:130
+msgid "Toggle Dark Mode"
+msgstr "Przełącz tryb ciemny"
+
+#: src/Admin/Views/SwitcherStyle.php:449
+msgid "Tooltip Color"
+msgstr "Kolor podpowiedzi"
+
+#: src/Admin/Views/SwitcherStyle.php:452
+msgid "Customize the tooltip colors and appearance."
+msgstr "Dostosuj kolory i wygląd podpowiedzi."
+
+#: src/Admin/Views/SwitcherStyle.php:456
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1928
+msgid "Color"
+msgstr "Kolor"
+
+#: src/Admin/Views/SwitcherStyle.php:468
+msgid "Switch Visibility"
+msgstr "Widoczność przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:475
+msgid "Hide Dark Mode Switch on Desktop"
+msgstr "Ukryj przełącznik trybu ciemnego na komputerach"
+
+#: src/Admin/Views/SwitcherStyle.php:478
+msgid "Hide the dark mode floating switch when users are browsing on a desktop or laptop."
+msgstr "Ukryj pływający przełącznik trybu ciemnego, gdy odwiedzający korzystają z komputera lub laptopa."
+
+#: src/Admin/Views/SwitcherStyle.php:494
+msgid "Hide Dark Mode on Mobile"
+msgstr "Ukryj tryb ciemny na urządzeniach mobilnych"
+
+#: src/Admin/Views/SwitcherStyle.php:497
+msgid "Hide the dark mode floating switch when users are browsing on mobile devices."
+msgstr "Ukryj pływający przełącznik trybu ciemnego, gdy odwiedzający korzystają z urządzeń mobilnych."
+
+#: src/Admin/Views/SwitcherStyle.php:509
+msgid "Hide Detection Method"
+msgstr "Metoda wykrywania"
+
+#: src/Admin/Views/SwitcherStyle.php:513
+msgid "Choose how mobile devices are detected: by User Agent, by Screen Size, or use Both for maximum accuracy."
+msgstr "Wybierz sposób wykrywania urządzeń mobilnych: po kliencie użytkownika, po rozmiarze ekranu lub obiema metodami dla największej dokładności."
+
+#: src/Admin/Views/SwitcherStyle.php:519
+msgid "User Agent"
+msgstr "Klient użytkownika"
+
+#: src/Admin/Views/SwitcherStyle.php:520
+msgid "Screen Size"
+msgstr "Rozmiar ekranu"
+
+#: src/Admin/Views/SwitcherStyle.php:521
+msgid "Both"
+msgstr "Obie metody"
+
+#: src/Admin/Views/SwitcherStyle.php:530
+msgid "Mobile Switch"
+msgstr "Przełącznik mobilny"
+
+#: src/Admin/Views/SwitcherStyle.php:537
+msgid "Different Switch in Mobile"
+msgstr "Inny przełącznik na urządzeniach mobilnych"
+
+#: src/Admin/Views/SwitcherStyle.php:538
+msgid "Should the Floating Switch be displayed on different in mobile?"
+msgstr "Czy na urządzeniach mobilnych pływający przełącznik ma wyglądać inaczej?"
+
+#: src/Admin/Views/SwitcherStyle.php:783
+msgid "Different Switch Position in Mobile"
+msgstr "Inne położenie przełącznika na urządzeniach mobilnych"
+
+#: src/Admin/Views/SwitcherStyle.php:784
+msgid "Should the Floating Switch be displayed on different position in mobile?"
+msgstr "Czy na urządzeniach mobilnych pływający przełącznik ma być wyświetlany w innym miejscu?"
+
+#: src/Admin/Views/SwitcherStyle.php:792
+msgid "Switch Position in Mobile"
+msgstr "Położenie przełącznika na urządzeniach mobilnych"
+
+#: src/Admin/Views/SwitcherStyle.php:793
+msgid "Choose the screen position where the Floating Switch should be displayed in mobile."
+msgstr "Wybierz miejsce na ekranie, w którym pływający przełącznik ma być wyświetlany na urządzeniach mobilnych."
+
+#: src/Admin/Views/SwitcherStyle.php:807
+msgid "Margin From Top Right in Mobile"
+msgstr "Margines od prawego górnego rogu (mobile)"
+
+#: src/Admin/Views/SwitcherStyle.php:821
+msgid "Margin From Top Left in Mobile"
+msgstr "Margines od lewego górnego rogu (mobile)"
+
+#: src/Admin/Views/SwitcherStyle.php:835
+msgid "Margin From Bottom Right in Mobile"
+msgstr "Margines od prawego dolnego rogu (mobile)"
+
+#: src/Admin/Views/SwitcherStyle.php:849
+msgid "Margin From Bottom Left in Mobile"
+msgstr "Margines od lewego dolnego rogu (mobile)"
+
+#: src/Admin/Views/SwitcherStyle.php:865
+msgid "Other Switches"
+msgstr "Pozostałe przełączniki"
+
+#: src/Admin/Views/SwitcherStyle.php:871
+msgid "Add dark-mode switches inside menus or anywhere on your site with a shortcode, and register custom elements as switches."
+msgstr "Dodaj przełączniki trybu ciemnego w menu lub w dowolnym miejscu witryny za pomocą shortcode’u, a także zarejestruj własne elementy jako przełączniki."
+
+#: src/Admin/Views/SwitcherStyle.php:874
+#: src/Admin/Views/SwitcherStyle.php:929
+msgid "Menu Switch"
+msgstr "Przełącznik w menu"
+
+#: src/Admin/Views/SwitcherStyle.php:887
+msgid "Enable Menu Switch"
+msgstr "Włącz przełącznik w menu"
+
+#: src/Admin/Views/SwitcherStyle.php:891
+msgid "Display a dark mode switch inside a WordPress menu."
+msgstr "Wyświetlaj przełącznik trybu ciemnego wewnątrz menu WordPressa."
+
+#: src/Admin/Views/SwitcherStyle.php:903
+msgid "Menu Switches"
+msgstr "Przełączniki w menu"
+
+#: src/Admin/Views/SwitcherStyle.php:907
+msgid "Choose the menu and position for your switch."
+msgstr "Wybierz menu i położenie przełącznika."
+
+#. translators: %s: URL to the Darkify Pro pricing page.
+#: src/Admin/Views/SwitcherStyle.php:914
+msgid "Want to use the switch in an unlimited number of menus? <a target=\"_blank\" href=\"%s\"><strong>Upgrade to Pro</strong></a>."
+msgstr "Chcesz używać przełącznika w nieograniczonej liczbie menu? <a target=\"_blank\" href=\"%s\"><strong>Przejdź na wersję Pro</strong></a>."
+
+#: src/Admin/Views/SwitcherStyle.php:931
+msgid "No menu switches configured"
+msgstr "Nie skonfigurowano żadnych przełączników w menu"
+
+#: src/Admin/Views/SwitcherStyle.php:932
+msgid "Add a switch and choose the WordPress menu where it should appear."
+msgstr "Dodaj przełącznik i wybierz menu WordPressa, w którym ma się pojawić."
+
+#: src/Admin/Views/SwitcherStyle.php:933
+msgid "Add Menu Switch"
+msgstr "Dodaj przełącznik w menu"
+
+#: src/Admin/Views/SwitcherStyle.php:941
+#: darkify-react/src/pages/Help.jsx:1082
+#: darkify-react/src/pages/SettingsPage.jsx:638
+msgid "Menu"
+msgstr "Menu"
+
+#: src/Admin/Views/SwitcherStyle.php:944
+msgid "Choose the WordPress menu where this switch should appear."
+msgstr "Wybierz menu WordPressa, w którym ma się pojawić ten przełącznik."
+
+#: src/Admin/Views/SwitcherStyle.php:948
+msgid "Choose a menu…"
+msgstr "Wybierz menu…"
+
+#: src/Admin/Views/SwitcherStyle.php:949
+msgid "You have not created a menu yet. If you are using a Full Site Editing (FSE) theme, copy the shortcode below and paste it where you want the switch to appear."
+msgstr "Nie utworzono jeszcze żadnego menu. Jeśli korzystasz z motywu z pełną edycją witryny (FSE), skopiuj poniższy shortcode i wklej go w miejscu, w którym ma pojawić się przełącznik."
+
+#: src/Admin/Views/SwitcherStyle.php:958
+msgid "Switch Placement"
+msgstr "Umiejscowienie przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:961
+msgid "Choose whether the dark mode switch appears at the beginning or end of the selected menu."
+msgstr "Wybierz, czy przełącznik trybu ciemnego ma pojawiać się na początku, czy na końcu wybranego menu."
+
+#: src/Admin/Views/SwitcherStyle.php:970
+msgid "End of Menu"
+msgstr "Na końcu menu"
+
+#: src/Admin/Views/SwitcherStyle.php:971
+msgid "Beginning of Menu"
+msgstr "Na początku menu"
+
+#: src/Admin/Views/SwitcherStyle.php:979
+#: src/Admin/Views/SwitcherStyle.php:994
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3734
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3918
+msgid "Shortcode"
+msgstr "Shortcode"
+
+#: src/Admin/Views/SwitcherStyle.php:982
+msgid "Automatically generated from the settings above."
+msgstr "Generowany automatycznie na podstawie powyższych ustawień."
+
+#: src/Admin/Views/SwitcherStyle.php:1001
+msgid "Use Global Switch Settings"
+msgstr "Użyj globalnych ustawień przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:1004
+msgid "Use the same switch style, size, and colors as your site-wide floating switch. Turn this off to customize this shortcode independently, without changing the floating switch."
+msgstr "Użyj tego samego stylu, rozmiaru i kolorów co pływający przełącznik w całej witrynie. Wyłącz tę opcję, aby dostosować ten shortcode niezależnie, bez zmiany pływającego przełącznika."
+
+#: src/Admin/Views/SwitcherStyle.php:1020
+msgid "Custom Switch Style"
+msgstr "Własny styl przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:1023
+msgid "These settings apply only to this shortcode, not your site-wide floating switch."
+msgstr "Te ustawienia dotyczą wyłącznie tego shortcode’u, a nie pływającego przełącznika w całej witrynie."
+
+#: src/Admin/Views/SwitcherStyle.php:1182
+msgid "Switch Text Color"
+msgstr "Kolor tekstu przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:1215
+#: src/Admin/Views/SwitcherStyle.php:1226
+msgid "Dark Mode Switch Shortcode"
+msgstr "Shortcode przełącznika trybu ciemnego"
+
+#: src/Admin/Views/SwitcherStyle.php:1217
+#: src/Admin/Views/SwitcherStyle.php:1228
+msgid "Use the shortcode below to display a dark mode switch anywhere WordPress shortcodes are supported."
+msgstr "Użyj poniższego shortcode’u, aby wyświetlić przełącznik trybu ciemnego wszędzie tam, gdzie WordPress obsługuje shortcode’y."
+
+#: src/Admin/Views/SwitcherStyle.php:1235
+msgid "Custom Switch Selectors"
+msgstr "Własne selektory przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:1242
+msgid "Alternative Switch Selectors"
+msgstr "Alternatywne selektory przełącznika"
+
+#: src/Admin/Views/SwitcherStyle.php:1245
+msgid "Enter CSS selectors for elements that should toggle dark mode when clicked. Separate multiple selectors with commas."
+msgstr "Wpisz selektory CSS elementów, które po kliknięciu mają przełączać tryb ciemny. Oddziel wiele selektorów przecinkami."
+
+#: src/Admin/Views/SwitcherStyle.php:1249
+msgid "e.g., .my-dark-switch, #dark-mode-toggle"
+msgstr "np. .my-dark-switch, #dark-mode-toggle"
+
+#: src/Admin/Views/Tools.php:31
+msgid "Tools"
+msgstr "Narzędzia"
+
+#: src/Admin/Views/Tools.php:37
+msgid "Maintenance, backup, and restore utilities."
+msgstr "Narzędzia konserwacyjne, kopii zapasowej i przywracania."
+
+#: src/Admin/Views/Tools.php:42
+msgid "Data"
+msgstr "Dane"
+
+#: src/Admin/Views/Tools.php:48
+msgid "Clean-up Data on Deletion"
+msgstr "Usuń dane przy odinstalowaniu"
+
+#: src/Admin/Views/Tools.php:51
+msgid "Enable this option to completely remove all Darkify data when the plugin is deleted."
+msgstr "Włącz tę opcję, aby całkowicie usunąć wszystkie dane Darkify po usunięciu wtyczki."
+
+#: src/Admin/Views/Tools.php:60
+msgid "Backup & Restore"
+msgstr "Kopia zapasowa i przywracanie"
+
+#: src/Admin/Views/Tools.php:64
+msgid "Backup and Restore Settings"
+msgstr "Ustawienia kopii zapasowej i przywracania"
+
+#: src/Admin/Views/Tools.php:67
+msgid "Use these options to back up your settings for safekeeping or restore them when needed. You can export your current settings as a .json file and import it anytime to restore your configuration."
+msgstr "Skorzystaj z tych opcji, aby zabezpieczyć swoje ustawienia lub przywrócić je w razie potrzeby. Możesz wyeksportować bieżące ustawienia do pliku .json i w dowolnej chwili zaimportować go, przywracając konfigurację."
+
+#: darkify-react/src/components/ConfirmDialog.jsx:50
+#: darkify-react/src/components/ui/sheet.jsx:72
+msgid "Close"
+msgstr "Zamknij"
+
+#: darkify-react/src/components/ConfirmDialog.jsx:84
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1430
+msgid "Cancel"
+msgstr "Anuluj"
+
+#: darkify-react/src/components/ErrorBoundary.jsx:45
+msgid "This section couldn’t be displayed."
+msgstr "Nie udało się wyświetlić tej sekcji."
+
+#: darkify-react/src/components/ErrorBoundary.jsx:48
+msgid "An unexpected error occurred while rendering these fields. Other sections are unaffected."
+msgstr "Podczas renderowania tych pól wystąpił nieoczekiwany błąd. Pozostałe sekcje działają normalnie."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:193
+msgid "Pick a date"
+msgstr "Wybierz datę"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:319
+msgid "Importing…"
+msgstr "Importowanie…"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:320
+msgid "Drag & drop your backup file"
+msgstr "Przeciągnij i upuść plik kopii zapasowej"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:324
+msgid "Reading file, please wait"
+msgstr "Trwa odczyt pliku, proszę czekać"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:327
+msgid "or "
+msgstr "lub "
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:329
+msgid "click to browse"
+msgstr "kliknij, aby wybrać"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:331
+msgid "JSON files only"
+msgstr "Tylko pliki JSON"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:395
+msgid "Backup downloaded"
+msgstr "Pobrano kopię zapasową"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:396
+msgid "Your settings have been exported to a JSON file."
+msgstr "Twoje ustawienia zostały wyeksportowane do pliku JSON."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:410
+msgid "Unsupported file type. Please choose a .json backup file."
+msgstr "Nieobsługiwany typ pliku. Wybierz plik kopii zapasowej .json."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:418
+#: darkify-react/src/components/fields/FieldRenderer.jsx:453
+#: darkify-react/src/components/fields/FieldRenderer.jsx:464
+msgid "Import failed"
+msgstr "Import nie powiódł się"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:439
+msgid "Imported"
+msgstr "Zaimportowano"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:440
+msgid "Settings loaded from file. Review and click Save to apply."
+msgstr "Ustawienia wczytano z pliku. Sprawdź je i kliknij Zapisz, aby je zastosować."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:446
+msgid "The selected file is not a valid settings backup."
+msgstr "Wybrany plik nie jest prawidłową kopią zapasową ustawień."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:460
+msgid "Could not read the selected file."
+msgstr "Nie udało się odczytać wybranego pliku."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:475
+msgid "Export Settings"
+msgstr "Eksportuj ustawienia"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:476
+msgid "Download all current plugin settings as a JSON file for backup or migration."
+msgstr "Pobierz wszystkie bieżące ustawienia wtyczki jako plik JSON — na potrzeby kopii zapasowej lub migracji."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:492
+msgid "Download Backup"
+msgstr "Pobierz kopię zapasową"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:497
+msgid "Import Settings"
+msgstr "Importuj ustawienia"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:498
+msgid "Upload a previously exported JSON file to restore your settings."
+msgstr "Wgraj wcześniej wyeksportowany plik JSON, aby przywrócić swoje ustawienia."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:513
+msgid "After importing, click"
+msgstr "Po zaimportowaniu kliknij"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:514
+#: darkify-react/src/pages/SettingsPage.jsx:496
+msgid "Save"
+msgstr "Zapisz"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:515
+msgid "to apply."
+msgstr ", aby zastosować."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:686
+msgid "WordPress media library is unavailable on this screen."
+msgstr "Biblioteka mediów WordPressa jest niedostępna na tym ekranie."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:694
+msgid "Select media"
+msgstr "Wybierz plik multimedialny"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:755
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2726
+msgid "URL"
+msgstr "Adres URL"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:759
+#: darkify-react/src/components/fields/FieldRenderer.jsx:799
+msgid "Upload"
+msgstr "Wgraj"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:785
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2614
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2996
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2997
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3194
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3195
+msgid "Remove"
+msgstr "Usuń"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:798
+msgid "Change"
+msgstr "Zmień"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:885
+msgid "Pick a color"
+msgstr "Wybierz kolor"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:926
+#: darkify-react/src/components/fields/FieldRenderer.jsx:927
+msgid "Reset to default"
+msgstr "Przywróć domyślne"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:936
+#: darkify-react/src/components/ui/color-picker.jsx:701
+msgid "Enter a valid HEX, RGB(A) or HSL(A) color."
+msgstr "Wpisz prawidłowy kolor w formacie HEX, RGB(A) lub HSL(A)."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1012
+msgid "Enter valid CSS selectors, separated by commas."
+msgstr "Wpisz prawidłowe selektory CSS oddzielone przecinkami."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1088
+#: darkify-react/src/components/pro/ProLock.jsx:34
+msgid "Pro feature"
+msgstr "Funkcja Pro"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1187
+msgid "Press the new shortcut…"
+msgstr "Naciśnij nowy skrót…"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1190
+msgid "Hold one or more modifiers and press a key. Esc to cancel."
+msgstr "Przytrzymaj co najmniej jeden modyfikator i naciśnij klawisz. Esc anuluje."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1201
+msgid "Windows"
+msgstr "Windows"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1207
+msgid "macOS"
+msgstr "macOS"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1218
+msgid "Change shortcut"
+msgstr "Zmień skrót"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1403
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1406
+msgid "Link text"
+msgstr "Tekst odnośnika"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1418
+msgid "Open in new tab"
+msgstr "Otwórz w nowej karcie"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1422
+msgid "Apply"
+msgstr "Zastosuj"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1452
+msgid "Edit link"
+msgstr "Edytuj odnośnik"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1460
+msgid "Remove link"
+msgstr "Usuń odnośnik"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1509
+msgid "Distance from top"
+msgstr "Odległość od góry"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1510
+msgid "Distance from right"
+msgstr "Odległość od prawej"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1511
+msgid "Distance from bottom"
+msgstr "Odległość od dołu"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1512
+msgid "Distance from left"
+msgstr "Odległość od lewej"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1574
+msgid "Large Desktop"
+msgstr "Duży ekran"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1575
+msgid "Desktop"
+msgstr "Komputer"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1576
+msgid "Tablet"
+msgstr "Tablet"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1579
+msgid "Mobile Landscape"
+msgstr "Telefon (poziomo)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1582
+msgid "Mobile"
+msgstr "Telefon"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1657
+msgid "Set both times to schedule dark mode."
+msgstr "Ustaw obie godziny, aby zaplanować tryb ciemny."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1669
+msgid "Start and end are the same, so dark mode never turns on."
+msgstr "Godzina początkowa i końcowa są takie same, więc tryb ciemny nigdy się nie włączy."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1673
+msgid "The end time is before the start but within the same hour, so dark mode never turns on. Choose an end time in an earlier hour for an overnight schedule."
+msgstr "Godzina końcowa jest wcześniejsza niż początkowa, ale w obrębie tej samej godziny, więc tryb ciemny nigdy się nie włączy. Wybierz godzinę końcową we wcześniejszej godzinie, aby zaplanować tryb nocny."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1680
+msgid "Dark mode will be on from"
+msgstr "Tryb ciemny będzie włączony od"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1681
+msgid "until"
+msgstr "do"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1692
+msgid "the next morning"
+msgstr "następnego ranka"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1767
+msgid "Sunrise & sunset scheduling is available in Darkify Pro."
+msgstr "Harmonogram według wschodu i zachodu słońca jest dostępny w Darkify Pro."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1901
+msgid "width (px)"
+msgstr "szerokość (px)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1920
+msgid "style"
+msgstr "styl"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1928
+msgid "Light color"
+msgstr "Kolor jasny"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1932
+msgid "color 2"
+msgstr "kolor 2"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1935
+msgid "dark color"
+msgstr "kolor ciemny"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:1937
+msgid "Radius (px)"
+msgstr "Zaokrąglenie (px)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2108
+msgid "Clear"
+msgstr "Wyczyść"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2130
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2639
+msgid "Search…"
+msgstr "Szukaj…"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2138
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2572
+msgid "No options found"
+msgstr "Nie znaleziono opcji"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2253
+msgid "Font Size"
+msgstr "Rozmiar czcionki"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2256
+msgid "Line Height"
+msgstr "Interlinia"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2260
+msgid "Font Size (Tablet)"
+msgstr "Rozmiar czcionki (tablet)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2264
+msgid "Line Height (Tablet)"
+msgstr "Interlinia (tablet)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2268
+msgid "Font Size (Mobile)"
+msgstr "Rozmiar czcionki (telefon)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2272
+msgid "Line Height (Mobile)"
+msgstr "Interlinia (telefon)"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2288
+msgid "Font Family"
+msgstr "Krój pisma"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2309
+msgid "Select a font"
+msgstr "Wybierz krój pisma"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2315
+msgid "Font Style"
+msgstr "Styl czcionki"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2327
+msgid "Select style"
+msgstr "Wybierz styl"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2334
+msgid "Text Transform"
+msgstr "Wielkość liter"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2340
+msgid "Default"
+msgstr "Domyślne"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2364
+msgid "Font Color"
+msgstr "Kolor czcionki"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2372
+msgid "Hover Color"
+msgstr "Kolor po najechaniu"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2396
+msgid "The quick brown fox jumps over the lazy dog"
+msgstr "Pchnąć w tę łódź jeża lub ośm skrzyń fig"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2570
+msgid "Select some options"
+msgstr "Wybierz opcje"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2695
+msgid "Add"
+msgstr "Dodaj"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2855
+msgid "Menu switch removed."
+msgstr "Usunięto przełącznik w menu."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2858
+#: darkify-react/src/components/fields/FieldRenderer.jsx:2863
+msgid "Undo"
+msgstr "Cofnij"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3014
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3052
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3318
+msgid "Add New"
+msgstr "Dodaj nowy"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3058
+msgid "No items yet."
+msgstr "Brak elementów."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3114
+msgid "Another switch already uses this menu and placement."
+msgstr "Inny przełącznik korzysta już z tego menu i umiejscowienia."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3118
+msgid "Duplicate menu and placement warning"
+msgstr "Ostrzeżenie o zduplikowanym menu i umiejscowieniu"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3125
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3182
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3183
+msgid "Duplicate"
+msgstr "Powiel"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3138
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3139
+msgid "Move up"
+msgstr "Przenieś w górę"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3151
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3152
+msgid "Move down"
+msgstr "Przenieś w dół"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3169
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3170
+msgid "Drag to reorder"
+msgstr "Przeciągnij, aby zmienić kolejność"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3337
+msgid "Manage your Darkify license."
+msgstr "Zarządzaj swoją licencją Darkify."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3345
+msgid "You're using Darkify Lite"
+msgstr "Korzystasz z Darkify Lite"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3348
+msgid "No license required — enjoy! 😊"
+msgstr "Licencja nie jest wymagana — korzystaj do woli! 😊"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3353
+msgid "Upgrade to Darkify Pro to unlock advanced features and full control."
+msgstr "Przejdź na Darkify Pro, aby odblokować zaawansowane funkcje i pełną kontrolę."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3665
+msgid "Copied!"
+msgstr "Skopiowano!"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3665
+msgid "Copy"
+msgstr "Kopiuj"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3717
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3905
+msgid "Shortcode copied to clipboard."
+msgstr "Shortcode skopiowany do schowka."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3722
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3910
+msgid "Couldn't copy the shortcode."
+msgstr "Nie udało się skopiować shortcode’u."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3723
+msgid "Select the shortcode above and copy it manually."
+msgstr "Zaznacz powyższy shortcode i skopiuj go ręcznie."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3750
+msgid "Advanced shortcode parameters"
+msgstr "Zaawansowane parametry shortcode’u"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3755
+msgid "Full shortcode — matches your current styling"
+msgstr "Pełny shortcode — zgodny z bieżącym stylowaniem"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3924
+msgid "This shortcode was edited manually and won't update automatically. Use Reset to Defaults to resume automatic generation."
+msgstr "Ten shortcode został zmieniony ręcznie i nie będzie aktualizowany automatycznie. Użyj opcji „Przywróć domyślne”, aby wznowić automatyczne generowanie."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3947
+msgid "Edit the raw shortcode directly. This overrides the settings above until you reset it."
+msgstr "Edytuj shortcode bezpośrednio. Nadpisuje to powyższe ustawienia do czasu przywrócenia domyślnych."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3968
+msgid "Enter a valid shortcode, e.g. [darkify switch=\"1\"]."
+msgstr "Wpisz prawidłowy shortcode, np. [darkify switch=\"1\"]."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:3989
+msgid "Reset to Defaults"
+msgstr "Przywróć domyślne"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:4145
+#: darkify-react/src/components/fields/FieldRenderer.jsx:4167
+msgid "Select…"
+msgstr "Wybierz…"
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:4718
+msgid "On"
+msgstr "Wł."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:4718
+msgid "Off"
+msgstr "Wył."
+
+#: darkify-react/src/components/fields/FieldRenderer.jsx:4863
+msgid "No settings available for the current selection."
+msgstr "Brak dostępnych ustawień dla bieżącego wyboru."
+
+#: darkify-react/src/components/layout/AppHeader.jsx:93
+msgid "Darkify dashboard"
+msgstr "Kokpit Darkify"
+
+#: darkify-react/src/components/layout/AppHeader.jsx:215
+#: darkify-react/src/components/layout/AppSidebar.jsx:195
+#: darkify-react/src/components/layout/AppSidebar.jsx:206
+msgid "Get Help"
+msgstr "Pomoc"
+
+#: darkify-react/src/components/layout/AppHeader.jsx:501
+msgid "Open menu"
+msgstr "Otwórz menu"
+
+#: darkify-react/src/components/layout/AppHeader.jsx:524
+msgid "Main navigation"
+msgstr "Nawigacja główna"
+
+#: darkify-react/src/components/layout/AppHeader.jsx:575
+#: darkify-react/src/components/layout/AppHeader.jsx:606
+msgid "Docs"
+msgstr "Dokumentacja"
+
+#: darkify-react/src/components/layout/AppSidebar.jsx:289
+msgid "Expand sidebar"
+msgstr "Rozwiń panel boczny"
+
+#: darkify-react/src/components/layout/AppSidebar.jsx:290
+msgid "Go to Controls"
+msgstr "Przejdź do Sterowania"
+
+#: darkify-react/src/components/layout/AppSidebar.jsx:326
+#: darkify-react/src/components/layout/AppSidebar.jsx:327
+msgid "Collapse sidebar"
+msgstr "Zwiń panel boczny"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:514
+#: darkify-react/src/pages/SettingsPage.jsx:475
+msgid "Live Preview"
+msgstr "Podgląd na żywo"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:524
+msgid "Desktop preview"
+msgstr "Podgląd na komputerze"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:525
+msgid "Mobile preview"
+msgstr "Podgląd na telefonie"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:551
+msgid "Exit full screen (Esc)"
+msgstr "Zamknij pełny ekran (Esc)"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:552
+msgid "Full screen — see it at full size"
+msgstr "Pełny ekran — zobacz w pełnym rozmiarze"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:566
+msgid "Refresh preview"
+msgstr "Odśwież podgląd"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:577
+msgid "Close preview (Esc)"
+msgstr "Zamknij podgląd (Esc)"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:578
+msgid "Close preview"
+msgstr "Zamknij podgląd"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:623
+msgid "Refreshing preview"
+msgstr "Odświeżanie podglądu"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:632
+msgid "Couldn't load the preview."
+msgstr "Nie udało się wczytać podglądu."
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:635
+msgid "Try again"
+msgstr "Spróbuj ponownie"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:641
+msgid "Frontend live preview"
+msgstr "Podgląd witryny na żywo"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:683
+msgid "Your unsaved settings, live — click through it like a visitor."
+msgstr "Twoje niezapisane ustawienia na żywo — klikaj po witrynie jak odwiedzający."
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:690
+msgid "Shown at"
+msgstr "Wyświetlane w skali"
+
+#: darkify-react/src/components/preview/LiveAdminPreviewFrame.jsx:691
+msgid "to fit — open full screen for a true-to-size view."
+msgstr "aby się zmieściło — otwórz pełny ekran, by zobaczyć rzeczywisty rozmiar."
+
+#: darkify-react/src/components/preview/LivePreviewToggle.jsx:25
+msgid "Hide Preview"
+msgstr "Ukryj podgląd"
+
+#: darkify-react/src/components/preview/LivePreviewToggle.jsx:26
+msgid "Show Preview"
+msgstr "Pokaż podgląd"
+
+#: darkify-react/src/components/pro/ProLock.jsx:41
+msgid "Pro"
+msgstr "Pro"
+
+#: darkify-react/src/components/pro/ProLock.jsx:84
+#: darkify-react/src/components/pro/ProLock.jsx:105
+#: darkify-react/src/pages/Help.jsx:217
+msgid "Upgrade to Pro"
+msgstr "Przejdź na Pro"
+
+#: darkify-react/src/components/pro/ProLock.jsx:88
+msgid "Unlock advanced dark-mode features and take full control of your site's look with Darkify Pro."
+msgstr "Odblokuj zaawansowane funkcje trybu ciemnego i przejmij pełną kontrolę nad wyglądem witryny dzięki Darkify Pro."
+
+#: darkify-react/src/components/SettingsSearch.jsx:106
+#: darkify-react/src/pages/SettingsPage.jsx:659
+msgid "Search settings"
+msgstr "Szukaj w ustawieniach"
+
+#: darkify-react/src/components/SettingsSearch.jsx:109
+msgid "Search across every Darkify setting and jump straight to it."
+msgstr "Przeszukaj wszystkie ustawienia Darkify i przejdź prosto do wybranego."
+
+#: darkify-react/src/components/SettingsSearch.jsx:122
+msgid "Search settings…"
+msgstr "Szukaj w ustawieniach…"
+
+#: darkify-react/src/components/SettingsSearch.jsx:133
+msgid "No settings found."
+msgstr "Nie znaleziono ustawień."
+
+#: darkify-react/src/components/SettingsSearch.jsx:178
+msgid "navigate"
+msgstr "nawigacja"
+
+#: darkify-react/src/components/SettingsSearch.jsx:184
+msgid "go to setting"
+msgstr "przejdź do ustawienia"
+
+#: darkify-react/src/components/ui/color-picker.jsx:451
+msgid "Saturation and brightness"
+msgstr "Nasycenie i jasność"
+
+#: darkify-react/src/components/ui/color-picker.jsx:478
+msgid "Hue"
+msgstr "Odcień"
+
+#: darkify-react/src/components/ui/color-picker.jsx:498
+msgid "Opacity"
+msgstr "Krycie"
+
+#: darkify-react/src/components/ui/color-picker.jsx:536
+#: darkify-react/src/components/ui/color-picker.jsx:537
+msgid "Pick color from screen"
+msgstr "Pobierz kolor z ekranu"
+
+#: darkify-react/src/components/ui/color-picker.jsx:612
+msgid "Color format"
+msgstr "Format koloru"
+
+#: darkify-react/src/components/ui/color-picker.jsx:617
+msgid "HEX"
+msgstr "HEX"
+
+#: darkify-react/src/components/ui/color-picker.jsx:618
+msgid "RGB"
+msgstr "RGB"
+
+#: darkify-react/src/components/ui/color-picker.jsx:619
+msgid "HSL"
+msgstr "HSL"
+
+#: darkify-react/src/components/ui/color-picker.jsx:681
+msgid "Color value"
+msgstr "Wartość koloru"
+
+#: darkify-react/src/components/ui/color-picker.jsx:693
+msgid "Opacity percent"
+msgstr "Krycie w procentach"
+
+#: darkify-react/src/lib/settingsStore.jsx:106
+msgid "Error"
+msgstr "Błąd"
+
+#: darkify-react/src/lib/settingsStore.jsx:107
+msgid "Failed to save settings."
+msgstr "Nie udało się zapisać ustawień."
+
+#: darkify-react/src/lib/settingsStore.jsx:148
+msgid "Settings saved successfully."
+msgstr "Ustawienia zostały zapisane."
+
+#: darkify-react/src/pages/Help.jsx:52
+msgid "Overview"
+msgstr "Przegląd"
+
+#: darkify-react/src/pages/Help.jsx:53
+msgid "How to Use Darkify Dark Mode Free Plugin"
+msgstr "Jak korzystać z darmowej wtyczki Darkify Dark Mode"
+
+#: darkify-react/src/pages/Help.jsx:59
+msgid "Darkify Control Settings Explained"
+msgstr "Ustawienia sterowania Darkify — objaśnienie"
+
+#: darkify-react/src/pages/Help.jsx:65
+msgid "Darkify Swatches Settings Explained"
+msgstr "Ustawienia przełączników Darkify — objaśnienie"
+
+#: darkify-react/src/pages/Help.jsx:71
+msgid "Darkify Color Presets Explained"
+msgstr "Zestawy kolorów Darkify — objaśnienie"
+
+#: darkify-react/src/pages/Help.jsx:77
+msgid "Darkify Media Settings Explained"
+msgstr "Ustawienia mediów Darkify — objaśnienie"
+
+#: darkify-react/src/pages/Help.jsx:83
+msgid "Darkify Advanced Settings Explained"
+msgstr "Ustawienia zaawansowane Darkify — objaśnienie"
+
+#: darkify-react/src/pages/Help.jsx:89
+msgid "16+ Floating Dark Mode Switch Designs"
+msgstr "Ponad 16 wzorów pływającego przełącznika trybu ciemnego"
+
+#: darkify-react/src/pages/Help.jsx:90
+msgid "Auto-Invert & Replace Images/Videos in Dark Mode"
+msgstr "Automatyczna inwersja i zamiana obrazów oraz filmów w trybie ciemnym"
+
+#: darkify-react/src/pages/Help.jsx:91
+msgid "Element-Specific & Post-Specific Dark Mode"
+msgstr "Tryb ciemny dla wybranych elementów i wpisów"
+
+#: darkify-react/src/pages/Help.jsx:92
+#: darkify-react/src/pages/Help.jsx:124
+msgid "Custom CSS for Dark Mode"
+msgstr "Własny CSS dla trybu ciemnego"
+
+#: darkify-react/src/pages/Help.jsx:93
+#: darkify-react/src/pages/Help.jsx:108
+msgid "Unlimited Navigation Menu Toggle"
+msgstr "Nieograniczona liczba przełączników w menu nawigacyjnym"
+
+#: darkify-react/src/pages/Help.jsx:94
+msgid "Automatic Updates & Priority Support"
+msgstr "Automatyczne aktualizacje i priorytetowe wsparcie"
+
+#: darkify-react/src/pages/Help.jsx:98
+msgid "All Free Version Features"
+msgstr "Wszystkie funkcje wersji darmowej"
+
+#: darkify-react/src/pages/Help.jsx:99
+msgid "Instant Dark Mode"
+msgstr "Natychmiastowy tryb ciemny"
+
+#: darkify-react/src/pages/Help.jsx:100
+msgid "Admin Dashboard Dark Mode"
+msgstr "Tryb ciemny kokpitu administracyjnego"
+
+#: darkify-react/src/pages/Help.jsx:101
+msgid "Default Dark Theme"
+msgstr "Domyślny motyw ciemny"
+
+#: darkify-react/src/pages/Help.jsx:102
+msgid "Keyboard Shortcut Toggle"
+msgstr "Przełączanie skrótem klawiaturowym"
+
+#: darkify-react/src/pages/Help.jsx:103
+msgid "Floating Dark Mode Switch"
+msgstr "Pływający przełącznik trybu ciemnego"
+
+#: darkify-react/src/pages/Help.jsx:103
+msgid "🎨 5+ Designs"
+msgstr "🎨 Ponad 5 wzorów"
+
+#: darkify-react/src/pages/Help.jsx:103
+msgid "🎨 16+ Designs"
+msgstr "🎨 Ponad 16 wzorów"
+
+#: darkify-react/src/pages/Help.jsx:104
+msgid "1 Effect"
+msgstr "1 efekt"
+
+#: darkify-react/src/pages/Help.jsx:104
+msgid "6 Effects"
+msgstr "6 efektów"
+
+#: darkify-react/src/pages/Help.jsx:105
+msgid "Draggable Swatch Position"
+msgstr "Przeciągane położenie przełącznika"
+
+#: darkify-react/src/pages/Help.jsx:106
+msgid "Customizable Toggle Switch"
+msgstr "Konfigurowalny przełącznik"
+
+#: darkify-react/src/pages/Help.jsx:107
+msgid "Navigation Menu Toggle"
+msgstr "Przełącznik w menu nawigacyjnym"
+
+#: darkify-react/src/pages/Help.jsx:109
+msgid "Shortcode for Dark Mode"
+msgstr "Shortcode trybu ciemnego"
+
+#: darkify-react/src/pages/Help.jsx:110
+msgid "Dark Mode Switcher for Gutenberg"
+msgstr "Przełącznik trybu ciemnego dla Gutenberga"
+
+#: darkify-react/src/pages/Help.jsx:111
+msgid "Color Presets for Gutenberg"
+msgstr "Zestawy kolorów dla Gutenberga"
+
+#: darkify-react/src/pages/Help.jsx:111
+#: darkify-react/src/pages/Help.jsx:115
+msgid "🎨 5 Presets"
+msgstr "🎨 5 zestawów"
+
+#: darkify-react/src/pages/Help.jsx:111
+#: darkify-react/src/pages/Help.jsx:115
+msgid "🎨 11 Presets"
+msgstr "🎨 11 zestawów"
+
+#: darkify-react/src/pages/Help.jsx:112
+msgid "Dark Mode Switcher for Elementor"
+msgstr "Przełącznik trybu ciemnego dla Elementora"
+
+#: darkify-react/src/pages/Help.jsx:113
+msgid "Dark Mode Switcher for WP Widget"
+msgstr "Przełącznik trybu ciemnego jako widżet WordPressa"
+
+#: darkify-react/src/pages/Help.jsx:114
+msgid "Predefined & Custom Colors"
+msgstr "Kolory predefiniowane i własne"
+
+#: darkify-react/src/pages/Help.jsx:115
+msgid "Color Presets"
+msgstr "Zestawy kolorów"
+
+#: darkify-react/src/pages/Help.jsx:116
+msgid "Image Brightness & Contrast"
+msgstr "Jasność i kontrast obrazów"
+
+#: darkify-react/src/pages/Help.jsx:117
+msgid "Video Enhancement"
+msgstr "Ulepszenia wideo"
+
+#: darkify-react/src/pages/Help.jsx:118
+msgid "Page Builder Integration"
+msgstr "Integracja z kreatorami stron"
+
+#: darkify-react/src/pages/Help.jsx:119
+msgid "Auto-Invert Images"
+msgstr "Automatyczna inwersja obrazów"
+
+#: darkify-react/src/pages/Help.jsx:120
+msgid "Replace Images in Dark Mode"
+msgstr "Zamiana obrazów w trybie ciemnym"
+
+#: darkify-react/src/pages/Help.jsx:121
+msgid "Replace Videos in Dark Mode"
+msgstr "Zamiana filmów w trybie ciemnym"
+
+#: darkify-react/src/pages/Help.jsx:122
+msgid "Element-Specific Dark Mode"
+msgstr "Tryb ciemny dla wybranych elementów"
+
+#: darkify-react/src/pages/Help.jsx:123
+msgid "Post-Specific Dark Mode"
+msgstr "Tryb ciemny dla wybranych wpisów"
+
+#: darkify-react/src/pages/Help.jsx:129
+msgid "Darkify - WordPress Dark Mode Plugin"
+msgstr "Darkify - WordPress Dark Mode Plugin"
+
+#: darkify-react/src/pages/Help.jsx:130
+msgid "Darkify – is an extremely advanced dark mode plugin for any WordPress website. The plugin has the option to enable a dark mode switcher for the front end and also WordPress admin."
+msgstr "Darkify to wyjątkowo zaawansowana wtyczka trybu ciemnego dla każdej witryny WordPress. Umożliwia włączenie przełącznika trybu ciemnego zarówno w witrynie, jak i w panelu administracyjnym WordPressa."
+
+#: darkify-react/src/pages/Help.jsx:135
+msgid "WhatsApp Chat Help - Chat Support Plugin For WordPress"
+msgstr "WhatsApp Chat Help - Chat Support Plugin For WordPress"
+
+#: darkify-react/src/pages/Help.jsx:136
+msgid "Whatsapp chat support is a WordPress plugin that allows website owners to easily add a WhatsApp chat button to their website."
+msgstr "WhatsApp Chat Support to wtyczka WordPress, która pozwala właścicielom witryn łatwo dodać przycisk czatu WhatsApp do swojej strony."
+
+#: darkify-react/src/pages/Help.jsx:141
+msgid "Event Carousel, Event Slider, Event Grid, and Event List for The Events Calendar"
+msgstr "Event Carousel, Event Slider, Event Grid, and Event List for The Events Calendar"
+
+#: darkify-react/src/pages/Help.jsx:142
+msgid "With \"Eventful,\" you can effortlessly create intelligent layouts for \"The Events Calendar\" plugin, effectively addressing and resolving compatibility issues that may arise."
+msgstr "Dzięki „Eventful” bez trudu utworzysz przemyślane układy dla wtyczki „The Events Calendar”, skutecznie rozwiązując problemy ze zgodnością, które mogą się pojawić."
+
+#: darkify-react/src/pages/Help.jsx:147
+msgid "Domain For Sale"
+msgstr "Domain For Sale"
+
+#: darkify-react/src/pages/Help.jsx:148
+msgid "The ultimate WordPress plugin for domain sales, appraisals, auctions, and marketplace management."
+msgstr "Kompletna wtyczka WordPress do sprzedaży domen, wycen, aukcji i zarządzania marketplace’em."
+
+#: darkify-react/src/pages/Help.jsx:153
+msgid "Greet - Video Bubble Plugin for WordPress"
+msgstr "Greet - Video Bubble Plugin for WordPress"
+
+#: darkify-react/src/pages/Help.jsx:154
+msgid "Placing a video on websites can increase the sales of your services or products in a significant way. Greet is a professional video bubble plugin for showing a welcome video on your websites in a great and fun way."
+msgstr "Umieszczenie wideo w witrynie potrafi znacząco zwiększyć sprzedaż usług lub produktów. Greet to profesjonalna wtyczka wideo, która w atrakcyjny i przyjemny sposób wyświetla powitalny film na Twoich stronach."
+
+#: darkify-react/src/pages/Help.jsx:159
+msgid "Eventful for Elementor - Events Showcase for The \"The Events Calendar\""
+msgstr "Eventful for Elementor - Events Showcase for The \"The Events Calendar\""
+
+#: darkify-react/src/pages/Help.jsx:160
+msgid "Easily display events from The Events Calendar plugin with Elementor widgets, offering seamless customization and powerful layout options."
+msgstr "Łatwo prezentuj wydarzenia z wtyczki The Events Calendar za pomocą widżetów Elementora, z płynną personalizacją i rozbudowanymi opcjami układu."
+
+#: darkify-react/src/pages/Help.jsx:169
+msgid "Fantastic plugin which creates a very pleasing balance of shades in dark mode, which is very important for me as some of my students are dyslexic and visual clarity is essential! Easy to install and setup, but I had two things I couldn’t figure…a check box, and targeting content in an iframe (h5p). I created a short video for support and they solved it within 90 minutes. I found a second problem, which they solved in less than an hour! When I say ‘solved it’ I mean I gave them access and they went in and did the work! Incredible! If you need Dark Mode, look no further!"
+msgstr ""
+
+#: darkify-react/src/pages/Help.jsx:174
+msgid "I’ve tried several dark mode plugins over the past few years, including WP Dark Mode, Darklup, Dracula Dark Mode, DarkMySite, Darklooks, Dusky Dark Mode, Dark Mode Toggle, Dark Reader and a few lightweight CSS-only solutions. Many of them looked promising at first, but they always seemed to come with some trade-offs either too heavy, too many ads in the admin panel, compatibility issues with Elementor or limited custom control. After switching to Darkify Dark Mode it’s the first time I’ve actually stuck with a dark mode plugin and didn’t feel the need to look for alternatives."
+msgstr ""
+
+#: darkify-react/src/pages/Help.jsx:179
+msgid "Truly never dealt with better support than this. I was sceptical at first to spend money on this plugin, but after having dealt with a couple issues, and support getting to replying to my support tickets in less than 1 hour, I am no longer disappointed for having to spend money on this plugin. (I am not one to spend money on plugins often. Very rare!) So definitely had to leave a 5 star review if not for support alone; the plugin itself is absolutely perfect! Does exactly what I want, and then some! 🙂 Couldn’t be happier with the results. Thank you!"
+msgstr ""
+
+#: darkify-react/src/pages/Help.jsx:185
+msgid "Get Started"
+msgstr "Rozpocznij"
+
+#: darkify-react/src/pages/Help.jsx:186
+msgid "Recommended"
+msgstr "Polecane"
+
+#: darkify-react/src/pages/Help.jsx:187
+msgid "Lite Vs Pro"
+msgstr "Lite kontra Pro"
+
+#: darkify-react/src/pages/Help.jsx:188
+msgid "Pro Plugins"
+msgstr "Wtyczki Pro"
+
+#: darkify-react/src/pages/Help.jsx:197
+msgid "Go Pro & Unlock More!"
+msgstr "Przejdź na Pro i odblokuj więcej!"
+
+#: darkify-react/src/pages/Help.jsx:200
+msgid "Unlock the full potential of Darkify with advanced dark mode features and full design control."
+msgstr "Wykorzystaj pełnię możliwości Darkify — zaawansowane funkcje trybu ciemnego i pełną kontrolę nad wyglądem."
+
+#: darkify-react/src/pages/Help.jsx:224
+msgid "Lite vs Pro"
+msgstr "Lite kontra Pro"
+
+#: darkify-react/src/pages/Help.jsx:260
+msgid "Verified on WordPress.org"
+msgstr "Zweryfikowane na WordPress.org"
+
+#: darkify-react/src/pages/Help.jsx:273
+msgid "No need to take our word for it"
+msgstr "Nie musisz wierzyć nam na słowo"
+
+#: darkify-react/src/pages/Help.jsx:276
+msgid "Our Users Love Darkify!"
+msgstr "Nasi użytkownicy kochają Darkify!"
+
+#: darkify-react/src/pages/Help.jsx:285
+msgid "on WordPress.org"
+msgstr "na WordPress.org"
+
+#: darkify-react/src/pages/Help.jsx:300
+msgid "Read all reviews"
+msgstr "Przeczytaj wszystkie opinie"
+
+#: darkify-react/src/pages/Help.jsx:320
+msgid "New"
+msgstr "Nowość"
+
+#: darkify-react/src/pages/Help.jsx:325
+msgid "Hot"
+msgstr "Popularne"
+
+#: darkify-react/src/pages/Help.jsx:359
+msgid "just now"
+msgstr "przed chwilą"
+
+#: darkify-react/src/pages/Help.jsx:452
+msgid "No recommended plugins found."
+msgstr "Nie znaleziono polecanych wtyczek."
+
+#: darkify-react/src/pages/Help.jsx:485
+msgid "Active"
+msgstr "Aktywna"
+
+#: darkify-react/src/pages/Help.jsx:495
+msgid "Activating…"
+msgstr "Aktywowanie…"
+
+#: darkify-react/src/pages/Help.jsx:496
+msgid "Activate"
+msgstr "Aktywuj"
+
+#: darkify-react/src/pages/Help.jsx:507
+msgid "Installing…"
+msgstr "Instalowanie…"
+
+#: darkify-react/src/pages/Help.jsx:509
+msgid "Retry"
+msgstr "Ponów"
+
+#: darkify-react/src/pages/Help.jsx:510
+msgid "Install Now"
+msgstr "Zainstaluj teraz"
+
+#: darkify-react/src/pages/Help.jsx:519
+msgid "By"
+msgstr "Autor:"
+
+#: darkify-react/src/pages/Help.jsx:536
+msgid "active"
+msgstr "aktywnych instalacji"
+
+#: darkify-react/src/pages/Help.jsx:549
+msgid "More Details"
+msgstr "Więcej szczegółów"
+
+#: darkify-react/src/pages/Help.jsx:601
+msgid "Made With"
+msgstr "Stworzone z"
+
+#: darkify-react/src/pages/Help.jsx:602
+msgid "By the Team"
+msgstr "przez zespół"
+
+#: darkify-react/src/pages/Help.jsx:613
+msgid "Get connected with"
+msgstr "Bądź z nami w kontakcie:"
+
+#: darkify-react/src/pages/Help.jsx:709
+msgid "Upgrade To Pro!"
+msgstr "Przejdź na Pro!"
+
+#: darkify-react/src/pages/Help.jsx:726
+msgid "Welcome to Darkify!"
+msgstr "Witamy w Darkify!"
+
+#: darkify-react/src/pages/Help.jsx:734
+msgid "Thank you for installing Darkify! This playlist will help you get started. Enjoy!"
+msgstr "Dziękujemy za zainstalowanie Darkify! Ta playlista pomoże Ci zacząć. Miłego oglądania!"
+
+#: darkify-react/src/pages/Help.jsx:759
+msgid "Darkify video tutorial"
+msgstr "Samouczek wideo Darkify"
+
+#: darkify-react/src/pages/Help.jsx:837
+msgid "Documentation"
+msgstr "Dokumentacja"
+
+#: darkify-react/src/pages/Help.jsx:838
+msgid "Explore everything Darkify can do in our detailed documentation."
+msgstr "Poznaj wszystkie możliwości Darkify w naszej szczegółowej dokumentacji."
+
+#: darkify-react/src/pages/Help.jsx:839
+msgid "Browse Now"
+msgstr "Przeglądaj"
+
+#: darkify-react/src/pages/Help.jsx:845
+msgid "Video Tutorials"
+msgstr "Samouczki wideo"
+
+#: darkify-react/src/pages/Help.jsx:846
+msgid "Watch step-by-step walkthroughs to get the most out of the plugin."
+msgstr "Obejrzyj instrukcje krok po kroku i wykorzystaj wtyczkę w pełni."
+
+#: darkify-react/src/pages/Help.jsx:847
+msgid "Watch Now"
+msgstr "Oglądaj"
+
+#: darkify-react/src/pages/Help.jsx:853
+msgid "Technical Support"
+msgstr "Wsparcie techniczne"
+
+#: darkify-react/src/pages/Help.jsx:854
+msgid "Need a hand? Reach out to our support team for prompt assistance."
+msgstr "Potrzebujesz pomocy? Napisz do naszego zespołu wsparcia — odpowiemy szybko."
+
+#: darkify-react/src/pages/Help.jsx:855
+msgid "Get Support"
+msgstr "Uzyskaj wsparcie"
+
+#: darkify-react/src/pages/Help.jsx:861
+msgid "Rate the Plugin"
+msgstr "Oceń wtyczkę"
+
+#: darkify-react/src/pages/Help.jsx:862
+msgid "Enjoying Darkify? Leave a 5-star review to support development."
+msgstr "Podoba Ci się Darkify? Zostaw pięciogwiazdkową opinię i wesprzyj rozwój wtyczki."
+
+#: darkify-react/src/pages/Help.jsx:863
+msgid "Rate Now"
+msgstr "Oceń teraz"
+
+#: darkify-react/src/pages/Help.jsx:875
+msgid "Enhance Your Website with Our Free & Powerful Plugins"
+msgstr "Wzbogać swoją witrynę naszymi darmowymi i wszechstronnymi wtyczkami"
+
+#: darkify-react/src/pages/Help.jsx:878
+msgid "Free, high-quality plugins by ThemeAtelier — install in one click."
+msgstr "Darmowe wtyczki wysokiej jakości od ThemeAtelier — instalacja jednym kliknięciem."
+
+#: darkify-react/src/pages/Help.jsx:890
+msgid "Lite vs. Pro Comparison"
+msgstr "Porównanie Lite i Pro"
+
+#: darkify-react/src/pages/Help.jsx:893
+msgid "Get Darkify Pro today and unlock all the powerful dark mode features."
+msgstr "Kup dziś Darkify Pro i odblokuj wszystkie zaawansowane funkcje trybu ciemnego."
+
+#: darkify-react/src/pages/Help.jsx:903
+msgid "Features"
+msgstr "Funkcje"
+
+#: darkify-react/src/pages/Help.jsx:906
+msgid "Lite"
+msgstr "Lite"
+
+#: darkify-react/src/pages/Help.jsx:909
+msgid "PRO"
+msgstr "PRO"
+
+#: darkify-react/src/pages/Help.jsx:936
+msgid "Upgrade To PRO & Enjoy Advanced Features!"
+msgstr "Przejdź na PRO i korzystaj z zaawansowanych funkcji!"
+
+#. translators: %s: number of Darkify users.
+#: darkify-react/src/pages/Help.jsx:941
+msgid "Already, %s websites are using Darkify to add dark mode — why not yours?"
+msgstr "Już %s witryn korzysta z Darkify, aby dodać tryb ciemny — może czas na Twoją?"
+
+#: darkify-react/src/pages/Help.jsx:952
+msgid "Upgrade to Pro Now!"
+msgstr "Przejdź na Pro już teraz!"
+
+#: darkify-react/src/pages/Help.jsx:960
+msgid "See All Features"
+msgstr "Zobacz wszystkie funkcje"
+
+#: darkify-react/src/pages/Help.jsx:968
+msgid "Pro Live Demo"
+msgstr "Demo wersji Pro"
+
+#: darkify-react/src/pages/Help.jsx:972
+msgid "14-Day No-Questions-Asked"
+msgstr "14 dni bez zbędnych pytań"
+
+#: darkify-react/src/pages/Help.jsx:979
+msgid "Refund Policy"
+msgstr "Polityka zwrotów"
+
+#: darkify-react/src/pages/Help.jsx:992
+msgid "Upgrade your Website with our High-quality Plugins!"
+msgstr "Ulepsz swoją witrynę dzięki naszym wtyczkom wysokiej jakości!"
+
+#: darkify-react/src/pages/Help.jsx:1018
+msgid "View Details"
+msgstr "Zobacz szczegóły"
+
+#: darkify-react/src/pages/Help.jsx:1077
+#: darkify-react/src/pages/SettingsPage.jsx:633
+msgid "Close sections"
+msgstr "Zwiń sekcje"
+
+#: darkify-react/src/pages/Help.jsx:1078
+#: darkify-react/src/pages/SettingsPage.jsx:634
+msgid "Open sections"
+msgstr "Rozwiń sekcje"
+
+#: darkify-react/src/pages/SettingsPage.jsx:426
+msgid "Failed to load settings. Please refresh."
+msgstr "Nie udało się wczytać ustawień. Odśwież stronę."
+
+#: darkify-react/src/pages/SettingsPage.jsx:438
+msgid "This settings section no longer exists."
+msgstr "Ta sekcja ustawień już nie istnieje."
+
+#: darkify-react/src/pages/SettingsPage.jsx:493
+msgid "Saving…"
+msgstr "Zapisywanie…"
+
+#: darkify-react/src/pages/SettingsPage.jsx:495
+msgid "Saved"
+msgstr "Zapisano"
+
+#: darkify-react/src/pages/SettingsPage.jsx:508
+msgid "More actions"
+msgstr "Więcej działań"
+
+#: darkify-react/src/pages/SettingsPage.jsx:518
+msgid "Reset this section"
+msgstr "Przywróć domyślne w tej sekcji"
+
+#: darkify-react/src/pages/SettingsPage.jsx:526
+msgid "Reset all settings"
+msgstr "Przywróć wszystkie ustawienia domyślne"
+
+#: darkify-react/src/pages/SettingsPage.jsx:545
+msgid "Reset Section to Default?"
+msgstr "Przywrócić domyślne ustawienia sekcji?"
+
+#: darkify-react/src/pages/SettingsPage.jsx:546
+msgid "This section's settings will be reset to their default values. This action cannot be undone."
+msgstr "Ustawienia tej sekcji zostaną przywrócone do wartości domyślnych. Tej operacji nie można cofnąć."
+
+#: darkify-react/src/pages/SettingsPage.jsx:550
+msgid "Yes, Reset Section"
+msgstr "Tak, przywróć sekcję"
+
+#: darkify-react/src/pages/SettingsPage.jsx:555
+msgid "This section has been reset to its default values."
+msgstr "Ta sekcja została przywrócona do wartości domyślnych."
+
+#: darkify-react/src/pages/SettingsPage.jsx:567
+msgid "Reset ALL Settings to Default?"
+msgstr "Przywrócić WSZYSTKIE ustawienia domyślne?"
+
+#: darkify-react/src/pages/SettingsPage.jsx:568
+msgid "Every section's settings will be reset to their default values. This action cannot be undone."
+msgstr "Ustawienia wszystkich sekcji zostaną przywrócone do wartości domyślnych. Tej operacji nie można cofnąć."
+
+#: darkify-react/src/pages/SettingsPage.jsx:572
+msgid "Yes, Reset All Settings"
+msgstr "Tak, przywróć wszystkie ustawienia"
+
+#: darkify-react/src/pages/SettingsPage.jsx:577
+msgid "All settings have been reset to their default values."
+msgstr "Wszystkie ustawienia zostały przywrócone do wartości domyślnych."
+
+#: darkify-react/src/pages/SettingsPage.jsx:660
+msgid "Search settings (Ctrl/Cmd+K)"
+msgstr "Szukaj w ustawieniach (Ctrl/Cmd+K)"
+
+#. translators: %s: settings tab name, e.g. "HTML/CSS Restriction".
+#: darkify-react/src/pages/SettingsPage.jsx:705
+msgid "Unlock %s and take full control of how dark mode applies across your site with Darkify Pro."
+msgstr "Odblokuj %s i przejmij pełną kontrolę nad działaniem trybu ciemnego w całej witrynie dzięki Darkify Pro."
+
+#: src/Admin/blocks/src/edit.js:96
+msgid "Darkify Settings"
+msgstr "Ustawienia Darkify"
+
+#: src/Admin/blocks/src/edit.js:121
+msgid "Custom Size"
+msgstr "Własny rozmiar"
+
+#: src/Admin/blocks/src/edit.js:131
+msgid "Light Mode Background"
+msgstr "Tło trybu jasnego"
+
+#: src/Admin/blocks/src/edit.js:138
+msgid "Dark Mode Background"
+msgstr "Tło trybu ciemnego"
+
+#: src/Admin/blocks/src/edit.js:150
+msgid "Light Mode Icon Color"
+msgstr "Kolor ikony w trybie jasnym"
+
+#: src/Admin/blocks/src/edit.js:159
+msgid "Dark Mode Icon Color"
+msgstr "Kolor ikony w trybie ciemnym"
+
+#: src/Admin/blocks/src/edit.js:171
+msgid "Light Mode Text Color"
+msgstr "Kolor tekstu w trybie jasnym"
+
+#: src/Admin/blocks/src/edit.js:178
+msgid "Dark Mode Text Color"
+msgstr "Kolor tekstu w trybie ciemnym"
+
+#: src/Admin/blocks/src/edit.js:189
+msgid "Border Width"
+msgstr "Szerokość obramowania"
+
+#: src/Admin/blocks/src/edit.js:195
+msgid "Border Light Color"
+msgstr "Jasny kolor obramowania"
+
+#: src/Admin/blocks/src/edit.js:202
+msgid "Border Dark Color"
+msgstr "Ciemny kolor obramowania"
+
+#: src/Admin/blocks/src/edit.js:210
+msgid "Border Radius"
+msgstr "Zaokrąglenie obramowania"
+
+#: src/Admin/blocks/block.json
+msgctxt "block title"
+msgid "Dark Mode Switcher"
+msgstr "Przełącznik trybu ciemnego"
+
+#: src/Admin/blocks/block.json
+msgctxt "block description"
+msgid "Easily place a dark mode switch anywhere on your website. Fully customizable and powered by Darkify for a smooth light/dark experience."
+msgstr "Umieść przełącznik trybu ciemnego w dowolnym miejscu witryny. W pełni konfigurowalny i napędzany przez Darkify — dla płynnego przechodzenia między trybem jasnym a ciemnym."

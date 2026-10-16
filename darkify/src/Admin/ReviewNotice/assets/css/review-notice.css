@@ -1,0 +1,105 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+.darkify-field-image_select.icon_select img {
+  max-width: 175px;
+}
+
+.switcher_shortcode_input {
+  padding: 4px 8px;
+  cursor: pointer;
+  width: 100%;
+}
+.switcher_shortcode_after_copy {
+  bottom: 0;
+  opacity: 0;
+  z-index: 9999999;
+  position: fixed;
+  width: 230px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 15px 15px;
+  line-height: 15px;
+  color: #fff;
+  border-radius: 3px;
+  background: #32373c;
+  border: 1px solid #32373c;
+}
+
+.switcher_shortcode_after_copy .fa-check-circle {
+  font-size: 14px;
+  margin-right: 5px;
+  color: #5db62e;
+}
+
+/* Review notice */
+#darkify-review-notice {
+  padding: 18px 15px 18px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 20px 20px 0 0;
+  box-shadow: 0 0 20px 0 rgba(36, 39, 50, 0.08);
+}
+
+#darkify-review-notice .darkify-plugin-icon {
+  width: 125px;
+  float: left;
+  line-height: 90px;
+  text-align: center;
+  margin-left: 8px;
+}
+
+#darkify-review-notice .darkify-plugin-icon img {
+  max-width: 94px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+#darkify-review-notice .darkify-notice-text {
+  overflow: hidden;
+}
+
+#darkify-review-notice .darkify-notice-text h3 {
+  font-size: 24px;
+  margin: 0 0 5px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+#darkify-review-notice .darkify-notice-text p {
+  margin: 10px 0 10px 0;
+  font-size: 13px;
+}
+
+#darkify-review-notice .darkify-notice-text p.darkify-review-actions {
+  margin: 10px 0 2px 0;
+}
+
+#darkify-review-notice .darkify-notice-text .darkify-review-actions a {
+  text-decoration: none;
+  margin-right: 8px;
+  color: #63a37b;
+  display: inline-block;
+  position: relative;
+}
+
+#darkify-review-notice .darkify-notice-text .darkify-review-actions a span {
+  padding-right: 2px;
+}
+
+#darkify-review-notice .darkify-notice-text .darkify-review-actions a.button {
+  color: #fff;
+}
+  #themeatelier-offer-banner {
+    padding: 0;
+    border: 0;
+    line-height: 0;
+    background: 0 0;
+    margin-left: 0;
+}
+
+#themeatelier-offer-banner .themeatelier-offer-banner-dismiss{
+  background: #fff;
+}
