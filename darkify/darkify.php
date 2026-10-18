@@ -18,7 +18,7 @@
  * Description:       Darkify is for a stylish, modern darkmode look that people love.
  * Requires at least: 5.5
  * Requires PHP:      7.1
- * Version:           2.2.0
+ * Version:           2.2.1
  * Author:            ThemeAtelier
  * Author URI:        https://themeatelier.net/
  * License:           GPL-2.0+
@@ -42,7 +42,7 @@ use ThemeAtelier\Darkify\Includes\Darkify;
  * Rename this for your plugin and update it as you release new versions.
  */
 if (!defined('DARKIFY_VERSION')) {
-    define('DARKIFY_VERSION', '2.2.0');
+    define('DARKIFY_VERSION', '2.2.1');
 }
 if (!defined('DARKIFY_FILE')) {
     define('DARKIFY_FILE', __FILE__);

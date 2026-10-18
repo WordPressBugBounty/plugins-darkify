@@ -162,41 +162,147 @@ if (is_admin() && $block_editor_dark_mode) {
                                     },
                                 ];
 
+                                const html = document.documentElement;
+                                const isDark = () => html.classList.contains('darkify_dark_mode_enabled');
+
                                 // Dark mode toggle button
                                 const button = document.createElement('button');
+                                button.type = 'button';
                                 button.className = 'darkify_block_editor_switch darkify_ignore';
-                                button.innerHTML = '<div class="icon"></div>';
+                                // Icon-only, so it needs a name. The editor runs the
+                                // Dark Reader engine, not client_main.js, so the
+                                // pressed state is kept in step here.
+                                button.setAttribute('aria-label', <?php echo wp_json_encode(__('Dark mode', 'darkify')); ?>);
+                                button.innerHTML = '<span class="icon" aria-hidden="true"></span>';
                                 button.onclick = function() {
                                     darkify_switch_trigger();
                                 };
+                                const syncPressed = () => {
+                                    const pressed = isDark() ? 'true' : 'false';
+                                    if (button.getAttribute('aria-pressed') !== pressed) {
+                                        button.setAttribute('aria-pressed', pressed);
+                                    }
+                                };
+                                syncPressed();
+                                new MutationObserver(syncPressed).observe(html, {
+                                    attributes: true,
+                                    attributeFilter: ['class']
+                                });
 
-                                // Dropdown wrapper
+                                /*
+                                 * Palette picker: a button that opens a listbox
+                                 * (WAI-ARIA APG listbox pattern, focus moved onto
+                                 * the options). Mouse behaviour is unchanged; the
+                                 * keyboard gets ArrowDown/ArrowUp/Enter/Space to
+                                 * open, arrows/Home/End to move, Enter/Space to
+                                 * pick, Escape to close. Pro palettes stay listed
+                                 * and focusable but are aria-disabled.
+                                 */
+                                const paletteLabel = <?php echo wp_json_encode(__('Dark mode palette', 'darkify')); ?>;
+                                const listId = 'darkify-palette-listbox';
+
                                 const wrapper = document.createElement('div');
                                 wrapper.className = 'darkify-dropdown';
                                 wrapper.style.cssText = 'position:relative;display:inline-flex;align-items:center;';
 
-                                const selected = document.createElement('div');
+                                const selected = document.createElement('button');
+                                selected.type = 'button';
                                 selected.className = 'darkify-selected';
+                                selected.setAttribute('aria-haspopup', 'listbox');
+                                selected.setAttribute('aria-expanded', 'false');
+                                selected.setAttribute('aria-controls', listId);
 
-                                const list = document.createElement('div');
+                                const list = document.createElement('ul');
+                                list.id = listId;
                                 list.className = 'darkify-options';
+                                list.setAttribute('role', 'listbox');
+                                list.setAttribute('aria-label', paletteLabel);
 
-                                themes.forEach(t => {
-                                    const item = document.createElement('div');
+                                const swatch = (t) => `<span class="theme_color ${t.cls}" aria-hidden="true"></span>`;
+                                const options = [];
+                                let current = null;
+
+                                const showSelected = (t) => {
+                                    current = t;
+                                    selected.innerHTML = `${swatch(t)} ${t.label}`;
+                                    selected.setAttribute('aria-label', `${paletteLabel}: ${t.label}`);
+                                    options.forEach(o => o.setAttribute('aria-selected', o.dataset.value === t.value ? 'true' : 'false'));
+                                };
+
+                                const isOpen = () => list.classList.contains('show');
+                                const open = (focusLast) => {
+                                    list.classList.add('show');
+                                    selected.setAttribute('aria-expanded', 'true');
+                                    const target = focusLast ? options[options.length - 1] :
+                                        (options.find(o => o.dataset.value === (current && current.value)) || options[0]);
+                                    target.focus();
+                                };
+                                const close = (returnFocus) => {
+                                    if (!isOpen()) return;
+                                    list.classList.remove('show');
+                                    selected.setAttribute('aria-expanded', 'false');
+                                    if (returnFocus) selected.focus();
+                                };
+                                const choose = (t) => {
+                                    showSelected(t);
+                                    localStorage.darkify_selected_theme = t.value;
+                                    darkify_theme_select(t.value);
+                                    close(true);
+                                };
+
+                                themes.forEach((t, i) => {
+                                    const item = document.createElement('li');
+                                    item.id = `${listId}-${t.value}`;
+                                    item.dataset.value = t.value;
+                                    item.setAttribute('role', 'option');
+                                    item.setAttribute('aria-selected', 'false');
+                                    item.tabIndex = -1;
                                     if (t.pro) {
                                         item.className = 'darkify-option darkify-pro-option';
-                                        item.innerHTML = `<span class="theme_color ${t.cls}"></span> ${t.label}<span class="darkify-option-pro-badge">PRO</span>`;
+                                        item.setAttribute('aria-disabled', 'true');
+                                        // The space keeps "PRO" a separate word for screen readers.
+                                        item.innerHTML = `${swatch(t)} ${t.label} <span class="darkify-option-pro-badge">PRO</span>`;
                                         item.title = 'Upgrade to Pro to unlock this theme';
                                     } else {
                                         item.className = 'darkify-option';
-                                        item.innerHTML = `<span class="theme_color ${t.cls}"></span> ${t.label}`;
-                                        item.onclick = () => {
-                                            selected.innerHTML = `<span class="theme_color ${t.cls}"></span> ${t.label}`;
-                                            localStorage.darkify_selected_theme = t.value;
-                                            darkify_theme_select(t.value);
-                                            list.classList.remove('show');
-                                        };
+                                        item.innerHTML = `${swatch(t)} ${t.label}`;
+                                        item.onclick = () => choose(t);
                                     }
+                                    item.addEventListener('keydown', (e) => {
+                                        let next = null;
+                                        switch (e.key) {
+                                            case 'ArrowDown':
+                                                next = options[Math.min(i + 1, options.length - 1)];
+                                                break;
+                                            case 'ArrowUp':
+                                                next = options[Math.max(i - 1, 0)];
+                                                break;
+                                            case 'Home':
+                                                next = options[0];
+                                                break;
+                                            case 'End':
+                                                next = options[options.length - 1];
+                                                break;
+                                            case 'Enter':
+                                            case ' ':
+                                                e.preventDefault();
+                                                if (!t.pro) choose(t);
+                                                return;
+                                            case 'Escape':
+                                                e.preventDefault();
+                                                e.stopPropagation(); // keep the editor from also handling it
+                                                close(true);
+                                                return;
+                                            case 'Tab':
+                                                close(false);
+                                                return;
+                                            default:
+                                                return;
+                                        }
+                                        e.preventDefault();
+                                        next.focus();
+                                    });
+                                    options.push(item);
                                     list.appendChild(item);
                                 });
 
@@ -208,15 +314,25 @@ if (is_admin() && $block_editor_dark_mode) {
                                     || (typeof darkify_editor_palette_default !== 'undefined' ? darkify_editor_palette_default : '')
                                     || 'auto';
                                 const savedTheme = themes.find(t => t.value === savedVal && !t.pro) || themes[0];
-                                selected.innerHTML = `<span class="theme_color ${savedTheme.cls}"></span> ${savedTheme.label}`;
+                                showSelected(savedTheme);
 
                                 selected.onclick = (e) => {
                                     e.stopPropagation();
-                                    list.classList.toggle('show');
+                                    if (isOpen()) {
+                                        close(false);
+                                    } else {
+                                        open(false);
+                                    }
                                 };
+                                selected.addEventListener('keydown', (e) => {
+                                    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                                        e.preventDefault();
+                                        open(e.key === 'ArrowUp');
+                                    }
+                                });
 
                                 document.addEventListener('click', function(e) {
-                                    if (!wrapper.contains(e.target)) list.classList.remove('show');
+                                    if (!wrapper.contains(e.target)) close(false);
                                 });
 
                                 wrapper.appendChild(selected);

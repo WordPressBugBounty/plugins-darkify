@@ -91,6 +91,7 @@ class Admin
             // are gated on `darkify_admin_panel_dark_enabled`.
             if ($needs_engine || $this->is_darkify_spa_page()) {
                 add_action('admin_bar_menu',  array($this, 'darkify_admin_bar_switch'), 9999);
+                add_action('admin_enqueue_scripts', array($this, 'darkify_admin_bar_switch_a11y_script'));
                 add_action('admin_print_scripts', array($this, 'darkify_admin_header_script'), 1);
                 add_action('admin_footer', array($this, 'darkify_admin_footer_script'));
             }
@@ -553,8 +554,15 @@ class Admin
         $wp_admin_bar->add_node(array(
             'parent' => 'top-secondary',
             'id' => 'darkify_admin_bar_switch_container',
+            // The icon is a CSS mask, so without this the item has no name at
+            // all. Core styles .screen-reader-text inside the admin bar.
+            'title' => '<span class="screen-reader-text">' . esc_html__('Dark mode', 'darkify') . '</span>',
             'meta' => array(
                 'class' => $classes,
+                // Core renders a link-less node as a <div>, which Tab skips.
+                // Role, state and Enter/Space come from
+                // darkify_admin_bar_switch_a11y_script().
+                'tabindex' => 0,
                 // Guarded call: a plugin's "no-conflict mode" can still strip the
                 // engine on its own screens (see the compatibility hooks in the
                 // constructor). A missing function should be an inert click, not
@@ -565,6 +573,63 @@ class Admin
                 'onclick' => 'window.darkify_switch_trigger&&window.darkify_switch_trigger()',
             ),
         ));
+    }
+
+    /**
+     * Keyboard and screen-reader support for the admin-bar switch.
+     *
+     * Core always renders the node as role="menuitem" and gives a link-less
+     * item no key handling. This promotes it to a menuitemcheckbox whose
+     * aria-checked follows the dark-mode class, and makes Enter/Space
+     * activate it (core's own admin-bar.js only handles Enter on `.menupop`
+     * items, so nothing fires twice).
+     *
+     * Attached to core's `admin-bar` handle rather than a Darkify script: it
+     * is printed wherever the bar is, and "no-conflict" plugins that strip
+     * scripts served from wp-content/plugins leave core handles alone. In
+     * wp-admin the bar is rendered before footer scripts, so the node exists
+     * by the time this runs; the readyState check is only a safeguard.
+     */
+    public function darkify_admin_bar_switch_a11y_script()
+    {
+        if (! is_admin_bar_showing()) {
+            return;
+        }
+
+        $script = <<<'JS'
+(function () {
+  function init() {
+    var node = document.getElementById("wp-admin-bar-darkify_admin_bar_switch_container");
+    var item = node && node.querySelector(".ab-item");
+    if (!item) {
+      return;
+    }
+    var html = document.documentElement;
+    item.setAttribute("role", "menuitemcheckbox");
+    function sync() {
+      var checked = html.classList.contains("darkify_dark_mode_enabled") ? "true" : "false";
+      if (item.getAttribute("aria-checked") !== checked) {
+        item.setAttribute("aria-checked", checked);
+      }
+    }
+    sync();
+    new MutationObserver(sync).observe(html, { attributes: true, attributeFilter: ["class"] });
+    item.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " " || event.key === "Spacebar") {
+        event.preventDefault();
+        item.click();
+      }
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+JS;
+
+        wp_add_inline_script('admin-bar', $script);
     }
 
     public function darkify_is_dark_mode_allowed()

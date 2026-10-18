@@ -270,7 +270,7 @@ class Darkify
             return '<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="theme-toggle__within" height="1em" width="1em" viewBox="0 0 32 32" fill="currentColor"><clipPath id="theme-toggle__within__clip_' . esc_attr($unique_id) . '"><path d="M0 0h32v32h-32ZM6 16A1 1 0 0026 16 1 1 0 006 16" /></clipPath><g clip-path="url(#theme-toggle__within__clip_' . esc_attr($unique_id) . ')"><path d="M30.7 21.3 27.1 16l3.7-5.3c.4-.5.1-1.3-.6-1.4l-6.3-1.1-1.1-6.3c-.1-.6-.8-.9-1.4-.6L16 5l-5.4-3.7c-.5-.4-1.3-.1-1.4.6l-1 6.3-6.4 1.1c-.6.1-.9.9-.6 1.3L4.9 16l-3.7 5.3c-.4.5-.1 1.3.6 1.4l6.3 1.1 1.1 6.3c.1.6.8.9 1.4.6l5.3-3.7 5.3 3.7c.5.4 1.3.1 1.4-.6l1.1-6.3 6.3-1.1c.8-.1 1.1-.8.7-1.4zM16 25.1c-5.1 0-9.1-4.1-9.1-9.1 0-5.1 4.1-9.1 9.1-9.1s9.1 4.1 9.1 9.1c0 5.1-4 9.1-9.1 9.1z" /></g><path class="theme-toggle__within__circle" d="M16 7.7c-4.6 0-8.2 3.7-8.2 8.2s3.6 8.4 8.2 8.4 8.2-3.7 8.2-8.2-3.6-8.4-8.2-8.4zm0 14.4c-3.4 0-6.1-2.9-6.1-6.2s2.7-6.1 6.1-6.1c3.4 0 6.1 2.9 6.1 6.2s-2.7 6.1-6.1 6.1z" />
             <path class="theme-toggle__within__inner" d="M16 9.5c-3.6 0-6.4 2.9-6.4 6.4s2.8 6.5 6.4 6.5 6.4-2.9 6.4-6.4-2.8-6.5-6.4-6.5z" /></svg>';
         } elseif ('orbit' === $variant) {
-            return '<span class="toggle-track"><span class="toggle-sun"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M277.3 32h-42.7v64h42.7V32zm129.1 43.7L368 114.1l29.9 29.9 38.4-38.4-29.9-29.9zm-300.8 0l-29.9 29.9 38.4 38.4 29.9-29.9-38.4-38.4zM256 128c-70.4 0-128 57.6-128 128s57.6 128 128 128 128-57.6 128-128-57.6-128-128-128zm224 106.7h-64v42.7h64v-42.7zm-384 0H32v42.7h64v-42.7zM397.9 368L368 397.9l38.4 38.4 29.9-29.9-38.4-38.4zm-283.8 0l-38.4 38.4 29.9 29.9 38.4-38.4-29.9-29.9zm163.2 48h-42.7v64h42.7v-64z"></path></svg></span><span class="toggle-thumb"></span><span class="toggle-moon"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span></span>';
+            return '<span class="toggle-track"><span class="toggle-sun"><svg aria-hidden="true" focusable="false" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M277.3 32h-42.7v64h42.7V32zm129.1 43.7L368 114.1l29.9 29.9 38.4-38.4-29.9-29.9zm-300.8 0l-29.9 29.9 38.4 38.4 29.9-29.9-38.4-38.4zM256 128c-70.4 0-128 57.6-128 128s57.6 128 128 128 128-57.6 128-128-57.6-128-128-128zm224 106.7h-64v42.7h64v-42.7zm-384 0H32v42.7h64v-42.7zM397.9 368L368 397.9l38.4 38.4 29.9-29.9-38.4-38.4zm-283.8 0l-38.4 38.4 29.9 29.9 38.4-38.4-29.9-29.9zm163.2 48h-42.7v64h42.7v-64z"></path></svg></span><span class="toggle-thumb"></span><span class="toggle-moon"><svg aria-hidden="true" focusable="false" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span></span>';
         }
     }
 
@@ -291,7 +291,23 @@ class Darkify
         $style = '--darkify-switch-scale: ' . esc_attr($switch_size) . ';' . ($type === 'shortcode' ? ' position: relative;' : '');
         $classes = 'darkify_switch darkify_switch_style switch-' . esc_attr($variant)
             . ($type !== 'shortcode' ? ' ' . esc_attr($position_class) . ' ' . esc_attr($floating_switch_position) . ' ' . esc_attr($tooltip_classes) . ' ' . esc_attr($hide_dark_mode_on_mobile_screen) : '');
-        return '<div style="' . $style . '" id="darkify_switch_' . esc_attr($unique_id) . '" onclick="darkify_switch_trigger()" class="' . $classes . '"><div class="theme-toggle">' . self::switcher($variant, $unique_id) . '</div>' . ($type !== 'shortcode' && $floating_switch_width ? '<span class="darkify_tooltiptext">' . esc_attr($tooltip_on_floating_switch) . '</span>' : '') . '</div>';
+
+        /*
+         * A native <button>, so the switch is reachable with Tab and operable
+         * with Enter/Space without any extra script (WCAG 2.1.1, 4.1.2).
+         *
+         * - The accessible name is fixed and the on/off state lives in
+         *   `aria-pressed`, which client_main.js keeps in step with the
+         *   `darkify_dark_mode_enabled` class. Rendered as "false" here: the
+         *   real state comes from localStorage, which the server cannot see.
+         * - Clicks are handled by one delegated listener in client_main.js
+         *   instead of an inline `onclick`, which a strict CSP would block.
+         * - Everything inside is phrasing content (<span>), as a button
+         *   requires. The tooltip only repeats the label visually, so it is
+         *   hidden from assistive technology to avoid announcing it twice.
+         */
+        $label = apply_filters('darkify_switch_label', __('Dark mode', 'darkify'), $type);
+        return '<button type="button" style="' . $style . '" id="darkify_switch_' . esc_attr($unique_id) . '" class="' . $classes . '" aria-pressed="false" aria-label="' . esc_attr($label) . '"><span class="theme-toggle">' . self::switcher($variant, $unique_id) . '</span>' . ($type !== 'shortcode' && $floating_switch_width ? '<span class="darkify_tooltiptext" aria-hidden="true">' . esc_html($tooltip_on_floating_switch) . '</span>' : '') . '</button>';
     }
 
     private function init_action()
@@ -308,6 +324,13 @@ class Darkify
                 'render_callback' => [$this, 'render_darkify_block_callback'],
             )
         );
+
+        // block.json's "textdomain" makes core register the editor script's
+        // translations, but without a path, so core only looks in
+        // wp-content/languages/plugins. Point it at the bundled JSON as well
+        // (core still prefers a language pack there when one exists). The JSON
+        // is built by bin/i18n.js, keyed to src/Admin/blocks/build/index.js.
+        wp_set_script_translations('darkify-switcher-editor-script', 'darkify', DARKIFY_PATH . 'languages');
 
         wp_localize_script(
             'darkify-switcher-editor-script',

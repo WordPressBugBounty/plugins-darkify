@@ -386,6 +386,19 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
   -webkit-mask: url(../../Admin/assets/images/switch_apple_dark.svg) no-repeat center;
   mask: url(../../Admin/assets/images/switch_apple_dark.svg) no-repeat center;
 }
+/*
+ * Keyboard focus ring. It cannot go on the .ab-item: the icon IS that element's
+ * mask, which clips any outline it draws, and core's own focus style (a
+ * background change) is overridden above because it would recolour the icon.
+ * So the ring goes on the <li>, in core's admin-bar focus blue.
+ */
+#wpadminbar .darkify_admin_bar_switch_container:focus-within {
+  outline: 2px solid #72aee6;
+  outline-offset: -2px;
+}
+#wpadminbar .darkify_admin_bar_switch_container:focus-within:not(:has(.ab-item:focus-visible)) {
+  outline: none;
+}
 
 /* ========================
     Block Editor Menu Design
@@ -405,7 +418,13 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
 .darkify_dark_mode_enabled .darkify_block_editor_switch {
   background: #ffffff;
 }
+/* `outline: 0` above suits the mouse; keyboard focus still needs a ring. */
+.darkify_block_editor_switch:focus-visible {
+  outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+  outline-offset: 2px;
+}
 .darkify_block_editor_switch .icon {
+  display: block;
   width: 20px;
   height: 20px;
   background-color: #ffffff !important;
@@ -512,7 +531,8 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
   border-width: 5px;
   border-style: solid;
 }
-.darkify_tooltip:hover .darkify_tooltiptext {
+.darkify_tooltip:hover .darkify_tooltiptext,
+.darkify_tooltip:focus-visible .darkify_tooltiptext {
   visibility: visible;
 }
 .darkify_tooltip.darkify_tooltip_top .darkify_tooltiptext {
@@ -602,6 +622,66 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
   color: var(--darkify_switch_dark_mode_color);
   stroke: var(--darkify_switch_dark_mode_color);
 }
+
+/*
+ * The switch is a native <button> (see Darkify::switcher_wrapper()). Themes
+ * style `button`, `button:hover`, `[type="button"]` and friends with their own
+ * padding, fonts, shadows and backgrounds, so the reset and the switch's own
+ * colours are pinned at two classes: enough to outrank those rules without
+ * reaching for !important.
+ */
+.darkify_switch.darkify_switch_style {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 0;
+  font: inherit;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: none;
+  /* Themes put `transition: all` on buttons; the switch animates its inner
+     icon, not the box, and the focus ring should appear instantly. */
+  transition: none;
+}
+.darkify_switch.darkify_switch_style,
+.darkify_switch.darkify_switch_style:hover,
+.darkify_switch.darkify_switch_style:focus,
+.darkify_switch.darkify_switch_style:active {
+  background: var(--darkify_switch_light_mode_bg);
+  border-color: var(--darkify_switch_border_light_color);
+}
+.darkify_dark_mode_enabled .darkify_switch.darkify_switch_style,
+.darkify_dark_mode_enabled .darkify_switch.darkify_switch_style:hover,
+.darkify_dark_mode_enabled .darkify_switch.darkify_switch_style:focus,
+.darkify_dark_mode_enabled .darkify_switch.darkify_switch_style:active {
+  background: var(--darkify_switch_dark_mode_bg);
+  border-color: var(--darkify_switch_border_dark_color);
+}
+
+/*
+ * Keyboard focus ring (WCAG 2.4.7). Two tones — an outline plus a shadow of
+ * the opposite colour in the gap — so it stays visible whether the switch sits
+ * over a light page, a dark page, or a photo. Only on :focus-visible, so mouse
+ * clicks do not leave a ring behind. Override with --darkify_switch_focus_color
+ * / --darkify_switch_focus_contrast_color.
+ */
+.darkify_switch.darkify_switch_style:focus {
+  outline: none;
+}
+.darkify_switch.darkify_switch_style:focus-visible {
+  outline: 3px solid var(--darkify_switch_focus_color, #121116);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--darkify_switch_focus_contrast_color, #ffffff);
+}
+.darkify_dark_mode_enabled .darkify_switch.darkify_switch_style:focus-visible {
+  outline-color: var(--darkify_switch_focus_color, #ffffff);
+  box-shadow: 0 0 0 2px var(--darkify_switch_focus_contrast_color, #121116);
+}
 .switch-orbit,
 .switch-duality,
 .switch-dual,
@@ -648,6 +728,31 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
 
 .darkify-dropdown .darkify-options.show {
   display: block;
+}
+
+/* The trigger is a <button> and the list a <ul>; undo their UA defaults. */
+.darkify-dropdown button.darkify-selected {
+  font: inherit;
+  text-align: left;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.darkify-dropdown ul.darkify-options {
+  list-style: none;
+  margin: 5px 0 0;
+  padding: 0;
+}
+.darkify-dropdown .darkify-selected:focus-visible,
+.darkify-dropdown .darkify-option:focus-visible {
+  outline: 2px solid var(--wp-admin-theme-color, #3858e9);
+  outline-offset: -2px;
+}
+.darkify-dropdown .darkify-option:hover,
+.darkify-dropdown .darkify-option:focus {
+  background: rgba(0, 0, 0, 0.06);
+}
+.darkify-dropdown .darkify-option[aria-selected="true"] {
+  font-weight: 600;
 }
 
 .darkify-dropdown .darkify-option {
@@ -771,23 +876,30 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
   50% { transform: translateX(-2px); }
   57% { transform: translateX(2px); }
 }
+/*
+ * Each effect runs a fixed number of times, never `infinite`: with the 2s
+ * start delay excluded, the motion stops within 5 seconds (iterations x
+ * duration <= 5s). WCAG 2.2.2 (Pause, Stop, Hide) exempts motion that short;
+ * anything longer would need a control to stop it, and hover-to-pause is not
+ * one a keyboard or touch user can reach.
+ */
 .darkify_switch.darkify_attention_pulse {
-  animation: darkify_attention_pulse 2s ease-in-out 2s infinite;
+  animation: darkify_attention_pulse 2s ease-in-out 2s 2;
 }
 .darkify_switch.darkify_attention_radiance {
-  animation: darkify_attention_radiance 2s ease-in-out 2s infinite;
+  animation: darkify_attention_radiance 2s ease-in-out 2s 2;
 }
 .darkify_switch.darkify_attention_leap {
-  animation: darkify_attention_leap 2.5s ease-in-out 2s infinite;
+  animation: darkify_attention_leap 2.5s ease-in-out 2s 2;
 }
 .darkify_switch.darkify_attention_swing {
-  animation: darkify_attention_swing 1.6s ease-in-out 2s infinite;
+  animation: darkify_attention_swing 1.6s ease-in-out 2s 3;
 }
 .darkify_switch.darkify_attention_drift {
-  animation: darkify_attention_drift 3s ease-in-out 2s infinite;
+  animation: darkify_attention_drift 3s ease-in-out 2s 1;
 }
 .darkify_switch.darkify_attention_nudge {
-  animation: darkify_attention_nudge 2.5s ease-in-out 2s infinite;
+  animation: darkify_attention_nudge 2.5s ease-in-out 2s 2;
 }
 .darkify_switch.darkify_attention_pulse:hover,
 .darkify_switch.darkify_attention_radiance:hover,
@@ -796,6 +908,27 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
 .darkify_switch.darkify_attention_drift:hover,
 .darkify_switch.darkify_attention_nudge:hover {
   animation-play-state: paused;
+}
+/*
+ * Stopped outright (not paused) while focused from the keyboard: a paused
+ * animation still holds its current frame, and the radiance frame's box-shadow
+ * would sit on top of the focus ring.
+ */
+.darkify_switch[class*="darkify_attention_"]:focus-visible {
+  animation: none;
+}
+
+/*
+ * Respect "reduce motion" (WCAG 2.3.3): no looping attention effect, and the
+ * icon swaps state instantly instead of animating.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .darkify_switch,
+  .darkify_switch * {
+    animation: none !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
 }
 /*
  * Transition suppression for the duration of an engine pass.

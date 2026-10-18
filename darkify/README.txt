@@ -4,7 +4,7 @@ Tags: dark mode, night mode, wordpress dark mode, dark, dark theme
 Requires at least: 5.5
 Tested up to: 7.1.3
 Requires PHP: 7.1
-Stable tag: 2.2.0
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -371,7 +371,20 @@ No coding is required. You can manage everything—from color presets to switch 
 = Is Darkify Dark Mode GDPR compliant? =
 Darkify does not collect personal data and stores user preferences locally in the browser.
 
+= Is the dark mode switch accessible? =
+Yes. Every switch (floating, menu, shortcode, Gutenberg block and Elementor widget) is a real button. Visitors can reach it with the Tab key and turn dark mode on or off with Enter or Space. Screen readers announce it as "Dark mode" together with whether it is on or off. Keyboard focus shows a visible outline, and the switch animations follow the visitor's "Reduce motion" setting.
+
 == Changelog ==
+
+= 2.2.1 – 17 October 2026 =
+* Improved: Accessibility. Every dark mode switch (floating, mobile, menu, shortcode, Gutenberg block and Elementor widget) is now a real button. It can be reached with Tab, used with Enter or Space, and is announced by screen readers as "Dark mode" with its on/off state. Keyboard focus shows a visible outline.
+* Improved: Accessibility. The admin bar dark mode toggle can now be reached and used with the keyboard, and screen readers announce it with its on/off state.
+* Improved: Accessibility. The block editor palette picker now works with the keyboard (arrow keys, Home/End, Enter, Escape).
+* Improved: The switch attention effect now plays briefly after the page loads instead of looping forever. All switch animations follow the "Reduce motion" system setting.
+* Fixed: A keyboard shortcut without Ctrl or Cmd (such as Shift+D) toggled dark mode while visitors typed in forms. It is now ignored inside text fields.
+* Fixed: The keyboard shortcut no longer replaces keyboard handlers added by the theme or other plugins.
+* Removed: The bundled Polish translation. Translations are now provided through translate.wordpress.org, where anyone can contribute.
+* Developer: New `darkify_switch_label` filter to change the switch's accessible name.
 
 = 2.2.0 – 13 October 2026 =
 * Added: URL Parameter option under Controls → Frontend. Add ?darkmode=1 or ?darkmode=0 to any page URL to open it in dark or light mode. The parameter name can be changed.

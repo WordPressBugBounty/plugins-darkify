@@ -2139,6 +2139,7 @@ function darkify_process_deterministic_fixes(element) {
 
 darkify_init_keyboard_shortcut_listener();
 darkify_init_os_mode_change_listener();
+darkify_init_switch_a11y();
 
 /*
  * Every mutation batch used to trigger a full-document walk of its own. While
@@ -3641,7 +3642,22 @@ function darkify_init_keyboard_shortcut_listener() {
     } else if (/^[0-9]$/.test(need_key)) {
       expected_code = "digit" + need_key;
     }
-    document.onkeydown = function (event) {
+    // A combo with neither Ctrl nor Cmd (Shift+D, or Alt/Option+D, which types
+    // "∂" on a Mac) is a character a visitor can type. Inside a text field it
+    // must stay text, or writing a capital "D" in a comment would flip the
+    // theme (WCAG 2.1.4 Character Key Shortcuts).
+    var types_a_character = !need_ctrl && !need_meta;
+
+    // addEventListener, not `document.onkeydown =`: assigning the property
+    // silently replaced any handler a theme or plugin had put there (and was
+    // replaced by theirs in turn).
+    document.addEventListener("keydown", function (event) {
+      if (event.repeat || event.isComposing) {
+        return;
+      }
+      if (types_a_character && darkify_is_editable_target(event.target)) {
+        return;
+      }
       var key_matches =
         (expected_code &&
           typeof event.code === "string" &&
@@ -3658,8 +3674,29 @@ function darkify_init_keyboard_shortcut_listener() {
         event.preventDefault();
         darkify_switch_trigger();
       }
-    };
+    });
   }
+}
+
+/** True when keystrokes on `target` would type text. */
+function darkify_is_editable_target(target) {
+  if (!target || target.nodeType !== 1) {
+    return false;
+  }
+  if (target.isContentEditable) {
+    return true;
+  }
+  var tag = target.tagName;
+  if (tag === "TEXTAREA" || tag === "SELECT") {
+    return true;
+  }
+  if (tag === "INPUT") {
+    // Inputs that take no typed text (checkbox, radio, button, range, ...).
+    return !/^(button|checkbox|color|file|hidden|image|radio|range|reset|submit)$/i.test(
+      target.type || "",
+    );
+  }
+  return false;
 }
 
 function darkify_init_os_mode_change_listener() {
@@ -3691,6 +3728,79 @@ function darkify_init_alternative_dark_mode_switch() {
         darkify_switch_trigger();
       });
     }
+  }
+}
+
+/*
+ * Click handling and screen-reader state for every `.darkify_switch` button
+ * (floating, mobile, menu, shortcode, block, Elementor — see
+ * Darkify::switcher_wrapper()).
+ *
+ * One delegated listener instead of an inline `onclick` per switch: it covers
+ * switches inserted later (popups, AJAX-loaded content) and survives a strict
+ * Content-Security-Policy. Keyboard activation needs nothing extra because the
+ * switch is a native <button>.
+ *
+ * `aria-pressed` mirrors the `darkify_dark_mode_enabled` class, whatever flips
+ * it — a switch, the keyboard shortcut, the OS listener, time-based mode. The
+ * engine's own observers are only wired on first toggle, so this keeps its own:
+ * one element, one attribute, and a no-op when the state has not changed.
+ */
+function darkify_init_switch_a11y() {
+  var last_pressed = null;
+
+  function sync(force) {
+    var pressed = document.documentElement.classList.contains(
+      "darkify_dark_mode_enabled",
+    )
+      ? "true"
+      : "false";
+    if (!force && pressed === last_pressed) {
+      return;
+    }
+    last_pressed = pressed;
+    var switches = document.querySelectorAll(".darkify_switch");
+    for (var i = 0; i < switches.length; i++) {
+      if (switches[i].getAttribute("aria-pressed") !== pressed) {
+        switches[i].setAttribute("aria-pressed", pressed);
+      }
+    }
+  }
+
+  document.addEventListener("click", function (event) {
+    var target = event.target;
+    var el = target && target.closest ? target.closest(".darkify_switch") : null;
+    // Markup cached before the switch became a button still carries its own
+    // inline onclick; handling it here as well would toggle twice.
+    if (!el || el.hasAttribute("onclick")) {
+      return;
+    }
+    darkify_switch_trigger();
+  });
+
+  // A switch inserted after the last sync (a popup, a lazy-loaded section)
+  // still holds the server's "false". Correct it before a screen reader reads
+  // it out on focus.
+  document.addEventListener("focusin", function (event) {
+    var target = event.target;
+    if (target && target.classList && target.classList.contains("darkify_switch")) {
+      sync(true);
+    }
+  });
+
+  new MutationObserver(function () {
+    sync(false);
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      sync(true);
+    });
+  } else {
+    sync(true);
   }
 }
 
