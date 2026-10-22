@@ -4,7 +4,7 @@ Tags: dark mode, night mode, wordpress dark mode, dark, dark theme
 Requires at least: 5.5
 Tested up to: 7.1.3
 Requires PHP: 7.1
-Stable tag: 2.2.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,7 @@ Darkify is designed to work with popular WordPress themes, page builders, and mu
 ✔ Dark mode for frontend and admin dashboard  
 ✔ Works with Gutenberg, Elementor, and popular builders  
 ✔ OS-aware, scheduled, and manual switching  
+✔ Keyboard and screen-reader accessible toggle  
 ✔ Lightweight and performance-focused  
 ✔ No theme modification required
 
@@ -51,11 +52,13 @@ Darkify is designed to work with popular WordPress themes, page builders, and mu
 
 - **Time-Based Dark Mode**: Schedule automatic switching between light and dark mode based on a defined time range.
 
-- **Keyboard Shortcut**: Allow users to toggle dark mode with a keyboard shortcut. **Ctrl + Alt + D** works out of the box, and you can record any key combination you prefer instead.
+- **Keyboard Shortcut**: Allow users to toggle dark mode with a keyboard shortcut. **Ctrl + Alt + D** works out of the box, and you can record any key combination you prefer instead. A shortcut that types a character never fires while visitors are typing in a form.
 
 - **Multiple Floating Switch Designs**: Choose from 5 floating switch styles — 16 in total with Pro — and pick the screen corner it sits in, with its own margin controls.
 
 - **Switch Attention Effect**: Enable an animation on the floating switch to draw visitor attention. Choose from multiple effect styles including Pulse to highlight the toggle without being intrusive.
+
+- **Accessible Dark Mode Switch**: Every toggle (floating, menu, shortcode, Gutenberg block and Elementor widget) is a real button. Visitors can reach it with the Tab key and switch with Enter or Space, screen readers announce "Dark mode" and whether it is on or off, keyboard focus is clearly visible, and the switch animations follow the visitor's "Reduce motion" setting.
 
 - **Customizable Switch**: Adjust the switch size, colors, icons, and styling to match the site’s design.
 
@@ -375,6 +378,9 @@ Darkify does not collect personal data and stores user preferences locally in th
 Yes. Every switch (floating, menu, shortcode, Gutenberg block and Elementor widget) is a real button. Visitors can reach it with the Tab key and turn dark mode on or off with Enter or Space. Screen readers announce it as "Dark mode" together with whether it is on or off. Keyboard focus shows a visible outline, and the switch animations follow the visitor's "Reduce motion" setting.
 
 == Changelog ==
+
+= 2.2.2 – 22 October 2026 =
+* Fixed: Since 2.2.1 some themes (for example Hello Elementor) could override the floating switch's look with their own button styles: the Switch Border radius setting had no effect, a thin border appeared, and the icon could lose its centering. The switch now keeps the shape, size and border set in Darkify on every theme.
 
 = 2.2.1 – 17 October 2026 =
 * Improved: Accessibility. Every dark mode switch (floating, mobile, menu, shortcode, Gutenberg block and Elementor widget) is now a real button. It can be reached with Tab, used with Enter or Space, and is announced by screen readers as "Dark mode" with its on/off state. Keyboard focus shows a visible outline.

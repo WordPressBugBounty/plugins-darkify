@@ -648,6 +648,35 @@ html.darkify_dark_mode_enabled.darkify_fouc_guard body {
      icon, not the box, and the focus ring should appear instantly. */
   transition: none;
 }
+/*
+ * The switch's own shape, pinned against theme button resets. Hello Elementor
+ * (and normalize-style resets) print `[type="button"], button { display:
+ * inline-block; border: 1px solid; border-radius: 3px }` — `[type="button"]`
+ * ties with `.darkify_switch_style`, so whichever loads later won, and after
+ * 2.2.1 that was the theme: the Switch Border radius did nothing, a 1px border
+ * appeared, the icon lost its flex centring, and `width: auto` shrank every
+ * style without a fixed width of its own down to its icon.
+ *
+ * Two weights, on purpose:
+ * - `display` and the default size at element + one class: beats
+ *   `[type="button"]` and `button`, but still loses to
+ *   `.darkify_switch.darkify_hide_on_mobile/desktop`, which must be able to
+ *   hide the switch, and to each style's own `.darkify_switch_style.switch-*`
+ *   size.
+ * - The border at element + two classes: also beats Elementor's site-wide
+ *   button styles (`.elementor-kit-N button`), while the Elementor widget's
+ *   own per-widget rules (four classes) still win, as they should.
+ */
+button.darkify_switch_style {
+  display: flex;
+  width: calc(60px * var(--darkify-switch-scale, 1));
+  height: calc(60px * var(--darkify-switch-scale, 1));
+}
+button.darkify_switch.darkify_switch_style {
+  border-radius: var(--darkify_switch_border_radius);
+  border-width: var(--darkify_switch_border);
+  border-style: solid;
+}
 .darkify_switch.darkify_switch_style,
 .darkify_switch.darkify_switch_style:hover,
 .darkify_switch.darkify_switch_style:focus,
