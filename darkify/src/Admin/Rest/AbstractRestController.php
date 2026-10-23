@@ -311,6 +311,59 @@ abstract class AbstractRestController
     ];
 
     /**
+     * ID => title for every post of the given types and statuses, newest first.
+     *
+     * Reads only the two columns the select needs. This used to be
+     * `get_posts( [ 'posts_per_page' => -1 ] )`, which builds a full WP_Post
+     * (content included) for every post and primes its meta and term caches:
+     * on a site with ~9,000 posts that exhausted PHP's memory limit, so the
+     * settings request died with a 500 and the screen showed "Failed to load
+     * settings". Two fields ask for the same list, so it is built once per
+     * request.
+     *
+     * Same result and order as before: get_posts() also skips filters
+     * (`suppress_filters`) and orders by post_date DESC.
+     *
+     * @param string[] $post_types Post types to list.
+     * @param string[] $statuses   Post statuses to include.
+     * @return array<string,string>
+     */
+    protected function post_title_options(array $post_types, array $statuses): array
+    {
+        static $cache = [];
+
+        $post_types = \array_values(\array_filter(\array_map('sanitize_key', $post_types)));
+        $statuses   = \array_values(\array_filter(\array_map('sanitize_key', $statuses)));
+        if (!$post_types || !$statuses) {
+            return [];
+        }
+
+        $key = \implode(',', $post_types) . '|' . \implode(',', $statuses);
+        if (isset($cache[$key])) {
+            return $cache[$key];
+        }
+
+        global $wpdb;
+        $type_in   = \implode(', ', \array_fill(0, \count($post_types), '%s'));
+        $status_in = \implode(', ', \array_fill(0, \count($statuses), '%s'));
+        // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching, WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- Only placeholders are interpolated; a WP_Query would load every full post, which is the problem this avoids. Cached per request above.
+        $rows = $wpdb->get_results($wpdb->prepare(
+            "SELECT ID, post_title FROM {$wpdb->posts} WHERE post_type IN ($type_in) AND post_status IN ($status_in) ORDER BY post_date DESC, ID DESC",
+            \array_merge($post_types, $statuses)
+        ));
+
+        $out = [];
+        foreach ((array) $rows as $row) {
+            $out[(string) $row->ID] = ($row->post_title !== '')
+                ? $row->post_title
+                /* translators: %d: post ID. */
+                : \sprintf(\__('(no title) #%d', 'darkify'), $row->ID);
+        }
+
+        return $cache[$key] = $out;
+    }
+
+    /**
      * Resolve a dynamic-options token (a string like 'pages') into an id => label
      * map. An unknown token resolves to an empty list rather than leaking the
      * token itself into the UI as a bogus choice.
@@ -328,14 +381,10 @@ abstract class AbstractRestController
                 $args = (isset($field['query_args']) && \is_array($field['query_args']))
                     ? $field['query_args']
                     : ['post_type' => 'post'];
-                $args['posts_per_page'] = $args['posts_per_page'] ?? -1;
-                $args['post_status']    = $args['post_status'] ?? 'publish';
-                foreach (\get_posts($args) as $post) {
-                    $out[(string) $post->ID] = ($post->post_title !== '')
-                        ? $post->post_title
-                        /* translators: %d: post ID. */
-                        : \sprintf(\__('(no title) #%d', 'darkify'), $post->ID);
-                }
+                $out = $this->post_title_options(
+                    (array) ($args['post_type'] ?? 'post'),
+                    (array) ($args['post_status'] ?? 'publish')
+                );
                 break;
             }
 

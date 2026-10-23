@@ -2,19 +2,22 @@
 # This file is distributed under the GPL-2.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Darkify 2.2.2\n"
+"Project-Id-Version: Darkify 2.2.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/darkify\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-17T09:19:36+00:00\n"
+"POT-Creation-Date: 2026-10-23T12:08:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.7.1\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: darkify\n"
 
 #. Plugin Name of the plugin
+#: darkify.php
+#: src/Admin/Menu.php:75
+#: src/Admin/Menu.php:97
 #: src/Admin/ReviewNotice/ReviewNotice.php:70
 #: src/Admin/ReviewNotice/ReviewNotice.php:71
 #: src/Admin/Views/DarkifyOptions.php:29
@@ -25,23 +28,28 @@ msgid "Darkify"
 msgstr ""
 
 #. Plugin URI of the plugin
+#: darkify.php
 msgid "https://darkifywp.com/"
 msgstr ""
 
 #. Description of the plugin
+#: darkify.php
 msgid "Darkify is for a stylish, modern darkmode look that people love."
 msgstr ""
 
 #. Author of the plugin
+#: darkify.php
 msgid "ThemeAtelier"
 msgstr ""
 
 #. Author URI of the plugin
+#: darkify.php
 msgid "https://themeatelier.net/"
 msgstr ""
 
 #. translators: 1: start strong tag, 2: close strong tag. 3: start link 4: close link
 #: src/Admin/Admin.php:474
+#, php-format
 msgid "<i>Enjoying %1$sDarkify?%2$s Please rate us %3$sWordPress.org%4$s. Your positive feedback will help us grow more. Thank you! 😊</i>"
 msgstr ""
 
@@ -361,6 +369,75 @@ msgstr ""
 #: src/Admin/Views/SwitcherStyle.php:1204
 #: src/Admin/blocks/src/edit.js:480
 msgid "Dark Mode"
+msgstr ""
+
+#: src/Admin/Menu.php:109
+#: src/Admin/Menu.php:110
+msgid "Upgrade To Pro! 👑"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:298
+msgid "Block menu"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:299
+msgid "Kadence"
+msgstr ""
+
+#. translators: %d: post ID.
+#. translators: %d: page ID.
+#. translators: %d: navigation menu post ID.
+#: src/Admin/Rest/AbstractRestController.php:360
+#: src/Admin/Rest/AbstractRestController.php:403
+#: src/Admin/Rest/AbstractRestController.php:458
+#, php-format
+msgid "(no title) #%d"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:494
+msgid "Front Page"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:495
+msgid "Blog Page (Posts Index)"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:496
+msgid "Category & Tag Archives"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:497
+msgid "Search Results"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:498
+msgid "404 Page"
+msgstr ""
+
+#: src/Admin/Rest/AbstractRestController.php:499
+msgid "Login & Register"
+msgstr ""
+
+#: src/Admin/Rest/HelpRest.php:121
+#: src/Admin/Rest/HelpRest.php:155
+msgid "Invalid plugin slug."
+msgstr ""
+
+#: src/Admin/Rest/HelpRest.php:162
+msgid "Plugin file not found."
+msgstr ""
+
+#: src/Admin/Rest/PreviewRest.php:89
+msgid "Not allowed."
+msgstr ""
+
+#: src/Admin/Rest/SettingsRest.php:57
+#: src/Admin/Rest/SettingsRest.php:89
+msgid "Unknown settings key."
+msgstr ""
+
+#: src/Admin/Rest/SettingsRest.php:96
+msgid "Invalid payload."
 msgstr ""
 
 #: src/Admin/ReviewNotice/ReviewNotice.php:70
@@ -1056,6 +1133,7 @@ msgstr ""
 
 #. translators: %s: documentation link
 #: src/Admin/Views/Control.php:54
+#, php-format
 msgid "Decide how and when dark mode turns on for visitors on your public website. %s"
 msgstr ""
 
@@ -1170,6 +1248,7 @@ msgstr ""
 
 #. translators: %s: documentation link
 #: src/Admin/Views/Control.php:275
+#, php-format
 msgid "Bring dark mode to the WordPress admin dashboard and editors. %s"
 msgstr ""
 
@@ -1537,6 +1616,7 @@ msgstr ""
 
 #. translators: %s: "Open the live preview" action link
 #: src/Admin/Views/SwitcherStyle.php:51
+#, php-format
 msgid "Design the floating dark-mode switch and choose where it sits. %s to see changes instantly."
 msgstr ""
 
@@ -1906,6 +1986,7 @@ msgstr ""
 
 #. translators: %s: URL to the Darkify Pro pricing page.
 #: src/Admin/Views/SwitcherStyle.php:933
+#, php-format
 msgid "Want to use the switch in an unlimited number of menus? <a target=\"_blank\" href=\"%s\"><strong>Upgrade to Pro</strong></a>."
 msgstr ""
 
@@ -3201,6 +3282,7 @@ msgstr ""
 
 #. translators: %s: number of Darkify users.
 #: darkify-react/src/pages/Help.jsx:1060
+#, js-format
 msgid "Already, %s websites are using Darkify to add dark mode — why not yours?"
 msgstr ""
 
@@ -3308,6 +3390,7 @@ msgstr ""
 
 #. translators: %s: settings tab name, e.g. "HTML/CSS Restriction".
 #: darkify-react/src/pages/SettingsPage.jsx:709
+#, js-format
 msgid "Unlock %s and take full control of how dark mode applies across your site with Darkify Pro."
 msgstr ""
 
