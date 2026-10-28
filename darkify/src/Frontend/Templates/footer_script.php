@@ -13,6 +13,7 @@ $hide_on_desktop = isset($options["hide_on_desktop"]) ? $options["hide_on_deskto
 $hide_on_mobile = isset($options["hide_on_mobile"]) ? $options["hide_on_mobile"] : '';
 $enable_admin_panel_dark_mode = isset($options["enable_admin_panel_dark_mode"]) ? $options["enable_admin_panel_dark_mode"] : '';
 $block_editor_dark_mode = isset($options['block_editor_dark_mode']) ? $options['block_editor_dark_mode'] : false;
+$show_block_editor_palette = isset($options['show_block_editor_palette']) ? $options['show_block_editor_palette'] : true;
 $hide_dark_mode_on_mobile = isset($hide_on_mobile["hide_dark_mode_on_mobile"]) ? $hide_on_mobile["hide_dark_mode_on_mobile"] : 0;
 $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["type_of_hide_by"] : 0;
 
@@ -340,7 +341,9 @@ if (is_admin() && $block_editor_dark_mode) {
 
                                 // Append to END of left toolbar
                                 target.appendChild(button);
+                                <?php if ($show_block_editor_palette) { ?>
                                 target.appendChild(wrapper);
+                                <?php } ?>
 
                                 return true;
                             }

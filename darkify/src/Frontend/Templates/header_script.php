@@ -522,6 +522,7 @@ if ($enable_scrollbar_dark) {
     ?>
     var darkify_admin_palette_default = "<?php echo esc_attr(!empty($options['admin_panel_palette']) ? $options['admin_panel_palette'] : 'auto'); ?>";
     var darkify_editor_palette_default = "<?php echo esc_attr(!empty($options['block_editor_palette']) ? $options['block_editor_palette'] : 'auto'); ?>";
+    var darkify_editor_palette_switcher = "<?php echo esc_attr(!isset($options['show_block_editor_palette']) || !empty($options['show_block_editor_palette']) ? '1' : ''); ?>";
     var darkify_enable_default_dark_mode = "<?php echo esc_attr($enable_default_dark_mode); ?>";
     var darkify_enable_os_aware = "<?php echo esc_attr($enable_os_aware); ?>";
     var darkify_enable_keyboard_shortcut = "<?php echo esc_attr($enable_keyboard_shortcut); ?>";

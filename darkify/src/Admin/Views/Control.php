@@ -422,6 +422,20 @@ class Control
                                         'text_width' => 100,
                                     ),
                                     array(
+                                        'id'      => 'show_block_editor_palette',
+                                        'type'    => 'switcher',
+                                        'title'   => esc_html__('Show Block Editor Palette', 'darkify'),
+                                        'title_help' =>
+                                        '<div class="darkify-info-label">' .
+                                            __('Show the palette dropdown in the block editor toolbar. When hidden, the editor always uses the Block Editor Palette chosen below.', 'darkify') .
+                                            '</div>',
+                                        'default' => true,
+                                        'text_on'    => esc_html__('Show', 'darkify'),
+                                        'text_off'   => esc_html__('Hide', 'darkify'),
+                                        'text_width' => 100,
+                                        'dependency' => array('block_editor_dark_mode', '==', 'true'),
+                                    ),
+                                    array(
                                         'id'      => 'block_editor_palette',
                                         'type'    => 'select',
                                         'title'   => esc_html__('Block Editor Palette', 'darkify'),

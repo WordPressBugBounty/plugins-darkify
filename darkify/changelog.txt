@@ -3,6 +3,9 @@
 Complete release history for Darkify. The plugin's readme.txt carries only the
 most recent releases, because WordPress.org caps that section at 5,000 words.
 
+= 2.2.4 – 28 October 2026 =
+* New: Show Block Editor Palette setting (`show_block_editor_palette`, on by default), shown under Block Editor Dark Mode. Turned off, the palette dropdown is no longer added to the block editor toolbar (the dark mode button stays), and the editor ignores the palette a user picked earlier from that dropdown (`darkify_selected_theme` in localStorage) and uses the Block Editor Palette setting instead, since a stored choice nobody can change any more would otherwise pin the editor to it. The stored choice is kept, so turning the setting back on restores it. Existing sites keep the dropdown until the setting is turned off.
+
 = 2.2.3 – 23 October 2026 =
 * Fixed: "Failed to load settings. Please refresh." on sites with many posts. The Allow Only Posts and Disallowed Posts options built their list with `get_posts( [ 'posts_per_page' => -1 ] )`, which loads a full WP_Post (post content included) for every published post and primes its meta and term caches, once per field. On a site with about 9,200 posts that exhausted a 256 MB memory limit, so the settings request (`GET /wp-json/darkify/v1/settings/darkify`) ended in an HTML 500 and the settings screen could not load. The list now comes from one prepared query that reads only the ID and title, newest first as before, built once per request. Reproduced with 9,207 posts: the old code ran out of memory at 256 MB; the full settings request now returns normally at about 100 MB peak, with an identical list.
 

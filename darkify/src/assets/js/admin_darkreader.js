@@ -137,6 +137,14 @@
       return previewOverrides[context];
     }
 
+    /*
+     * With the toolbar dropdown hidden, a per-user choice made earlier would be
+     * one nobody can change any more, so the site default is the only answer.
+     */
+    if (context === "editor" && window.darkify_editor_palette_switcher === "") {
+      return paletteDefault();
+    }
+
     var stored;
     try {
       stored = localStorage.getItem(paletteKey());

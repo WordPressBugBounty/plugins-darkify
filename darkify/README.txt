@@ -4,7 +4,7 @@ Tags: dark mode, night mode, wordpress dark mode, dark, dark theme
 Requires at least: 5.5
 Tested up to: 7.1.3
 Requires PHP: 7.1
-Stable tag: 2.2.3
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -378,6 +378,9 @@ Darkify does not collect personal data and stores user preferences locally in th
 Yes. Every switch (floating, menu, shortcode, Gutenberg block and Elementor widget) is a real button. Visitors can reach it with the Tab key and turn dark mode on or off with Enter or Space. Screen readers announce it as "Dark mode" together with whether it is on or off. Keyboard focus shows a visible outline, and the switch animations follow the visitor's "Reduce motion" setting.
 
 == Changelog ==
+
+= 2.2.4 – 28 October 2026 =
+* New: Show Block Editor Palette setting (Controls → Admin, under Block Editor Dark Mode). Turn it off to hide the palette dropdown from the block editor toolbar; the editor then always uses the palette chosen in Block Editor Palette. On by default, so nothing changes until you turn it off.
 
 = 2.2.3 – 23 October 2026 =
 * Fixed: On sites with thousands of posts the Darkify settings screen showed "Failed to load settings. Please refresh." The post lists used by the Allow Only Posts and Disallowed Posts options loaded every post in full and ran out of memory. They now load only post titles.
