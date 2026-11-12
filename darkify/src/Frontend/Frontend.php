@@ -2,6 +2,7 @@
 
 namespace ThemeAtelier\Darkify\Frontend;
 
+use ThemeAtelier\Darkify\Includes\DarkifyCacheCompat;
 use ThemeAtelier\Darkify\Includes\DarkifyExternalSupport;
 use ThemeAtelier\Darkify\Includes\DarkifyUtils;
 
@@ -99,9 +100,16 @@ class Frontend
         add_action('register_footer', array($this, 'darkify_client_footer_script'));
 
         add_action('init', array($this, 'darkify_register_switcher_styles'), 5);
-        add_filter('autoptimize_filter_js_exclude', array($this, 'darkify_exclude_js_from_cache_plugins'));
+
+        // Cache / optimizer compatibility (script exclusions, purge on settings
+        // change). Also owns the Autoptimize exclusion that used to live here.
+        new DarkifyCacheCompat();
     }
 
+    /**
+     * Kept for backward compatibility with code that may call it directly.
+     * The Autoptimize filter itself is now registered by DarkifyCacheCompat.
+     */
     public function darkify_exclude_js_from_cache_plugins($excludes)
     {
         $excludes .= ',client_main.js,client_main.min.js';
@@ -472,14 +480,20 @@ class Frontend
     public function darkify_client_header_script()
     {
         if ($this->darkify_is_dark_mode_allowed()) {
-            include_once DarkifyUtils::darkify_locate_template('header_script.php');
+            // Printed through DarkifyCacheCompat so optimizers (delay/defer/
+            // combine JS) leave the pre-paint snippet and config vars in place.
+            DarkifyCacheCompat::print_marked(function () {
+                include_once DarkifyUtils::darkify_locate_template('header_script.php');
+            });
         }
     }
 
     public function darkify_client_footer_script()
     {
         if ($this->darkify_is_dark_mode_allowed()) {
-            include_once DarkifyUtils::darkify_locate_template('footer_script.php');
+            DarkifyCacheCompat::print_marked(function () {
+                include_once DarkifyUtils::darkify_locate_template('footer_script.php');
+            });
         }
     }
 

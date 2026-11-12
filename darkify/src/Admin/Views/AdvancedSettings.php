@@ -319,6 +319,20 @@ class AdvancedSettings
                                     'text_width' => 100,
                                     'default' => true,
                                 ),
+                                // Read by Includes\DarkifyCacheCompat::is_enabled().
+                                array(
+                                    'id'      => 'exclude_from_cache',
+                                    'type'    => 'switcher',
+                                    'title' => esc_html__('Exclude Darkify from Caching & Optimization', 'darkify'),
+                                    'title_help' =>
+                                    '<div class="darkify-info-label">' .
+                                        __('Stops cache and optimization plugins (WP Rocket, LiteSpeed Cache, Autoptimize, SiteGround Optimizer, Cloudflare Rocket Loader, Jetpack Boost and similar) from delaying, deferring or combining Darkify\'s scripts. Keep it enabled to avoid a light flash or a switch that only works after the first click on cached pages. Darkify keeps the visitor\'s choice in their browser, so cached pages stay correct for every visitor either way.', 'darkify') .
+                                        '</div>',
+                                    'text_on'  => esc_html__('Enabled', 'darkify'),
+                                    'text_off' => esc_html__('Disabled', 'darkify'),
+                                    'text_width' => 100,
+                                    'default' => true,
+                                ),
                             )
                         ),
                     )

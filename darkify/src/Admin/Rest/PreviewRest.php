@@ -184,10 +184,10 @@ class PreviewRest extends AbstractRestController
         // frontend or the page's own layout/content.
         \add_action('wp_head', [$this, 'print_preview_overlay_filter'], 1);
 
-        // Mark the response so it is never cached by page caches / CDNs.
-        if (! \headers_sent()) {
-            \nocache_headers();
-        }
+        // Mark the response so it is never cached by page caches / CDNs. Headers
+        // alone are ignored by most page-cache plugins, so this also sets
+        // DONOTCACHEPAGE and LiteSpeed's no-cache flag.
+        \ThemeAtelier\Darkify\Includes\DarkifyCacheCompat::prevent_page_caching();
     }
 
     /**
