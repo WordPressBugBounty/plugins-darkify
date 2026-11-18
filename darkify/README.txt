@@ -4,7 +4,7 @@ Tags: dark mode, night mode, wordpress dark mode, dark, dark theme
 Requires at least: 5.5
 Tested up to: 7.1.3
 Requires PHP: 7.1
-Stable tag: 2.2.6
+Stable tag: 2.2.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -378,6 +378,12 @@ Darkify does not collect personal data and stores user preferences locally in th
 Yes. Every switch (floating, menu, shortcode, Gutenberg block and Elementor widget) is a real button. Visitors can reach it with the Tab key and turn dark mode on or off with Enter or Space. Screen readers announce it as "Dark mode" together with whether it is on or off. Keyboard focus shows a visible outline, and the switch animations follow the visitor's "Reduce motion" setting.
 
 == Changelog ==
+
+= 2.2.8 – 18 November 2026 =
+* Updated: New plugin banner and icon on WordPress.org.
+
+= 2.2.7 – 18 November 2026 =
+* Fixed: Icons from icon packs that draw icons with a CSS mask, such as Mox Icons Pack for Elementor (Lucide, Heroicons, Tabler and more), turned the same color as the background in dark mode and disappeared. They now stay visible.
 
 = 2.2.6 – 12 November 2026 =
 * New: Exclude Darkify from Caching & Optimization setting (Advanced → Extras, on by default). Cache and optimization plugins no longer delay, defer or combine Darkify's scripts, which could leave the dark mode switch not working or the page flashing light before it turned dark.

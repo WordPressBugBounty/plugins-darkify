@@ -1891,10 +1891,47 @@ function darkify_process_shadow(element) {
  * colour captured before the class-based repaint touched it, and is used
  * instead of the live (already-repainted) computed value.
  */
+/**
+ * True when an element draws an icon through a CSS mask rather than a font
+ * glyph or inline SVG: `mask-image: url(...)` cuts the icon's shape out of the
+ * element and `background-color` (almost always `currentColor`) fills it in.
+ * Icon packs that ship SVGs as masks render this way, such as Mox Icons Pack
+ * for Elementor (Lucide, Heroicons, Tabler, ...) and Iconify's CSS mode.
+ *
+ * On such an element `background-color` is the icon's ink, not a surface.
+ * Painting it with the dark surface token, as the class-based repaint does to
+ * any opaque background, gives the icon the page's own background colour and
+ * it disappears. Callers treat it as foreground instead.
+ *
+ * Only empty elements qualify. A builder can also mask a whole container into
+ * a shape (Elementor's widget "Mask" option), and that container's background
+ * is a real surface with content inside it.
+ */
+function darkify_is_mask_icon(element, style) {
+  if (!element || !style) {
+    return false;
+  }
+  var mask =
+    style.maskImage ||
+    style.webkitMaskImage ||
+    style.getPropertyValue("-webkit-mask-image") ||
+    "";
+  if (mask.indexOf("url(") === -1) {
+    return false;
+  }
+  return (
+    element.childElementCount === 0 &&
+    !(element.textContent && element.textContent.trim())
+  );
+}
+
 function darkify_process_icon_color(element) {
   var nodeName = element.nodeName.toLowerCase();
   var isSvgPaint = darkify_is_svg_node(element) || nodeName === "svg";
-  if (!isSvgPaint && nodeName !== "i") {
+  var isMaskIcon =
+    !isSvgPaint &&
+    darkify_is_mask_icon(element, window.getComputedStyle(element, null));
+  if (!isSvgPaint && !isMaskIcon && nodeName !== "i") {
     return;
   }
 
@@ -1928,6 +1965,16 @@ function darkify_process_icon_color(element) {
       }
     } else {
       props = isSvgPaint ? ["color", "fill", "stroke"] : ["color"];
+    }
+    // A mask icon whose fill is `currentColor` follows `color` and needs
+    // nothing more. One that sets a fixed fill colour is recoloured on its own
+    // terms, exactly like an SVG `fill`.
+    if (
+      isMaskIcon &&
+      style.getPropertyValue("background-color") !==
+        style.getPropertyValue("color")
+    ) {
+      props.push("background-color");
     }
     var next = {};
     var changed = false;
@@ -2002,13 +2049,13 @@ function darkify_process_icon_color(element) {
       return;
     }
 
-    darkify_store_inline(element, "darkifyIconPrev", ["color", "fill", "stroke"]);
+    darkify_store_inline(element, "darkifyIconPrev", ["color", "fill", "stroke", "background-color"]);
     element.classList.add("darkify_icon_recoloured");
     Object.keys(next).forEach(function (prop) {
       element.style.setProperty(prop, next[prop], "important");
     });
   } else if (element.classList.contains("darkify_icon_recoloured")) {
-    darkify_restore_inline(element, "darkifyIconPrev", ["color", "fill", "stroke"]);
+    darkify_restore_inline(element, "darkifyIconPrev", ["color", "fill", "stroke", "background-color"]);
     element.classList.remove("darkify_icon_recoloured");
   }
 }
@@ -2067,6 +2114,10 @@ function darkify_process_overlay_background(element) {
     }
 
     var style = window.getComputedStyle(element, null);
+    if (darkify_is_mask_icon(element, style)) {
+      // Its background is icon ink, handled by darkify_process_icon_color().
+      return;
+    }
     if (style.backgroundImage && style.backgroundImage !== "none") {
       // A gradient here belongs to darkify_process_gradient(); a photo is the
       // whole reason this element is excluded from the class-based repaint in
@@ -4915,7 +4966,8 @@ function darkify_recheck_on_css_loaded_later() {
       const backgroundColor = computedStyle.backgroundColor;
       if (
         backgroundColor !== "rgba(0, 0, 0, 0)" &&
-        backgroundColor !== "rgba(255, 255, 255, 0)"
+        backgroundColor !== "rgba(255, 255, 255, 0)" &&
+        !darkify_is_mask_icon(element, computedStyle)
       ) {
         darkify_process_element(element);
       }
@@ -5769,7 +5821,7 @@ function darkify_process_element_settled(element) {
     element.classList.remove("darkify_shadow_neutralized");
   }
   if (element.classList.contains("darkify_icon_recoloured")) {
-    darkify_restore_inline(element, "darkifyIconPrev", ["color", "fill", "stroke"]);
+    darkify_restore_inline(element, "darkifyIconPrev", ["color", "fill", "stroke", "background-color"]);
     element.classList.remove("darkify_icon_recoloured");
   }
   if (element.classList.contains("darkify_overlay_flattened")) {
@@ -5806,6 +5858,14 @@ function darkify_process_element_settled(element) {
     computedStyle,
   );
   var backgroundImage = computedStyle.backgroundImage;
+
+  // A mask icon's `background-color` is its ink, not a surface (see
+  // darkify_is_mask_icon()). Classify it as if it had no background, so it
+  // gets the text treatment: `color` is repainted, and a `currentColor` fill
+  // follows it, instead of the icon being filled with the page background.
+  if (darkify_is_mask_icon(element, computedStyle)) {
+    backgroundColor = "rgba(0, 0, 0, 0)";
+  }
 
   // Captured once, before the class-based repaint below can reset
   // `background-image` to `none` via the `background` shorthand — a later
