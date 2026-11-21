@@ -4,7 +4,7 @@ Tags: dark mode, night mode, wordpress dark mode, dark, dark theme
 Requires at least: 5.5
 Tested up to: 7.1.3
 Requires PHP: 7.1
-Stable tag: 2.2.8
+Stable tag: 2.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -378,6 +378,8 @@ Darkify does not collect personal data and stores user preferences locally in th
 Yes. Every switch (floating, menu, shortcode, Gutenberg block and Elementor widget) is a real button. Visitors can reach it with the Tab key and turn dark mode on or off with Enter or Space. Screen readers announce it as "Dark mode" together with whether it is on or off. Keyboard focus shows a visible outline, and the switch animations follow the visitor's "Reduce motion" setting.
 
 == Changelog ==
+= 2.2.9 – 21 November 2026 =
+* Fixed: Embedded YouTube, Vimeo and Dailymotion videos were always dimmed in dark mode, even with Low Brightness Videos turned off, and the Brightness Level slider had no effect on them. Embedded videos now follow the Video Controls settings, just like videos uploaded to your site.
 
 = 2.2.8 – 18 November 2026 =
 * Updated: New plugin banner and icon on WordPress.org.

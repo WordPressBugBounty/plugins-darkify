@@ -3,6 +3,9 @@
 Complete release history for Darkify. The plugin's readme.txt carries only the
 most recent releases, because WordPress.org caps that section at 5,000 words.
 
+= 2.2.9 – 21 November 2026 =
+* Fixed: Media → Video Controls had no effect on embedded videos. The cross-origin iframe fallback (`darkify_apply_filter_to_iframe()`) gave every cross-origin iframe a fixed `filter: brightness(0.6)` in dark mode, YouTube, Vimeo and Dailymotion players included. It runs again on each iframe `load` event, so it overwrote the video filter set during the engine walk, and it dimmed embeds even with Low Brightness Videos switched off. Whatever the toggle or the Brightness Level slider said, embedded videos stayed at the same dim level. Self-hosted `<video>` elements were not affected. Video embeds (matched by `darkify_is_video_embed_iframe()`, the same YouTube/Vimeo/Dailymotion test the engine walk uses) now skip that fallback and go through `darkify_video_brightness_and_grayscale()`, so Low Brightness Videos, Brightness Level and Grayscale Videos apply to them, and the filter is removed again on switching back to light mode. Other cross-origin iframes keep the fallback dim. Verified with a self-hosted video, YouTube (oEmbed and a raw iframe), Vimeo and Dailymotion embeds, including embeds loaded after cookie consent: no filter with the toggle off; brightness 100%, 80%, 50% and 0% for slider values 0, 20, 50 and 100; grayscale combined with brightness; filters removed in light mode.
+
 = 2.2.8 – 18 November 2026 =
 * Updated: New plugin banner and icon on WordPress.org.
 

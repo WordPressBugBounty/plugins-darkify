@@ -3497,10 +3497,35 @@ function darkify_run_engine_on_iframe(iframeDoc) {
   darkify_iframe_doc_observers.set(iframeDoc, observer);
 }
 
-// Apply CSS invert filter to a cross-origin iframe element as a fallback dark
-// mode technique — the only browser-allowed approach when the embedded site
-// does not run the darkify receiver script.
+/**
+ * Whether an iframe is a YouTube / Vimeo / Dailymotion player — the embeds the
+ * Video Controls settings (Low Brightness, Grayscale) govern. Same test the
+ * engine walk uses when it routes iframes to
+ * darkify_video_brightness_and_grayscale().
+ */
+function darkify_is_video_embed_iframe(iframe) {
+  const src = iframe.getAttribute("src");
+  return (
+    src !== null &&
+    (src.includes("youtube") ||
+      src.includes("vimeo") ||
+      src.includes("dailymotion"))
+  );
+}
+
+// Apply CSS filter to a cross-origin iframe element as a fallback dark mode
+// technique — the only browser-allowed approach when the embedded site does
+// not run the darkify receiver script.
+//
+// Video embeds are not dimmed here. They belong to Media > Video Controls: the
+// fixed brightness(0.6) used to overwrite (or stand in for) the video filter,
+// so embedded videos were always dimmed — with Low Brightness Videos switched
+// off, and whatever the Brightness Level slider said.
 function darkify_apply_filter_to_iframe(iframe, enabled) {
+  if (darkify_is_video_embed_iframe(iframe)) {
+    darkify_video_brightness_and_grayscale(iframe);
+    return;
+  }
   if (enabled) {
     iframe.style.filter = "brightness(0.6)";
   } else {
